@@ -76,8 +76,6 @@ function Choice({
   );
 }
 
-const FRAMES: string[] = Array.from(new Set(ROOMS.flatMap((r) => r.gallery)));
-
 export function DesignYourSpace() {
   const [room, setRoom] = useState(ROOMS[0]!);
   const [style, setStyle] = useState<string>(STYLES[0]!);
@@ -153,19 +151,14 @@ export function DesignYourSpace() {
                 {...frameProps}
                 className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2 lg:aspect-4/5"
               >
-                {FRAMES.map((src) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`${room.id} furniture by Heaven Furniture Mart`}
-                    loading="lazy"
-                    decoding="async"
-                    className={cn(
-                      "interactive-frame__img absolute inset-0",
-                      src === activeFrame ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                ))}
+                <img
+                  key={activeFrame}
+                  src={activeFrame}
+                  alt={`${style} ${room.id} furniture at ${scale.id.toLowerCase()} scale by Heaven Furniture Mart`}
+                  loading="eager"
+                  decoding="async"
+                  className="interactive-frame__img absolute inset-0 animate-[image-swap_500ms_var(--ease-luxe)_both]"
+                />
                 <div
                   aria-hidden
                   className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--ink)_88%,transparent)_100%)]"

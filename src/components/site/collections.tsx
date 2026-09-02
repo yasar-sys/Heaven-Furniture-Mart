@@ -17,6 +17,10 @@ type Collection = {
   alt: string;
   interest: string;
   room: string;
+  frame: string;
+  imageClassName?: string;
+  width: number;
+  height: number;
   pieces: { name: string; note: string }[];
 };
 
@@ -29,6 +33,9 @@ const COLLECTIONS: Collection[] = [
     alt: "Gold-framed tufted sofa set with an oval centre table in a classic living room",
     interest: "Sofa",
     room: "Living Room",
+    frame: "aspect-square",
+    width: 1024,
+    height: 1024,
     pieces: [
       { name: "Curved lounge sofa", note: "Bouclé or velvet, sized to your wall." },
       { name: "Solid wood centre table", note: "Walnut, teak or oak with hand finish." },
@@ -43,6 +50,10 @@ const COLLECTIONS: Collection[] = [
     alt: "Four-poster bed with a deep blue embroidered velvet headboard and matching bedsides",
     interest: "Bed",
     room: "Bedroom",
+    frame: "aspect-[5/6]",
+    imageClassName: "object-[50%_42%]",
+    width: 1200,
+    height: 1422,
     pieces: [
       { name: "Upholstered platform bed", note: "Headboard height set to your room." },
       { name: "Floor-to-ceiling wardrobe", note: "Internal layout planned with you." },
@@ -57,6 +68,9 @@ const COLLECTIONS: Collection[] = [
     alt: "Long walnut dining table with cane-back chairs under brass pendants",
     interest: "Dining Set",
     room: "Dining",
+    frame: "aspect-[4/3]",
+    width: 1200,
+    height: 1504,
     pieces: [
       { name: "Solid wood dining table", note: "Four to twelve seats, your length." },
       { name: "Cane-back dining chair", note: "Upholstery in your fabric." },
@@ -71,6 +85,9 @@ const COLLECTIONS: Collection[] = [
     alt: "Long wooden conference table with upholstered task chairs in a bright office",
     interest: "Office / Study",
     room: "Office & Study",
+    frame: "aspect-square",
+    width: 1080,
+    height: 1080,
     pieces: [
       { name: "Executive desk", note: "Storage side to suit how you work." },
       { name: "Built-in bookshelf wall", note: "Fitted floor to ceiling." },
@@ -112,7 +129,10 @@ export function Collections() {
                   src={c.img}
                   alt={c.alt}
                   depth={24}
-                  frameClassName="aspect-4/5 w-full sm:aspect-3/4"
+                  width={c.width}
+                  height={c.height}
+                  className={c.imageClassName}
+                  frameClassName={`${c.frame} w-full`}
                 />
                 <span
                   aria-hidden
@@ -145,6 +165,9 @@ export function Collections() {
                 src={open.img}
                 alt={open.alt}
                 depth={14}
+                width={open.width}
+                height={open.height}
+                className={open.imageClassName}
                 frameClassName="h-56 w-full sm:h-full"
               />
               <div className="p-7 sm:p-10">
