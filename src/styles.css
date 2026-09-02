@@ -274,18 +274,25 @@
 }
 
 .luxe-cursor-dot {
-  height: 6px;
-  width: 6px;
-  background: var(--brass);
+  height: 8px;
+  width: 8px;
+  background: color-mix(in oklab, var(--brass) 88%, white);
+  box-shadow:
+    0 0 8px color-mix(in oklab, var(--brass) 90%, transparent),
+    0 0 22px color-mix(in oklab, var(--brass) 65%, transparent);
 }
 
 .luxe-cursor-ring {
-  height: 30px;
-  width: 30px;
-  border: 1px solid color-mix(in oklab, var(--brass) 70%, transparent);
-  background: color-mix(in oklab, var(--brass) 7%, transparent);
-  backdrop-filter: saturate(1.2);
+  height: 32px;
+  width: 32px;
+  border: 1.5px solid color-mix(in oklab, var(--brass) 95%, white);
+  background: color-mix(in oklab, var(--brass) 14%, transparent);
+  box-shadow:
+    0 0 14px color-mix(in oklab, var(--brass) 55%, transparent),
+    inset 0 0 12px color-mix(in oklab, var(--brass) 35%, transparent);
+  backdrop-filter: saturate(1.4) brightness(1.15);
 }
+
 
 html.has-luxe-cursor,
 html.has-luxe-cursor * {
