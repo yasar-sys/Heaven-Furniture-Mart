@@ -82,23 +82,31 @@ export function Reach() {
 
 
                 {/* Origin — Chattogram, the only place we claim */}
-                <g
+                <a
+                  href="https://maps.app.goo.gl/LswVnE3QbBuCxPyu9"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("Open our Agrabad, Chattogram location in Google Maps")}
                   style={{
                     opacity: shown ? 1 : 0,
                     transition: "opacity 1s var(--ease-luxe) 700ms",
+                    cursor: "pointer",
                   }}
+                  data-cursor="grow"
                 >
                   <circle cx={ox} cy={oy} r="6" fill="var(--color-brass)" className="reach-pulse" />
                   <circle cx={ox} cy={oy} r="4" fill="var(--color-brass)" />
+                  <circle cx={ox} cy={oy} r="14" fill="transparent" />
                   <text
                     x={ox + 11}
                     y={oy + 4}
-                    className="font-serif text-[15px] italic"
+                    className="font-serif text-[15px] italic underline decoration-brass/40 underline-offset-4"
                     fill="var(--color-brass)"
                   >
                     {t("Chattogram")}
                   </text>
-                </g>
+                </a>
+
               </svg>
             </div>
           </Reveal>
