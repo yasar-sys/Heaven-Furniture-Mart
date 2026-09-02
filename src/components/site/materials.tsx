@@ -1,3 +1,4 @@
+import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -35,6 +36,7 @@ export function Materials() {
   const t = useT();
   const [active, setActive] = useState(0);
   const current = MATERIALS[active]!;
+  const { frameProps } = useInteractiveFrame(22);
 
   return (
     <Section id="materials" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Materials">
@@ -87,7 +89,10 @@ export function Materials() {
           </div>
 
           <Reveal delay={120} className="lg:col-span-7">
-            <div className="relative aspect-square w-full overflow-hidden rounded-sm sm:aspect-4/3 lg:aspect-square">
+            <div
+              {...frameProps}
+              className="interactive-frame relative aspect-square w-full rounded-sm sm:aspect-4/3 lg:aspect-square"
+            >
               {MATERIALS.map((m, i) => (
                 <img
                   key={m.tab}
@@ -98,8 +103,8 @@ export function Materials() {
                   width={1200}
                   height={1200}
                   className={cn(
-                    "absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-1000 ease-[var(--ease-luxe)]",
-                    active === i ? "scale-100 opacity-100" : "scale-[1.06] opacity-0",
+                    "interactive-frame__img absolute inset-0",
+                    active === i ? "opacity-100" : "opacity-0",
                   )}
                 />
               ))}

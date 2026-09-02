@@ -1,3 +1,4 @@
+import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -57,6 +58,7 @@ export function DesignYourSpace() {
   const [style, setStyle] = useState<string>(STYLES[0]!);
   const [scale, setScale] = useState(SCALES[1]!);
   const { openConsultation } = useConsultation();
+  const { frameProps } = useInteractiveFrame(20);
   const t = useT();
 
   return (
@@ -116,7 +118,10 @@ export function DesignYourSpace() {
           {/* Live preview panel */}
           <Reveal delay={120} className="lg:col-span-6">
             <div className="relative overflow-hidden rounded-sm border border-ivory/12 bg-ivory/[0.03]">
-              <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-3/2 lg:aspect-4/5">
+              <div
+                {...frameProps}
+                className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2 lg:aspect-4/5"
+              >
                 {ROOMS.map((r) => (
                   <img
                     key={r.id}
@@ -125,8 +130,8 @@ export function DesignYourSpace() {
                     loading="lazy"
                     decoding="async"
                     className={cn(
-                      "absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-1000 ease-[var(--ease-luxe)]",
-                      room.id === r.id ? "scale-100 opacity-100" : "scale-105 opacity-0",
+                      "interactive-frame__img absolute inset-0",
+                      room.id === r.id ? "opacity-100" : "opacity-0",
                     )}
                   />
                 ))}

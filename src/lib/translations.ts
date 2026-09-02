@@ -241,6 +241,25 @@ const bn: Dict = {
   "Additional message": "বাড়তি বার্তা",
   "Dimensions, timeline, anything you have in mind.": "মাপ, সময়সীমা বা যা কিছু মনে আছে।",
   "Request my consultation": "আমার পরামর্শের অনুরোধ",
+  // Reach map + AI concierge
+  "Our reach": "আমাদের বিস্তার",
+  "Started in Chattogram.": "শুরু চট্টগ্রামে।",
+  "Growing across Bangladesh.": "ছড়িয়ে পড়ছে সারা বাংলাদেশে।",
+  "Every piece still leaves our Agrabad workshop — and now it travels further every year.": "প্রতিটি আসবাব এখনও আমাদের আগ্রাবাদ ওয়ার্কশপ থেকেই যায় — আর প্রতি বছর তা আরও দূরে পৌঁছায়।",
+  "Agrabad · Where it started": "আগ্রাবাদ · যেখানে শুরু",
+  "Hover a city to see where our furniture already lives — and where we grow next.": "কোনো শহরে হোভার করুন — দেখুন আমাদের আসবাব কোথায় আছে এবং আমরা কোথায় বাড়ছি।",
+  "Aria": "আরিয়া",
+  "Design concierge": "ডিজাইন কনসিয়ার্জ",
+  "Ask our design concierge": "আমাদের ডিজাইন কনসিয়ার্জকে জিজ্ঞাসা করুন",
+  "Close design concierge": "ডিজাইন কনসিয়ার্জ বন্ধ করুন",
+  "Book a visit": "ভিজিট বুক করুন",
+  "Tell me about your space and I'll suggest what we could craft for it.": "আপনার ঘরের কথা বলুন — আমি বলব আমরা কী তৈরি করতে পারি।",
+  "Ask about your space...": "আপনার ঘর নিয়ে জিজ্ঞাসা করুন...",
+  "Thinking...": "ভাবছি...",
+  "Our concierge is unavailable right now.": "আমাদের কনসিয়ার্জ এখন উপলব্ধ নয়।",
+  "Design a living room for a 12x14 ft space": "১২x১৪ ফুট বসার ঘরের ডিজাইন দিন",
+  "How long does a custom wardrobe take?": "কাস্টম ওয়ারড্রোব তৈরিতে কত সময় লাগে?",
+  "Do you deliver outside Chattogram?": "চট্টগ্রামের বাইরে ডেলিভারি করেন?",
 };
 
 const es: Dict = {
@@ -458,6 +477,25 @@ const es: Dict = {
   "Additional message": "Mensaje adicional",
   "Dimensions, timeline, anything you have in mind.": "Medidas, plazos o lo que tengas en mente.",
   "Request my consultation": "Solicitar mi asesoría",
+  // Reach map + AI concierge
+  "Our reach": "Nuestro alcance",
+  "Started in Chattogram.": "Nacido en Chattogram.",
+  "Growing across Bangladesh.": "Creciendo por todo Bangladés.",
+  "Every piece still leaves our Agrabad workshop — and now it travels further every year.": "Cada pieza sigue saliendo de nuestro taller de Agrabad, y cada año viaja más lejos.",
+  "Agrabad · Where it started": "Agrabad · Donde empezó",
+  "Hover a city to see where our furniture already lives — and where we grow next.": "Pasa el cursor por una ciudad para ver dónde vive ya nuestro mobiliario y hacia dónde crecemos.",
+  "Aria": "Aria",
+  "Design concierge": "Conserje de diseño",
+  "Ask our design concierge": "Pregunta a nuestro conserje de diseño",
+  "Close design concierge": "Cerrar el conserje de diseño",
+  "Book a visit": "Reservar visita",
+  "Tell me about your space and I'll suggest what we could craft for it.": "Cuéntame sobre tu espacio y te sugeriré qué podríamos crear para él.",
+  "Ask about your space...": "Pregunta sobre tu espacio...",
+  "Thinking...": "Pensando...",
+  "Our concierge is unavailable right now.": "Nuestro conserje no está disponible ahora.",
+  "Design a living room for a 12x14 ft space": "Diseña un salón para un espacio de 12x14 pies",
+  "How long does a custom wardrobe take?": "¿Cuánto tarda un armario a medida?",
+  "Do you deliver outside Chattogram?": "¿Entregan fuera de Chattogram?",
 };
 
 const hi: Dict = {
@@ -672,6 +710,25 @@ const hi: Dict = {
   "Additional message": "अतिरिक्त संदेश",
   "Dimensions, timeline, anything you have in mind.": "नाप, समय-सीमा या जो मन में हो।",
   "Request my consultation": "मेरा परामर्श बुक करें",
+  // Reach map + AI concierge
+  "Our reach": "हमारी पहुँच",
+  "Started in Chattogram.": "शुरुआत चट्टग्राम से।",
+  "Growing across Bangladesh.": "पूरे बांग्लादेश में विस्तार।",
+  "Every piece still leaves our Agrabad workshop — and now it travels further every year.": "हर फर्नीचर आज भी हमारी आग्राबाद वर्कशॉप से निकलता है — और हर साल और दूर पहुँचता है।",
+  "Agrabad · Where it started": "आग्राबाद · जहाँ से शुरुआत",
+  "Hover a city to see where our furniture already lives — and where we grow next.": "किसी शहर पर होवर करें और देखें हमारा फर्नीचर कहाँ पहुँचा है और आगे कहाँ बढ़ेंगे।",
+  "Aria": "आरिया",
+  "Design concierge": "डिज़ाइन कंसीयज",
+  "Ask our design concierge": "हमारे डिज़ाइन कंसीयज से पूछें",
+  "Close design concierge": "डिज़ाइन कंसीयज बंद करें",
+  "Book a visit": "विज़िट बुक करें",
+  "Tell me about your space and I'll suggest what we could craft for it.": "अपने स्पेस के बारे में बताइए — मैं सुझाव दूँगी कि हम क्या बना सकते हैं।",
+  "Ask about your space...": "अपने स्पेस के बारे में पूछें...",
+  "Thinking...": "सोच रही हूँ...",
+  "Our concierge is unavailable right now.": "हमारा कंसीयज अभी उपलब्ध नहीं है।",
+  "Design a living room for a 12x14 ft space": "12x14 फुट के लिविंग रूम का डिज़ाइन दें",
+  "How long does a custom wardrobe take?": "कस्टम वॉर्डरोब में कितना समय लगता है?",
+  "Do you deliver outside Chattogram?": "क्या चट्टग्राम के बाहर डिलीवरी करते हैं?",
 };
 
 export const DICTIONARIES: Record<Lang, Dict> = { en: {}, bn, es, hi };

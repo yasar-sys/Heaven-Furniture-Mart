@@ -1,3 +1,4 @@
+import { InteractiveImage } from "./interactive-image";
 import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -109,17 +110,12 @@ export function Collections() {
                 className="group relative block w-full overflow-hidden rounded-sm text-left"
                 aria-label={`${t(c.title)} — ${t("Explore →")}`}
               >
-                <div className="aspect-4/5 w-full overflow-hidden sm:aspect-3/4">
-                  <img
-                    src={c.img}
-                    alt={c.alt}
-                    loading="lazy"
-                    decoding="async"
-                    width={1200}
-                    height={1500}
-                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-luxe)] group-hover:scale-[1.05]"
-                  />
-                </div>
+                <InteractiveImage
+                  src={c.img}
+                  alt={c.alt}
+                  depth={24}
+                  frameClassName="aspect-4/5 w-full sm:aspect-3/4"
+                />
                 <span
                   aria-hidden
                   className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,color-mix(in_oklab,var(--ink)_85%,transparent)_100%)]"
@@ -147,11 +143,11 @@ export function Collections() {
         <DialogContent className="max-w-3xl gap-0 overflow-hidden rounded-sm border-foreground/10 bg-background p-0">
           {open && (
             <div className="grid sm:grid-cols-2">
-              <img
+              <InteractiveImage
                 src={open.img}
                 alt={open.alt}
-                loading="lazy"
-                className="h-56 w-full object-cover sm:h-full"
+                depth={14}
+                frameClassName="h-56 w-full sm:h-full"
               />
               <div className="p-7 sm:p-10">
                 <p className="eyebrow text-brass">{t("Collection")}</p>

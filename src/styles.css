@@ -252,3 +252,121 @@
     transform: scaleX(1);
   }
 }
+
+/* ---------- Editorial cursor ---------- */
+
+.luxe-cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.luxe-cursor-dot,
+.luxe-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  border-radius: 9999px;
+  transition: opacity 0.4s var(--ease-luxe);
+  will-change: transform;
+}
+
+.luxe-cursor-dot {
+  height: 6px;
+  width: 6px;
+  background: var(--brass);
+}
+
+.luxe-cursor-ring {
+  height: 30px;
+  width: 30px;
+  border: 1px solid color-mix(in oklab, var(--brass) 70%, transparent);
+  background: color-mix(in oklab, var(--brass) 7%, transparent);
+  backdrop-filter: saturate(1.2);
+}
+
+html.has-luxe-cursor,
+html.has-luxe-cursor * {
+  cursor: none !important;
+}
+
+/* ---------- Interactive imagery ---------- */
+
+@utility interactive-frame {
+  --ix: 0;
+  --iy: 0;
+  --iactive: 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.interactive-frame__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: translate3d(calc(var(--ix) * var(--idepth, 18px) * -1), calc(var(--iy) * var(--idepth, 18px) * -1), 0)
+    scale(calc(1.06 + var(--iactive) * 0.05));
+  transition:
+    transform 0.7s var(--ease-luxe),
+    filter 0.7s var(--ease-luxe);
+  filter: saturate(calc(1 + var(--iactive) * 0.12));
+}
+
+.interactive-frame__sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: calc(var(--iactive) * 0.55);
+  transition: opacity 0.6s var(--ease-luxe);
+  background: radial-gradient(
+    38% 38% at calc(50% + var(--ix) * 45%) calc(50% + var(--iy) * 45%),
+    color-mix(in oklab, var(--brass) 45%, transparent),
+    transparent 70%
+  );
+  mix-blend-mode: soft-light;
+}
+
+@utility animate-drift {
+  animation: img-drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes img-drift {
+  from {
+    scale: 1.06;
+  }
+  to {
+    scale: 1.14;
+  }
+}
+
+.reach-outline {
+  transition: stroke-dashoffset 2.4s var(--ease-luxe);
+}
+
+.reach-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: reach-pulse 2.6s ease-out infinite;
+}
+
+@keyframes reach-pulse {
+  0% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    scale: 3.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reach-pulse,
+  .animate-drift {
+    animation: none;
+  }
+}

@@ -21,7 +21,7 @@ export function Showroom() {
         decoding="async"
         width={1920}
         height={1080}
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
+        className="animate-drift absolute inset-0 h-full w-full object-cover opacity-70"
       />
       <div
         aria-hidden

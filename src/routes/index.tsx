@@ -18,6 +18,9 @@ import { Showroom } from "@/components/site/showroom";
 import { Timeline } from "@/components/site/timeline";
 import { FinalCta, Footer } from "@/components/site/final-cta";
 import { MobileCta } from "@/components/site/mobile-cta";
+import { Reach } from "@/components/site/reach";
+import { Concierge } from "@/components/site/concierge";
+import { LuxeCursor } from "@/components/site/luxe-cursor";
 
 const TITLE = "Heaven Furniture Mart — Bespoke Furniture in Chattogram";
 const DESCRIPTION =
@@ -54,11 +57,14 @@ function Index() {
             <Process />
             <Proof />
             <Showroom />
+            <Reach />
             <Timeline />
             <FinalCta />
           </main>
           <Footer />
           <MobileCta />
+          <Concierge />
+          <LuxeCursor />
           <ConsultationModal />
         </ConsultationProvider>
       </LanguageProvider>
