@@ -57,7 +57,7 @@ export function Process() {
               delay={i * 120}
               as="li"
               className="group relative sm:pr-8"
-              onMouseEnter={() => setActive(i)}
+              
             >
               <button
                 type="button"
