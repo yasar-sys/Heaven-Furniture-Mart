@@ -25,27 +25,27 @@ const ROOMS = [
   {
     id: "Living Room",
     note: "Sofas, coffee tables, TV units",
-    gallery: [photo.livingTeal, photo.livingBeige, photo.livingGold, living, after],
+    gallery: [photo.heroShowroom, photo.livingBeigeArmchairs, photo.heroShowroom, photo.livingBeigeArmchairs],
   },
   {
     id: "Bedroom",
     note: "Beds, wardrobes, dressing tables",
-    gallery: [photo.bedroomNavy, bedroom, photo.bedroomClassic, photo.bedroomVelvet, photo.bedroomClassic],
+    gallery: [photo.bedroomRoyalNavy, photo.bedroomCarvedGold, photo.bedroomModernNavy, photo.bedroomRoyalNavy],
   },
   {
     id: "Dining",
     note: "Tables, chairs, cabinets",
-    gallery: [dining, photo.livingBeige, photo.bedroomNavy, after, photo.livingGold],
+    gallery: [dining, photo.livingBeigeArmchairs, photo.bedroomModernNavy, photo.heroShowroom],
   },
   {
     id: "Office & Study",
     note: "Executive tables, bookshelves",
-    gallery: [photo.officeConference, office, photo.officeConference, office, photo.livingTeal],
+    gallery: [photo.officeConference, photo.livingBeigeArmchairs, photo.officeConference, photo.heroShowroom],
   },
   {
     id: "Custom",
     note: "Anything built to your space",
-    gallery: [photo.customSwing, photo.livingBeige, photo.bedroomVelvet, after, photo.livingGold],
+    gallery: [photo.bedroomRoyalNavy, photo.heroShowroom, photo.bedroomCarvedGold, photo.livingBeigeArmchairs],
   },
 ];
 

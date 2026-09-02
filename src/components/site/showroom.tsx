@@ -15,12 +15,12 @@ export function Showroom() {
       className="relative scroll-mt-24 overflow-hidden bg-ink"
     >
       <img
-        src={photo.bedroomNavy}
-        alt="Heaven Furniture Mart showroom interior with staged sofas, dining sets and wardrobes"
+        src={photo.bedroomRoyalNavy}
+        alt="Heaven Furniture Mart luxury showroom with royal navy velvet four-poster bed set and chandeliers"
         loading="lazy"
         decoding="async"
-        width={1920}
-        height={1080}
+        width={864}
+        height={1024}
         className="animate-drift absolute inset-0 h-full w-full object-cover opacity-70"
       />
       <div

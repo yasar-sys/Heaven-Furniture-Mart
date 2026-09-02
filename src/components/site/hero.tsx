@@ -10,10 +10,10 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-ink">
       <img
-        src={photo.livingTeal}
-        alt="Teal velvet sofa set with a gilded centre table in a Heaven Furniture Mart living room"
-        width={1440}
-        height={998}
+        src={photo.heroShowroom}
+        alt="Teal velvet sofa set with a gilded centre table in the Heaven Furniture Mart luxury showroom"
+        width={1024}
+        height={709}
         fetchPriority="high"
         decoding="async"
         className="animate-drift absolute inset-0 h-full w-full object-cover object-[57%_center] opacity-90 sm:object-center"
