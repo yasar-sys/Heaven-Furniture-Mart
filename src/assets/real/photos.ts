@@ -4,6 +4,12 @@ import livingBeigeArmchairs from "./living-beige-armchairs.jpg";
 import bedroomCarvedGold from "./bedroom-carved-gold.jpg";
 import bedroomModernNavy from "./bedroom-modern-navy.jpg";
 
+import livingGreySectional from "./living-grey-sectional.jpg";
+import diningPeachMarble from "./dining-peach-marble.jpg";
+import officeDirectorDesk from "./office-director-desk.jpg";
+import officeWorkstation from "./office-workstation.jpg";
+import bedroomSleighBench from "./bedroom-sleigh-bench.jpg";
+
 import customSwing from "./custom-swing.jpg.asset.json";
 import officeConference from "./office-conference.jpg.asset.json";
 import logoMark from "./logo-mark.jpg.asset.json";
@@ -19,12 +25,23 @@ export const photo = {
   bedroomCarvedGold,
   bedroomModernNavy,
 
+  livingGreySectional,
+  diningPeachMarble,
+  officeDirectorDesk,
+  officeWorkstation,
+  bedroomSleighBench,
+
   bedroomVelvet: bedroomRoyalNavy,
   bedroomClassic: bedroomCarvedGold,
   bedroomNavy: bedroomModernNavy,
+  bedroomSleigh: bedroomSleighBench,
   livingTeal: heroShowroom,
   livingBeige: livingBeigeArmchairs,
   livingGold: bedroomCarvedGold,
+  livingGrey: livingGreySectional,
+  diningMarble: diningPeachMarble,
+  officeDirector: officeDirectorDesk,
+  officeCorporate: officeWorkstation,
 
   customSwing: customSwing.url,
   officeConference: officeConference.url,

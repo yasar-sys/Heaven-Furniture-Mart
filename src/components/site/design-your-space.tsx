@@ -6,11 +6,6 @@ import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
-import living from "@/assets/living.jpg";
-import bedroom from "@/assets/bedroom.jpg";
-import dining from "@/assets/dining.jpg";
-import office from "@/assets/office.jpg";
-import after from "@/assets/after.jpg";
 import { photo } from "@/assets/real/photos";
 
 const STYLES = ["Modern", "Minimal", "Classic", "Contemporary", "Luxury"] as const;
@@ -24,28 +19,58 @@ const SCALES = [
 const ROOMS = [
   {
     id: "Living Room",
-    note: "Sofas, coffee tables, TV units",
-    gallery: [photo.heroShowroom, photo.livingBeigeArmchairs, photo.heroShowroom, photo.livingBeigeArmchairs],
+    note: "Sofas, sectionals, coffee tables, lounge chairs",
+    gallery: [
+      photo.heroShowroom,
+      photo.livingGreySectional,
+      photo.livingBeigeArmchairs,
+      photo.heroShowroom,
+      photo.livingGreySectional,
+    ],
   },
   {
     id: "Bedroom",
-    note: "Beds, wardrobes, dressing tables",
-    gallery: [photo.bedroomRoyalNavy, photo.bedroomCarvedGold, photo.bedroomModernNavy, photo.bedroomRoyalNavy],
+    note: "Four-poster beds, sleigh beds, royal wardrobes",
+    gallery: [
+      photo.bedroomRoyalNavy,
+      photo.bedroomSleighBench,
+      photo.bedroomCarvedGold,
+      photo.bedroomModernNavy,
+      photo.bedroomRoyalNavy,
+    ],
   },
   {
     id: "Dining",
-    note: "Tables, chairs, cabinets",
-    gallery: [dining, photo.livingBeigeArmchairs, photo.bedroomModernNavy, photo.heroShowroom],
+    note: "Marble dining tables, velvet chairs, crockery cabinets",
+    gallery: [
+      photo.diningPeachMarble,
+      photo.diningPeachMarble,
+      photo.livingBeigeArmchairs,
+      photo.diningPeachMarble,
+      photo.bedroomCarvedGold,
+    ],
   },
   {
     id: "Office & Study",
-    note: "Executive tables, bookshelves",
-    gallery: [photo.officeConference, photo.livingBeigeArmchairs, photo.officeConference, photo.heroShowroom],
+    note: "Director desks, workstation pods, bookshelves",
+    gallery: [
+      photo.officeDirectorDesk,
+      photo.officeWorkstation,
+      photo.officeDirectorDesk,
+      photo.officeWorkstation,
+      photo.heroShowroom,
+    ],
   },
   {
     id: "Custom",
-    note: "Anything built to your space",
-    gallery: [photo.bedroomRoyalNavy, photo.heroShowroom, photo.bedroomCarvedGold, photo.livingBeigeArmchairs],
+    note: "Bespoke pieces built to your exact room width & finish",
+    gallery: [
+      photo.bedroomSleighBench,
+      photo.livingGreySectional,
+      photo.bedroomRoyalNavy,
+      photo.diningPeachMarble,
+      photo.officeDirectorDesk,
+    ],
   },
 ];
 

@@ -1,7 +1,6 @@
 import { useT } from "@/lib/i18n";
 import { useCallback, useEffect, useRef, useState } from "react";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
+import { photo } from "@/assets/real/photos";
 import { Reveal } from "./reveal";
 import { Section, Shell } from "./ui-kit";
 
@@ -83,15 +82,15 @@ export function Bespoke() {
             }}
           >
             <img
-              src={afterImg}
-              alt="The same room fitted with bespoke furniture: sectional sofa, walnut wall unit and custom joinery"
+              src={photo.livingGreySectional}
+              alt="Bespoke Heaven Furniture Mart sectional sofa set with custom 3D wall feature"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <img
-              src={beforeImg}
-              alt="The same room before, empty and unfurnished"
+              src={photo.livingBeigeArmchairs}
+              alt="Heaven Furniture Mart curved lounge armchairs with decorative styling"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"

@@ -2,33 +2,31 @@ import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import wood from "@/assets/material-wood.jpg";
-import fabric from "@/assets/material-fabric.jpg";
-import finish from "@/assets/material-finish.jpg";
+import { photo } from "@/assets/real/photos";
 import { Reveal } from "./reveal";
 import { Section, Shell } from "./ui-kit";
 
 const MATERIALS = [
   {
-    tab: "Wood",
-    name: "Natural Wood",
-    line: "Warm grain. Honest character.",
-    img: wood,
-    alt: "Macro close-up of walnut wood grain",
+    tab: "Carved Wood",
+    name: "Hand-Carved Solid Wood",
+    line: "Intricate crown carving, seasoned teak & mahogany with antique gold detailing.",
+    img: photo.bedroomCarvedGold,
+    alt: "Hand-carved solid wood bed and wardrobe with gold leaf detailing by Heaven Furniture Mart",
   },
   {
-    tab: "Fabric",
-    name: "Velvet",
-    line: "Soft texture. Deep comfort.",
-    img: fabric,
-    alt: "Macro close-up of deep teal velvet upholstery",
+    tab: "Velvet Upholstery",
+    name: "Luxury Velvet & Tufting",
+    line: "Deep blue & peach plush velvet with diamond-tufted embroidery and gold studs.",
+    img: photo.bedroomRoyalNavy,
+    alt: "Embroidered royal blue velvet headboard with gold posts by Heaven Furniture Mart",
   },
   {
-    tab: "Finish",
-    name: "Matte Finish",
-    line: "Quiet sophistication.",
-    img: finish,
-    alt: "Macro close-up of a matte ivory furniture edge with brushed brass detail",
+    tab: "Marble & Polish",
+    name: "High-Gloss Marble & Lacquer",
+    line: "Smooth imported marble tops paired with hand-buffed protective luster lacquer.",
+    img: photo.diningPeachMarble,
+    alt: "High-gloss marble dining top with peach velvet diamond quilting by Heaven Furniture Mart",
   },
 ];
 
