@@ -1,8 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { ClientOnly } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
+
+const StudioScene = lazy(() => import("./studio-scene"));
 import { WHATSAPP_NUMBER, openWhatsApp } from "@/lib/whatsapp";
 
 type PieceId = "Sofa" | "Bed" | "Wardrobe" | "Dining Table";
