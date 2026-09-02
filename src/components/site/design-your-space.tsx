@@ -145,16 +145,16 @@ export function DesignYourSpace() {
                 {...frameProps}
                 className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2 lg:aspect-4/5"
               >
-                {ROOMS.map((r) => (
+                {FRAMES.map((src) => (
                   <img
-                    key={r.id}
-                    src={r.img}
-                    alt={`${r.id} furniture by Heaven Furniture Mart`}
+                    key={src}
+                    src={src}
+                    alt={`${room.id} furniture by Heaven Furniture Mart`}
                     loading="lazy"
                     decoding="async"
                     className={cn(
                       "interactive-frame__img absolute inset-0",
-                      room.id === r.id ? "opacity-100" : "opacity-0",
+                      src === activeFrame ? "opacity-100" : "opacity-0",
                     )}
                   />
                 ))}
