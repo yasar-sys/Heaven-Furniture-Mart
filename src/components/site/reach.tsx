@@ -1,67 +1,18 @@
 import { Section, SectionHeading, Shell } from "./ui-kit";
 import { Reveal, useInView } from "./reveal";
 import { useT } from "@/lib/i18n";
+import { BD_ISLANDS, BD_MAINLAND, MAP_H, MAP_W, project } from "./bd-map";
 
-/* Simplified national outline, in real degrees, projected below. */
-const OUTLINE: [number, number][] = [
-  [88.95, 26.28],
-  [88.42, 26.0],
-  [88.12, 25.2],
-  [88.72, 24.92],
-  [88.15, 24.32],
-  [88.72, 24.02],
-  [89.05, 23.88],
-  [89.1, 23.4],
-  [88.9, 23.2],
-  [88.8, 22.6],
-  [89.2, 21.86],
-  [89.85, 21.72],
-  [90.32, 22.02],
-  [90.62, 21.8],
-  [91.02, 22.2],
-  [91.42, 22.78],
-  [91.82, 22.5],
-  [92.02, 21.9],
-  [92.32, 21.42],
-  [92.58, 20.9],
-  [92.36, 20.78],
-  [92.28, 21.32],
-  [92.62, 22.2],
-  [92.4, 23.02],
-  [91.78, 23.42],
-  [91.18, 23.02],
-  [91.42, 24.0],
-  [92.02, 24.4],
-  [92.34, 25.02],
-  [91.6, 25.18],
-  [90.6, 25.2],
-  [89.82, 25.32],
-  [89.82, 26.02],
-];
+const W = MAP_W;
+const H = MAP_H;
 
-const W = 340;
-const H = 440;
-const LON0 = 87.85;
-const LON1 = 92.95;
-const LAT0 = 20.6;
-const LAT1 = 26.75;
-
-const px = (lon: number) => ((lon - LON0) / (LON1 - LON0)) * W;
-const py = (lat: number) => ((LAT1 - lat) / (LAT1 - LAT0)) * H;
-
-const OUTLINE_PATH =
-  OUTLINE.map(
-    ([lon, lat], i) => `${i === 0 ? "M" : "L"}${px(lon).toFixed(1)} ${py(lat).toFixed(1)}`,
-  ).join(" ") + " Z";
-
-const ORIGIN = { name: "Chattogram", lon: 91.83, lat: 22.35, note: "Agrabad · where it started" };
+const ORIGIN = { name: "Chattogram", lon: 91.8, lat: 22.36, note: "Agrabad · where it started" };
 
 export function Reach() {
   const t = useT();
   const { ref, shown } = useInView<HTMLDivElement>(0.25);
 
-  const ox = px(ORIGIN.lon);
-  const oy = py(ORIGIN.lat);
+  const { x: ox, y: oy } = project(ORIGIN.lon, ORIGIN.lat);
 
   return (
     <Section id="reach" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Our reach">
