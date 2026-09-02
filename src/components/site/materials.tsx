@@ -2,31 +2,75 @@ import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { photo } from "@/assets/real/photos";
 import { Reveal } from "./reveal";
 import { Section, Shell } from "./ui-kit";
 
-const MATERIALS = [
+import matCarvedTeak from "@/assets/materials/mat-carved-teak.jpg";
+import matVelvet from "@/assets/materials/mat-velvet.jpg";
+import matMarble from "@/assets/materials/mat-marble.jpg";
+import matBrass from "@/assets/materials/mat-brass.jpg";
+
+type Material = {
+  tab: string;
+  name: string;
+  line: string;
+  img: string;
+  alt: string;
+  props: { label: string; value: string }[];
+};
+
+const MATERIALS: Material[] = [
   {
     tab: "Carved Wood",
-    name: "Hand-Carved Solid Wood",
-    line: "Intricate crown carving, seasoned teak & mahogany with antique gold detailing.",
-    img: photo.bedroomCarvedGold,
-    alt: "Hand-carved solid wood bed and wardrobe with gold leaf detailing by Heaven Furniture Mart",
+    name: "Hand-Carved Solid Teak",
+    line: "Kiln-seasoned teak and mahogany, chiselled by hand and finished with antique gold leaf.",
+    img: matCarvedTeak,
+    alt: "Macro detail of hand-carved solid teak panel with antique gold leaf floral carving",
+    props: [
+      { label: "Origin", value: "Seasoned teak & mahogany" },
+      { label: "Finish", value: "Antique gold leaf on matte oil" },
+      { label: "Moisture", value: "Kiln-dried to 8–10%" },
+      { label: "Lead time", value: "3–4 weeks" },
+    ],
   },
   {
-    tab: "Velvet Upholstery",
-    name: "Luxury Velvet & Tufting",
-    line: "Deep blue & peach plush velvet with diamond-tufted embroidery and gold studs.",
-    img: photo.bedroomRoyalNavy,
-    alt: "Embroidered royal blue velvet headboard with gold posts by Heaven Furniture Mart",
+    tab: "Velvet",
+    name: "Diamond-Tufted Velvet",
+    line: "Dense pile velvet, hand-tufted over high-resilience foam with cast brass buttons.",
+    img: matVelvet,
+    alt: "Macro detail of royal navy diamond-tufted velvet upholstery with brass buttons",
+    props: [
+      { label: "Weight", value: "380 GSM dense pile" },
+      { label: "Durability", value: "30,000+ rub tested" },
+      { label: "Core", value: "32-density HR foam" },
+      { label: "Palette", value: "24 house colours" },
+    ],
   },
   {
-    tab: "Marble & Polish",
-    name: "High-Gloss Marble & Lacquer",
-    line: "Smooth imported marble tops paired with hand-buffed protective luster lacquer.",
-    img: photo.diningPeachMarble,
-    alt: "High-gloss marble dining top with peach velvet diamond quilting by Heaven Furniture Mart",
+    tab: "Marble & Lacquer",
+    name: "Imported Marble & Lacquer",
+    line: "Honed marble tops set into hand-buffed lacquer frames for a mirror-clean edge.",
+    img: matMarble,
+    alt: "Macro detail of polished white marble tabletop edge over a high-gloss lacquer wood frame",
+    props: [
+      { label: "Slab", value: "18 mm imported marble" },
+      { label: "Edge", value: "Hand-eased bullnose" },
+      { label: "Coating", value: "7-layer PU lacquer" },
+      { label: "Care", value: "Sealed, stain resistant" },
+    ],
+  },
+  {
+    tab: "Brass Hardware",
+    name: "Antique Brass Fittings",
+    line: "Solid brass pulls and soft-close mechanisms rated for a decade of daily use.",
+    img: matBrass,
+    alt: "Macro detail of brushed antique brass drawer pull and soft-close hinge on dark walnut",
+    props: [
+      { label: "Material", value: "Solid cast brass" },
+      { label: "Motion", value: "Soft-close, 50k cycles" },
+      { label: "Finish", value: "Brushed, lacquer sealed" },
+      { label: "Warranty", value: "2 years on fittings" },
+    ],
   },
 ];
 
@@ -52,7 +96,7 @@ export function Materials() {
             <div
               role="tablist"
               aria-label="Material categories"
-              className="mt-10 flex gap-7 border-b border-ivory/12"
+              className="mt-10 flex flex-wrap gap-x-7 gap-y-1 border-b border-ivory/12"
             >
               {MATERIALS.map((m, i) => (
                 <button
@@ -80,6 +124,17 @@ export function Materials() {
                 {t(current.line)}
               </p>
             </div>
+
+            <dl key={current.tab} className="hero-rise mt-8 grid grid-cols-2 gap-px bg-ivory/10">
+              {current.props.map((p) => (
+                <div key={p.label} className="bg-ink px-4 py-4">
+                  <dt className="text-[0.6rem] uppercase tracking-[0.2em] text-brass">
+                    {t(p.label)}
+                  </dt>
+                  <dd className="mt-2 text-sm leading-snug text-ivory/80">{t(p.value)}</dd>
+                </div>
+              ))}
+            </dl>
 
             <p className="mt-12 font-serif text-2xl italic text-brass">
               {t("Every detail matters.")}
