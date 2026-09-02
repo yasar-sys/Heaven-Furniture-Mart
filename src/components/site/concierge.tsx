@@ -83,17 +83,21 @@ export function Concierge() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const busy = status === "submitted" || status === "streaming";
+  const busy = status === "submitted" || status === "streaming" || retrying;
 
   const send = (text: string) => {
     const value = text.trim();
     if (!value || busy) return;
+    retriedRef.current = false;
+    clearError?.();
     setInput("");
     void sendMessage({ text: value });
   };
 
   const sendEnquiry = () => {
     if (busy) return;
+    retriedRef.current = false;
+    clearError?.();
     const detail = note.trim();
     const question = `Materials enquiry — ${material}. I'd like to know about: ${topic}.${
       detail ? ` Details: ${detail}` : ""
