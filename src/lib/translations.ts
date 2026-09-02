@@ -744,10 +744,10 @@ const hi: Dict = {
   "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "हम चट्टग्राम से डिलीवरी करते हैं और कस्टम फर्नीचर की माँग बढ़ने के साथ शहर-दर-शहर बढ़ रहे हैं।",
   "Awards & Recognition": "पुरस्कार और सम्मान",
-  "13th Chattogram Furniture Fair": "13वाँ चট্টগ্রাম फर्नीचर मेला",
+  "14th Chattogram Furniture Fair": "14वाँ चট্টগ্রাম फर्नीचर मेला",
   "Participant crest, awarded at our fair pavilion.": "मेले के पवेलियन में मिला प्रतिभागी स्मृति चिन्ह।",
   "Recognised on stage": "मंच पर सम्मानित",
-  "Honoured at the 13th Chattogram Furniture Fair prize ceremony.": "13वें चট্টগ্রাম फर्नीचर मेले के पुरस्कार समारोह में सम्मान।",
+  "Honoured at the 14th Chattogram Furniture Fair prize ceremony.": "14वें चট্টগ্রাম फर्नीचर मेले के पुरस्कार समारोह में सम्मान।",
   "Tulir Achore Amar Ghor": "तुलिर आँचड़े आमार घर",
   "Second prize sponsored by Heaven Furniture Mart.": "हेवन फर्नीचर मार्ट द्वारा प्रायोजित द्वितीय पुरस्कार।",
   "Aria": "आरिया",
