@@ -77,21 +77,53 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { title: "Heaven Furniture Mart" },
+      {
+        name: "description",
+        content: "Bespoke furniture designed and crafted around you — Chattogram, Bangladesh.",
+      },
+      { name: "author", content: "Heaven Furniture Mart" },
+      { name: "theme-color", content: "#22302f" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FurnitureStore",
+          name: "Heaven Furniture Mart",
+          description:
+            "Bespoke furniture and interior styling — designed, crafted and customized in Chattogram.",
+          telephone: "+8801960481983",
+          email: "heavenfurnituremart@gmail.com",
+          foundingDate: "2020",
+          founder: { "@type": "Person", name: "Abul Kalam Bhuiyan" },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Agrabad Access Road",
+            addressLocality: "Chattogram",
+            addressCountry: "BD",
+          },
+          sameAs: [
+            "https://facebook.com/HeavenFurnitureMart",
+            "https://instagram.com/heaven_furniture_ltd",
+            "https://youtube.com/@HeavenFurnitureMart",
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
