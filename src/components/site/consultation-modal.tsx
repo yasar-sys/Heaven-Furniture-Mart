@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { cn } from "@/lib/utils";
 import { Cta } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
+import { WHATSAPP_NUMBER, openWhatsApp } from "@/lib/whatsapp";
 
 const INTERESTS = [
   "Sofa",
@@ -48,7 +49,7 @@ export function ConsultationModal() {
             </DialogTitle>
             <DialogDescription className="mx-auto mt-5 max-w-xs text-sm text-muted-foreground">
               {t(
-                "Your design journey starts here. Our team will call you shortly to plan your consultation.",
+                "Your request is opening in WhatsApp. Our team will reply there shortly to plan your consultation.",
               )}
             </DialogDescription>
             <div className="mx-auto mt-10 w-fit">
@@ -66,11 +67,32 @@ export function ConsultationModal() {
             <DialogDescription className="mt-3 text-sm text-muted-foreground">
               {t("Share a few details. We'll get back within one working day.")}
             </DialogDescription>
+            <a
+              href={`https://wa.me/8801960481983`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="grow"
+              className="mt-4 inline-flex items-center gap-2 rounded-sm border border-brass/40 px-3.5 py-2 text-[0.68rem] uppercase tracking-[0.16em] text-brass transition-colors duration-300 hover:border-brass hover:bg-brass/10"
+            >
+              {t("WhatsApp us directly")} · {WHATSAPP_NUMBER}
+            </a>
 
             <form
               className="mt-9 space-y-7"
               onSubmit={(e) => {
                 e.preventDefault();
+                const f = new FormData(e.currentTarget);
+                const lines = [
+                  t("New design consultation request"),
+                  `${t("Name")}: ${f.get("name") ?? ""}`,
+                  `${t("Phone")}: ${f.get("phone") ?? ""}`,
+                  f.get("email") ? `${t("Email")}: ${f.get("email")}` : "",
+                  interest ? `${t("What are you looking for?")} ${t(interest)}` : "",
+                  room ? `${t("Room type")}: ${t(room)}` : "",
+                  space ? `${t("Approximate space")}: ${t(space)}` : "",
+                  f.get("message") ? `${t("Additional message")}: ${f.get("message")}` : "",
+                ].filter(Boolean);
+                openWhatsApp(lines.join("\n"));
                 setSent(true);
               }}
             >
@@ -183,7 +205,7 @@ export function ConsultationModal() {
               </label>
 
               <Cta type="submit" className="w-full sm:w-auto">
-                {t("Request my consultation")}
+                {t("Send request on WhatsApp")}
               </Cta>
             </form>
           </>

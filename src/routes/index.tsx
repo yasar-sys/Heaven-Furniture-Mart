@@ -21,6 +21,8 @@ import { MobileCta } from "@/components/site/mobile-cta";
 import { Reach } from "@/components/site/reach";
 import { Concierge } from "@/components/site/concierge";
 import { LuxeCursor } from "@/components/site/luxe-cursor";
+import { Studio } from "@/components/site/studio";
+import { BackToTop } from "@/components/site/back-to-top";
 
 const TITLE = "Heaven Furniture Mart — Bespoke Furniture in Chattogram";
 const DESCRIPTION =
