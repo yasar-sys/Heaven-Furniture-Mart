@@ -17,7 +17,7 @@ const AWARDS = [
     title: "13th Chattogram Furniture Fair",
     note: "Participant crest, awarded at our fair pavilion.",
     alt: "Heaven Furniture Mart participant crest from the 13th Chattogram Furniture Fair 2024, held at the company's pavilion",
-    frame: "aspect-3/4",
+    fit: "contain" as const,
     width: 768,
     height: 1024,
   },
@@ -27,7 +27,7 @@ const AWARDS = [
     title: "Recognised on stage",
     note: "Honoured at the 13th Chattogram Furniture Fair prize ceremony.",
     alt: "Heaven Furniture Mart founder receiving a plaque on stage at the 13th Chattogram Furniture Fair 2024",
-    frame: "aspect-4/3",
+    fit: "cover" as const,
     width: 1024,
     height: 768,
   },
@@ -37,11 +37,12 @@ const AWARDS = [
     title: "Tulir Achore Amar Ghor",
     note: "Second prize sponsored by Heaven Furniture Mart.",
     alt: "The Heaven Furniture Mart team with prize winners of the Tulir Achore Amar Ghor art competition",
-    frame: "aspect-4/3",
+    fit: "cover" as const,
     width: 1024,
     height: 768,
   },
 ];
+
 
 export function Proof() {
   const t = useT();
@@ -80,11 +81,13 @@ export function Proof() {
                   <InteractiveImage
                     src={a.img}
                     alt={a.alt}
-                    depth={16}
+                    depth={a.fit === "contain" ? 8 : 16}
                     width={a.width}
                     height={a.height}
-                    frameClassName={`${a.frame} w-full overflow-hidden rounded-sm`}
+                    className={a.fit === "contain" ? "object-contain p-4" : "object-cover"}
+                    frameClassName="aspect-4/3 w-full overflow-hidden rounded-sm bg-foreground/5"
                   />
+
                   <figcaption className="mt-5">
                     <p className="font-serif text-lg text-brass">{a.year}</p>
                     <p className="mt-1 font-serif text-xl leading-snug text-foreground">
