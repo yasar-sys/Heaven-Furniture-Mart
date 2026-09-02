@@ -253,10 +253,9 @@ const bn: Dict = {
   "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "চট্টগ্রাম থেকেই আমরা ডেলিভারি করি, আর বেসপোক আসবাবের চাহিদা বাড়ার সাথে সাথে শহরে শহরে ছড়িয়ে পড়ছি।",
   "Awards & Recognition": "পুরস্কার ও স্বীকৃতি",
-  "13th Chattogram Furniture Fair": "১৩তম চট্টগ্রাম ফার্নিচার মেলা",
-  "Participant crest, awarded at our fair pavilion.": "মেলার প্যাভিলিয়নে প্রাপ্ত অংশগ্রহণ স্মারক।",
-  "Recognised on stage": "মঞ্চে স্বীকৃতি",
-  "Honoured at the 13th Chattogram Furniture Fair prize ceremony.": "১৩তম চট্টগ্রাম ফার্নিচার মেলার পুরস্কার অনুষ্ঠানে সম্মাননা।",
+  "14th Chattogram Furniture Fair": "১৪তম চট্টগ্রাম ফার্নিচার মেলা",
+  ...
+  "Honoured at the 14th Chattogram Furniture Fair prize ceremony.": "১৪তম চট্টগ্রাম ফার্নিচার মেলার পুরস্কার অনুষ্ঠানে সম্মাননা।",
   "Tulir Achore Amar Ghor": "তুলির আঁচড়ে আমার ঘর",
   "Second prize sponsored by Heaven Furniture Mart.": "হেভেন ফার্নিচার মার্টের পৃষ্ঠপোষকতায় ২য় পুরস্কার।",
   "Aria": "আরিয়া",
@@ -500,10 +499,9 @@ const es: Dict = {
   "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "Entregamos desde Chattogram y crecemos ciudad a ciudad por todo Bangladés a medida que aumenta la demanda de mobiliario a medida.",
   "Awards & Recognition": "Premios y reconocimientos",
-  "13th Chattogram Furniture Fair": "13ª Feria del Mueble de Chattogram",
-  "Participant crest, awarded at our fair pavilion.": "Placa de participante, recibida en nuestro pabellón de la feria.",
-  "Recognised on stage": "Reconocidos en el escenario",
-  "Honoured at the 13th Chattogram Furniture Fair prize ceremony.": "Homenajeados en la ceremonia de premios de la 13ª Feria del Mueble de Chattogram.",
+  "14th Chattogram Furniture Fair": "14ª Feria del Mueble de Chattogram",
+  ...
+  "Honoured at the 14th Chattogram Furniture Fair prize ceremony.": "Homenajeados en la ceremonia de premios de la 14ª Feria del Mueble de Chattogram.",
   "Tulir Achore Amar Ghor": "Tulir Achore Amar Ghor",
   "Second prize sponsored by Heaven Furniture Mart.": "Segundo premio patrocinado por Heaven Furniture Mart.",
   "Aria": "Aria",
