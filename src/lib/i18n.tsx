@@ -38,10 +38,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 
+const FALLBACK: Ctx = { lang: "en", setLang: () => {}, t: (source: string) => source };
+
 export function useI18n() {
-  const ctx = useContext(I18nContext);
-  if (!ctx) throw new Error("useI18n must be used within LanguageProvider");
-  return ctx;
+  // Fall back to English pass-through instead of crashing if a component
+  // renders outside the provider (e.g. during a hot reload).
+  return useContext(I18nContext) ?? FALLBACK;
 }
 
 export function useT() {
