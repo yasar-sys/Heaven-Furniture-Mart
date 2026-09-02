@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Section, SectionHeading, Shell } from "./ui-kit";
 import { Reveal, useInView } from "./reveal";
 import { useT } from "@/lib/i18n";
@@ -51,43 +50,18 @@ const px = (lon: number) => ((lon - LON0) / (LON1 - LON0)) * W;
 const py = (lat: number) => ((LAT1 - lat) / (LAT1 - LAT0)) * H;
 
 const OUTLINE_PATH =
-  OUTLINE.map(([lon, lat], i) => `${i === 0 ? "M" : "L"}${px(lon).toFixed(1)} ${py(lat).toFixed(1)}`).join(
-    " ",
-  ) + " Z";
+  OUTLINE.map(
+    ([lon, lat], i) => `${i === 0 ? "M" : "L"}${px(lon).toFixed(1)} ${py(lat).toFixed(1)}`,
+  ).join(" ") + " Z";
 
 const ORIGIN = { name: "Chattogram", lon: 91.83, lat: 22.35, note: "Agrabad · where it started" };
-
-const CITIES: { name: string; lon: number; lat: number; note: string; year: string }[] = [
-  { name: "Cumilla", lon: 91.18, lat: 23.46, note: "Delivery corridor", year: "2022" },
-  { name: "Dhaka", lon: 90.41, lat: 23.81, note: "Client projects", year: "2023" },
-  { name: "Cox's Bazar", lon: 92.0, lat: 21.44, note: "Resort interiors", year: "2023" },
-  { name: "Sylhet", lon: 91.87, lat: 24.9, note: "Residential fit-outs", year: "2024" },
-  { name: "Khulna", lon: 89.57, lat: 22.81, note: "Growing next", year: "2026" },
-  { name: "Rajshahi", lon: 88.6, lat: 24.37, note: "Growing next", year: "2026" },
-  { name: "Rangpur", lon: 89.25, lat: 25.74, note: "Growing next", year: "2027" },
-  { name: "Barishal", lon: 90.37, lat: 22.7, note: "Growing next", year: "2027" },
-];
-
-function arc(x1: number, y1: number, x2: number, y2: number) {
-  const mx = (x1 + x2) / 2;
-  const my = (y1 + y2) / 2;
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  const len = Math.hypot(dx, dy) || 1;
-  // Bow the curve perpendicular to the line for an airline-route feel.
-  const cx = mx - (dy / len) * len * 0.22;
-  const cy = my + (dx / len) * len * 0.22;
-  return `M${x1} ${y1} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2} ${y2}`;
-}
 
 export function Reach() {
   const t = useT();
   const { ref, shown } = useInView<HTMLDivElement>(0.25);
-  const [active, setActive] = useState<string | null>(null);
 
   const ox = px(ORIGIN.lon);
   const oy = py(ORIGIN.lat);
-  const current = CITIES.find((c) => c.name === active);
 
   return (
     <Section id="reach" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Our reach">
@@ -134,64 +108,13 @@ export function Reach() {
                   style={{ strokeDasharray: 1400, strokeDashoffset: shown ? 0 : 1400 }}
                 />
 
-                {CITIES.map((c, i) => {
-                  const x = px(c.lon);
-                  const y = py(c.lat);
-                  const on = active === c.name;
-                  return (
-                    <g key={c.name}>
-                      <path
-                        d={arc(ox, oy, x, y)}
-                        fill="none"
-                        stroke="var(--color-brass)"
-                        strokeOpacity={on ? 1 : 0.6}
-                        strokeWidth={on ? 1.4 : 0.9}
-                        strokeLinecap="round"
-                        style={{
-                          strokeDasharray: 400,
-                          strokeDashoffset: shown ? 0 : 400,
-                          transition: `stroke-dashoffset 1.5s var(--ease-luxe) ${380 + i * 190}ms, stroke-opacity .5s, stroke-width .5s`,
-                        }}
-                      />
-                      <g
-                        tabIndex={0}
-                        role="button"
-                        aria-label={`${t(c.name)} — ${t(c.note)}`}
-                        onMouseEnter={() => setActive(c.name)}
-                        onMouseLeave={() => setActive(null)}
-                        onFocus={() => setActive(c.name)}
-                        onBlur={() => setActive(null)}
-                        className="cursor-pointer outline-none"
-                        style={{
-                          opacity: shown ? 1 : 0,
-                          transition: `opacity .8s var(--ease-luxe) ${900 + i * 190}ms`,
-                        }}
-                      >
-                        <circle cx={x} cy={y} r="12" fill="transparent" />
-                        <circle
-                          cx={x}
-                          cy={y}
-                          r={on ? 4.4 : 3}
-                          fill="var(--color-ivory)"
-                          fillOpacity={on ? 1 : 0.7}
-                          style={{ transition: "r .35s var(--ease-luxe), fill-opacity .35s" }}
-                        />
-                        <text
-                          x={x + 8}
-                          y={y + 3.5}
-                          className="font-sans text-[9px] tracking-[0.16em] uppercase"
-                          fill="var(--color-ivory)"
-                          fillOpacity={on ? 0.95 : 0.5}
-                        >
-                          {t(c.name)}
-                        </text>
-                      </g>
-                    </g>
-                  );
-                })}
-
-                {/* Origin — Chattogram */}
-                <g>
+                {/* Origin — Chattogram, the only place we claim */}
+                <g
+                  style={{
+                    opacity: shown ? 1 : 0,
+                    transition: "opacity 1s var(--ease-luxe) 700ms",
+                  }}
+                >
                   <circle cx={ox} cy={oy} r="6" fill="var(--color-brass)" className="reach-pulse" />
                   <circle cx={ox} cy={oy} r="4" fill="var(--color-brass)" />
                   <text
@@ -209,43 +132,21 @@ export function Reach() {
 
           <div>
             <Reveal>
-              <p className="eyebrow text-brass">
-                {current ? t(current.note) : t(ORIGIN.note)}
-              </p>
-              <h3 className="mt-4 font-serif text-3xl text-ivory sm:text-4xl">
-                {current ? t(current.name) : t("Chattogram")}
-              </h3>
+              <p className="eyebrow text-brass">{t(ORIGIN.note)}</p>
+              <h3 className="mt-4 font-serif text-3xl text-ivory sm:text-4xl">{t("Chattogram")}</h3>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory/65">
-                {current
-                  ? `${t("Serving since")} ${current.year}.`
-                  : t(
-                      "Hover a city to see where our furniture already lives — and where we grow next.",
-                    )}
+                {t(
+                  "Our showroom and workshop are in Agrabad, Chattogram — every piece is designed, crafted and finished here before it reaches your home.",
+                )}
               </p>
             </Reveal>
 
             <Reveal delay={90}>
-              <ul className="mt-10 grid grid-cols-2 gap-x-8 gap-y-5">
-                {CITIES.map((c) => (
-                  <li key={c.name}>
-                    <button
-                      type="button"
-                      onMouseEnter={() => setActive(c.name)}
-                      onMouseLeave={() => setActive(null)}
-                      onFocus={() => setActive(c.name)}
-                      onBlur={() => setActive(null)}
-                      className={`group flex w-full items-baseline justify-between gap-3 border-b pb-2 text-left transition-colors duration-500 ${
-                        active === c.name
-                          ? "border-brass text-ivory"
-                          : "border-ivory/15 text-ivory/70 hover:text-ivory"
-                      }`}
-                    >
-                      <span className="text-xs uppercase tracking-[0.2em]">{t(c.name)}</span>
-                      <span className="font-serif text-sm text-brass">{c.year}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-10 max-w-md border-t border-ivory/15 pt-6 text-sm leading-relaxed text-ivory/55">
+                {t(
+                  "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.",
+                )}
+              </p>
             </Reveal>
           </div>
         </div>

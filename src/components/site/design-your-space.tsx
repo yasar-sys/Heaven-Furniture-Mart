@@ -11,14 +11,7 @@ import bedroom from "@/assets/bedroom.jpg";
 import dining from "@/assets/dining.jpg";
 import office from "@/assets/office.jpg";
 import after from "@/assets/after.jpg";
-
-const ROOMS = [
-  { id: "Living Room", img: living, note: "Sofas, coffee tables, TV units" },
-  { id: "Bedroom", img: bedroom, note: "Beds, wardrobes, dressing tables" },
-  { id: "Dining", img: dining, note: "Tables, chairs, cabinets" },
-  { id: "Office & Study", img: office, note: "Executive tables, bookshelves" },
-  { id: "Custom", img: after, note: "Anything built to your space" },
-];
+import { photo } from "@/assets/real/photos";
 
 const STYLES = ["Modern", "Minimal", "Classic", "Contemporary", "Luxury"] as const;
 const SCALES = [
@@ -26,6 +19,36 @@ const SCALES = [
   { id: "Medium", d: "Balanced, generous proportions." },
   { id: "Spacious", d: "Room to compose freely." },
 ];
+
+/** One frame per room, per style — scale shifts the frame again. */
+const ROOMS = [
+  {
+    id: "Living Room",
+    note: "Sofas, coffee tables, TV units",
+    gallery: [photo.livingTeal, photo.livingBeige, photo.livingGold, living, after],
+  },
+  {
+    id: "Bedroom",
+    note: "Beds, wardrobes, dressing tables",
+    gallery: [photo.bedroomNavy, bedroom, photo.bedroomClassic, photo.bedroomVelvet, photo.bedroomClassic],
+  },
+  {
+    id: "Dining",
+    note: "Tables, chairs, cabinets",
+    gallery: [dining, photo.livingBeige, photo.bedroomNavy, after, photo.livingGold],
+  },
+  {
+    id: "Office & Study",
+    note: "Executive tables, bookshelves",
+    gallery: [photo.officeConference, office, photo.officeConference, office, photo.livingTeal],
+  },
+  {
+    id: "Custom",
+    note: "Anything built to your space",
+    gallery: [photo.customSwing, photo.livingBeige, photo.bedroomVelvet, after, photo.livingGold],
+  },
+];
+
 
 function Choice({
   active,
@@ -53,6 +76,8 @@ function Choice({
   );
 }
 
+const FRAMES: string[] = Array.from(new Set(ROOMS.flatMap((r) => r.gallery)));
+
 export function DesignYourSpace() {
   const [room, setRoom] = useState(ROOMS[0]!);
   const [style, setStyle] = useState<string>(STYLES[0]!);
@@ -60,6 +85,12 @@ export function DesignYourSpace() {
   const { openConsultation } = useConsultation();
   const { frameProps } = useInteractiveFrame(20);
   const t = useT();
+
+  const styleIndex = STYLES.indexOf(style as (typeof STYLES)[number]);
+  const scaleIndex = SCALES.findIndex((s) => s.id === scale.id);
+  const activeFrame =
+    room.gallery[(Math.max(styleIndex, 0) + Math.max(scaleIndex, 0) * 2) % room.gallery.length]!;
+
 
   return (
     <Section id="design" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Design your space">
@@ -122,16 +153,16 @@ export function DesignYourSpace() {
                 {...frameProps}
                 className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2 lg:aspect-4/5"
               >
-                {ROOMS.map((r) => (
+                {FRAMES.map((src) => (
                   <img
-                    key={r.id}
-                    src={r.img}
-                    alt={`${r.id} furniture by Heaven Furniture Mart`}
+                    key={src}
+                    src={src}
+                    alt={`${room.id} furniture by Heaven Furniture Mart`}
                     loading="lazy"
                     decoding="async"
                     className={cn(
                       "interactive-frame__img absolute inset-0",
-                      room.id === r.id ? "opacity-100" : "opacity-0",
+                      src === activeFrame ? "opacity-100" : "opacity-0",
                     )}
                   />
                 ))}

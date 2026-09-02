@@ -5,7 +5,7 @@ import { Section, Shell } from "./ui-kit";
 const MILESTONES = [
   { y: "2020", d: "Founded by Abul Kalam Bhuiyan" },
   { y: "2021", d: "Agrabad showroom opened" },
-  { y: "2024–25", d: "Exhibited at International Furniture Fair, Chattogram" },
+  { y: "2024–2025", d: "Exhibited at International Furniture Fair, Chattogram" },
   { y: "2025", d: "Member of the Chamber of Commerce" },
   { y: "2026", d: "Nationwide BFIOA recognition" },
 ];
