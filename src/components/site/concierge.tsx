@@ -25,10 +25,28 @@ const SUGGESTIONS = [
   "Do you deliver outside Chattogram?",
 ];
 
+const MATERIAL_OPTIONS = [
+  "Hand-Carved Solid Teak",
+  "Diamond-Tufted Velvet",
+  "Imported Marble & Lacquer",
+  "Antique Brass Fittings",
+] as const;
+
+const ENQUIRY_TOPICS = [
+  "Finishes & colours available",
+  "Durability & care",
+  "Lead time",
+  "Indicative price range",
+] as const;
+
 export function Concierge() {
   const t = useT();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [material, setMaterial] = useState<string>(MATERIAL_OPTIONS[0]);
+  const [topic, setTopic] = useState<string>(ENQUIRY_TOPICS[0]);
+  const [note, setNote] = useState("");
   const { openConsultation } = useConsultation();
 
   const { messages, sendMessage, status, error } = useChat({
@@ -51,6 +69,17 @@ export function Concierge() {
     if (!value || busy) return;
     setInput("");
     void sendMessage({ text: value });
+  };
+
+  const sendEnquiry = () => {
+    if (busy) return;
+    const detail = note.trim();
+    const question = `Materials enquiry — ${material}. I'd like to know about: ${topic}.${
+      detail ? ` Details: ${detail}` : ""
+    }`;
+    setNote("");
+    setEnquiryOpen(false);
+    void sendMessage({ text: question });
   };
 
   return (
@@ -152,7 +181,83 @@ export function Concierge() {
             <ConversationScrollButton />
           </Conversation>
 
-          <div className="border-t border-border p-3">
+          <div className="border-t border-border px-3 pt-3">
+            <button
+              type="button"
+              onClick={() => setEnquiryOpen((v) => !v)}
+              aria-expanded={enquiryOpen}
+              className="flex w-full items-center justify-between text-[0.62rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-brass"
+            >
+              {t("Materials enquiry")}
+              <span className="text-brass">{enquiryOpen ? "—" : "+"}</span>
+            </button>
+
+            {enquiryOpen && (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  sendEnquiry();
+                }}
+                className="mt-3 space-y-2 border border-border p-3"
+              >
+                <label className="block">
+                  <span className="text-[0.58rem] uppercase tracking-[0.18em] text-brass">
+                    {t("Material")}
+                  </span>
+                  <select
+                    value={material}
+                    onChange={(e) => setMaterial(e.currentTarget.value)}
+                    className="mt-1 w-full border border-border bg-transparent px-2 py-2 text-xs text-foreground outline-none focus:border-brass"
+                  >
+                    {MATERIAL_OPTIONS.map((m) => (
+                      <option key={m} value={m}>
+                        {t(m)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="text-[0.58rem] uppercase tracking-[0.18em] text-brass">
+                    {t("I want to know about")}
+                  </span>
+                  <select
+                    value={topic}
+                    onChange={(e) => setTopic(e.currentTarget.value)}
+                    className="mt-1 w-full border border-border bg-transparent px-2 py-2 text-xs text-foreground outline-none focus:border-brass"
+                  >
+                    {ENQUIRY_TOPICS.map((tp) => (
+                      <option key={tp} value={tp}>
+                        {t(tp)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="text-[0.58rem] uppercase tracking-[0.18em] text-brass">
+                    {t("Your piece or room (optional)")}
+                  </span>
+                  <input
+                    value={note}
+                    onChange={(e) => setNote(e.currentTarget.value)}
+                    placeholder={t("e.g. king bed for a 12x14 ft room")}
+                    className="mt-1 w-full border border-border bg-transparent px-2 py-2 text-xs text-foreground outline-none placeholder:text-muted-foreground focus:border-brass"
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  disabled={busy}
+                  className="mt-1 w-full bg-ink px-3 py-2 text-[0.62rem] uppercase tracking-[0.2em] text-ivory transition-colors hover:bg-brown disabled:opacity-50"
+                >
+                  {t("Send enquiry")}
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="p-3">
             <PromptInput
               onSubmit={(_message, event) => {
                 event.preventDefault();
