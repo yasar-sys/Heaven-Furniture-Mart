@@ -12,11 +12,11 @@ export function Hero() {
       <img
         src={photo.livingTeal}
         alt="Teal velvet sofa set with a gilded centre table in a Heaven Furniture Mart living room"
-        width={1920}
-        height={1280}
+        width={1440}
+        height={998}
         fetchPriority="high"
         decoding="async"
-        className="animate-drift absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-90 sm:object-center"
+        className="animate-drift absolute inset-0 h-full w-full object-cover object-[57%_center] opacity-90 sm:object-center"
       />
       <div
         aria-hidden

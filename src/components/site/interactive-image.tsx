@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type Props = {
   src: string;
   alt: string;
-  className?: string;
+  className?: string | undefined;
   /** Extra classes for the framing wrapper. */
   frameClassName?: string;
   /** How far the image drifts with the pointer, in px. */
@@ -14,6 +14,8 @@ type Props = {
   /** Brass light that follows the pointer across the image. */
   sheen?: boolean;
   loading?: "lazy" | "eager";
+  width?: number;
+  height?: number;
   children?: ReactNode;
 };
 
@@ -30,6 +32,8 @@ export function InteractiveImage({
   drift = false,
   sheen = true,
   loading = "lazy",
+  width,
+  height,
   children,
 }: Props) {
   const frame = useRef<HTMLDivElement | null>(null);
@@ -70,6 +74,8 @@ export function InteractiveImage({
         alt={alt}
         loading={loading}
         decoding="async"
+        width={width}
+        height={height}
         className={cn("interactive-frame__img", drift && "animate-drift", className)}
       />
       {sheen && <span aria-hidden className="interactive-frame__sheen" />}
