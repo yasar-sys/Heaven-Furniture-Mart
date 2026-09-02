@@ -14,12 +14,12 @@ const AWARDS = [
   {
     img: photo.awardTrophy,
     year: "2024",
-    title: "14th Chattogram Furniture Fair",
+    title: "13th Chattogram Furniture Fair",
     note: "Participant crest, awarded at our fair pavilion.",
-    alt: "Heaven Furniture Mart participant crest from the 14th Chattogram Furniture Fair 2024, held at the company's pavilion",
+    alt: "Heaven Furniture Mart participant crest from the 13th Chattogram Furniture Fair 2024, held at the company's pavilion",
     frame: "aspect-3/4",
-    width: 1440,
-    height: 1920,
+    width: 768,
+    height: 1024,
   },
   {
     img: photo.awardCeremony,
@@ -28,8 +28,8 @@ const AWARDS = [
     note: "Honoured at the 13th Chattogram Furniture Fair prize ceremony.",
     alt: "Heaven Furniture Mart founder receiving a plaque on stage at the 13th Chattogram Furniture Fair 2024",
     frame: "aspect-4/3",
-    width: 1600,
-    height: 1200,
+    width: 1024,
+    height: 768,
   },
   {
     img: photo.awardTeam,
@@ -38,8 +38,8 @@ const AWARDS = [
     note: "Second prize sponsored by Heaven Furniture Mart.",
     alt: "The Heaven Furniture Mart team with prize winners of the Tulir Achore Amar Ghor art competition",
     frame: "aspect-4/3",
-    width: 1600,
-    height: 1200,
+    width: 1024,
+    height: 768,
   },
 ];
 
