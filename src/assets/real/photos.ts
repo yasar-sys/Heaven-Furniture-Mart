@@ -12,7 +12,7 @@ import bedroomSleighBench from "./bedroom-sleigh-bench.jpg";
 
 import customSwing from "./custom-swing.jpg.asset.json";
 import officeConference from "./office-conference.jpg.asset.json";
-import logoMark from "./logo-mark.jpg.asset.json";
+import logoMark from "./logo-mark.jpg";
 import awardTrophy from "./award-trophy-2024.jpg";
 import awardCeremony from "./award-ceremony.jpg";
 import awardTeam from "./award-team.jpg";
@@ -45,7 +45,7 @@ export const photo = {
 
   customSwing: customSwing.url,
   officeConference: officeConference.url,
-  logoMark: logoMark.url,
+  logoMark: logoMark,
   awardTrophy: awardTrophy,
   awardCeremony: awardCeremony,
   awardTeam: awardTeam,
