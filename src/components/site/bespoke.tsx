@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useCallback, useEffect, useRef, useState } from "react";
 import beforeImg from "@/assets/before.jpg";
 import afterImg from "@/assets/after.jpg";
@@ -5,6 +6,7 @@ import { Reveal } from "./reveal";
 import { Section, Shell } from "./ui-kit";
 
 export function Bespoke() {
+  const t = useT();
   const [pos, setPos] = useState(48);
   const dragging = useRef(false);
   const frame = useRef<HTMLDivElement | null>(null);
@@ -47,28 +49,29 @@ export function Bespoke() {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-7">
             <Reveal className="mb-6 flex items-center gap-4">
-              <span className="eyebrow text-brass">Bespoke</span>
+              <span className="eyebrow text-brass">{t("Bespoke")}</span>
               <span className="h-px flex-1 bg-foreground/12" />
             </Reveal>
             <Reveal as="h2" delay={60} className="display-lg">
-              Not made for everyone.
+              {t("Not made for everyone.")}
               <br />
-              <span className="italic text-brown">Made for you.</span>
+              <span className="italic text-brown">{t("Made for you.")}</span>
             </Reveal>
           </div>
           <Reveal delay={140} className="lg:col-span-5">
             <p className="text-[0.95rem] leading-[1.85] text-muted-foreground">
-              Your room has its own dimensions. Your lifestyle has its own needs. Your taste is your
-              own. That's why we build around you.
+              {t(
+                "Your room has its own dimensions. Your lifestyle has its own needs. Your taste is your own. That's why we build around you.",
+              )}
             </p>
           </Reveal>
         </div>
 
         <Reveal delay={120} className="mt-14 sm:mt-20">
           <div className="mb-4 flex items-center justify-between text-[0.65rem] uppercase tracking-[0.24em] text-muted-foreground">
-            <span>Standard space</span>
+            <span>{t("Standard space")}</span>
             <span className="text-brass">→</span>
-            <span className="text-foreground">Bespoke solution</span>
+            <span className="text-foreground">{t("Bespoke solution")}</span>
           </div>
 
           <div
@@ -98,10 +101,10 @@ export function Bespoke() {
               className="absolute left-4 top-4 rounded-sm bg-ink/70 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-ivory backdrop-blur-sm transition-opacity duration-300 sm:left-6 sm:top-6"
               style={{ opacity: pos > 14 ? 1 : 0 }}
             >
-              Before
+              {t("Before")}
             </span>
             <span className="absolute right-4 top-4 rounded-sm bg-ink/70 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-brass backdrop-blur-sm sm:right-6 sm:top-6">
-              After
+              {t("After")}
             </span>
 
             <div
@@ -130,7 +133,7 @@ export function Bespoke() {
           </div>
 
           <p className="mt-4 text-center text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">
-            Drag to see the difference
+            {t("Drag to see the difference")}
           </p>
         </Reveal>
       </Shell>
