@@ -19,7 +19,7 @@ export function resolveChatProvider(): ChatProvider | null {
   if (googleKey) {
     const google = createGoogleGenerativeAI({ apiKey: googleKey });
     return {
-      model: google(process.env["GOOGLE_MODEL"] ?? "gemini-2.5-flash"),
+      model: google(process.env["GOOGLE_MODEL"] ?? "gemini-3.6-flash"),
       label: "google-gemini",
     };
   }
