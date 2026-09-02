@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type Props = {
   src: string;
   alt: string;
-  className?: string;
+  className?: string | undefined;
   /** Extra classes for the framing wrapper. */
   frameClassName?: string;
   /** How far the image drifts with the pointer, in px. */
