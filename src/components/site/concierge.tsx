@@ -49,9 +49,30 @@ export function Concierge() {
   const [note, setNote] = useState("");
   const { openConsultation } = useConsultation();
 
-  const { messages, sendMessage, status, error } = useChat({
+  const retriedRef = useRef(false);
+  const [retrying, setRetrying] = useState(false);
+
+  const { messages, sendMessage, regenerate, status, error, clearError } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
+
+  // A dropped stream or a transient gateway hiccup should not become a dead end:
+  // retry once automatically, and only then fall back to the contact message.
+  useEffect(() => {
+    if (!error || retriedRef.current) return;
+    retriedRef.current = true;
+    setRetrying(true);
+    const timer = setTimeout(() => {
+      void Promise.resolve(regenerate()).finally(() => setRetrying(false));
+    }, 900);
+    return () => clearTimeout(timer);
+  }, [error, regenerate]);
+
+  const retryNow = () => {
+    clearError?.();
+    setRetrying(true);
+    void Promise.resolve(regenerate()).finally(() => setRetrying(false));
+  };
 
   useEffect(() => {
     if (!open) return;
