@@ -55,19 +55,19 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Sections">
+        <nav className="hidden items-center gap-6 xl:gap-9 lg:flex" aria-label="Sections">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="link-underline text-[0.72rem] uppercase tracking-[0.22em] text-ivory/75 transition-colors hover:text-ivory"
+              className="link-underline whitespace-nowrap text-[0.72rem] uppercase tracking-[0.18em] text-ivory/75 transition-colors hover:text-ivory xl:tracking-[0.22em]"
             >
               {t(l.label)}
             </a>
           ))}
           <LanguageSwitch />
           <MoodToggle />
-          <Cta tone="light" size="md" onClick={() => openConsultation()}>
+          <Cta tone="light" size="md" className="whitespace-nowrap" onClick={() => openConsultation()}>
             {t("Request Consultation")}
           </Cta>
         </nav>
