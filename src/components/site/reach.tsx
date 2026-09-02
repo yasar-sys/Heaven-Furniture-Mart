@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Section, SectionHeading, Shell } from "./ui-kit";
 import { Reveal, useInView } from "./reveal";
 import { useT } from "@/lib/i18n";
@@ -11,8 +12,16 @@ const ORIGIN = { name: "Chattogram", lon: 91.8, lat: 22.36, note: "Agrabad · wh
 export function Reach() {
   const t = useT();
   const { ref, shown } = useInView<HTMLDivElement>(0.25);
+  const outlineRef = useRef<SVGPathElement>(null);
+  const [len, setLen] = useState(0);
+
+  useEffect(() => {
+    const el = outlineRef.current;
+    if (el) setLen(el.getTotalLength());
+  }, []);
 
   const { x: ox, y: oy } = project(ORIGIN.lon, ORIGIN.lat);
+
 
   return (
     <Section id="reach" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Our reach">
@@ -50,19 +59,26 @@ export function Reach() {
                 </defs>
 
                 <path
+                  ref={outlineRef}
                   d={BD_MAINLAND}
                   fill="url(#reach-fill)"
                   stroke="var(--color-brass)"
                   strokeOpacity="0.9"
                   strokeWidth="1.4"
                   strokeLinejoin="round"
+                  strokeLinecap="round"
                   className="reach-outline"
-                  style={{
-                    strokeDasharray: 2600,
-                    strokeDashoffset: shown ? 0 : 2600,
-                    transition: "stroke-dashoffset 2.6s var(--ease-luxe)",
-                  }}
+                  style={
+                    len
+                      ? {
+                          strokeDasharray: len,
+                          strokeDashoffset: shown ? 0 : len,
+                          transition: "stroke-dashoffset 2.6s var(--ease-luxe)",
+                        }
+                      : undefined
+                  }
                 />
+
 
                 {BD_ISLANDS.map((d, i) => (
                   <path
