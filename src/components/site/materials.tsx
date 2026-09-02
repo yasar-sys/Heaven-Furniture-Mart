@@ -95,7 +95,7 @@ export function Materials() {
 
             <div
               role="tablist"
-              aria-label="Material categories"
+              aria-label={t("Material categories")}
               className="mt-10 flex flex-wrap gap-x-7 gap-y-1 border-b border-ivory/12"
             >
               {MATERIALS.map((m, i) => (

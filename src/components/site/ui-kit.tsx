@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
+import { useT } from "@/lib/i18n";
 
 /* ---------- CTA button ---------- */
 
@@ -48,10 +49,11 @@ export function Section({
   tone?: "ivory" | "ink" | "muted";
   label?: string;
 }) {
+  const t = useT();
   return (
     <section
       id={id}
-      aria-label={label}
+      aria-label={label ? t(label) : undefined}
       className={cn(
         "relative scroll-mt-24",
         tone === "ivory" && "bg-background text-foreground",

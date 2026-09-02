@@ -46,7 +46,7 @@ export function Navbar() {
         <a
           href="#top"
           className="group flex shrink-0 items-baseline gap-2 text-ivory"
-          aria-label="Heaven Furniture Mart, home"
+          aria-label={t("Heaven Furniture Mart, home")}
         >
           <img
             src={photo.logoMark}
@@ -64,7 +64,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 xl:gap-9 lg:flex" aria-label="Sections">
+        <nav className="hidden items-center gap-6 xl:gap-9 lg:flex" aria-label={t("Sections")}>
           {LINKS.map((l) => (
             <a
               key={l.href}
@@ -87,7 +87,7 @@ export function Navbar() {
             type="button"
             onClick={() => setMenu((v) => !v)}
             aria-expanded={menu}
-            aria-label={menu ? "Close menu" : "Open menu"}
+            aria-label={menu ? t("Close menu") : t("Open menu")}
             className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[7px] lg:hidden"
           >
             <span

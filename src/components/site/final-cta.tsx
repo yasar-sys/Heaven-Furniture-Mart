@@ -50,7 +50,7 @@ export function Footer() {
             <div className="flex items-center gap-2.5">
               <img
                 src={photo.logoMark}
-                alt="Heaven Furniture Mart logo"
+                alt={t("Heaven Furniture Mart logo")}
                 width={36}
                 height={36}
                 className="size-9 shrink-0 rounded-sm object-cover"
