@@ -74,10 +74,10 @@ export function Materials() {
 
             <div className="mt-10 min-h-28">
               <h3 key={current.name} className="hero-rise font-serif text-4xl text-ivory">
-                {current.name}
+                {t(current.name)}
               </h3>
               <p key={current.line} className="hero-rise mt-3 text-sm text-ivory/60">
-                {current.line}
+                {t(current.line)}
               </p>
             </div>
 

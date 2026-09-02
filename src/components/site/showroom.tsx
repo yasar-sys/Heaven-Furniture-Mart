@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import showroomImg from "@/assets/showroom.jpg";
 import { Reveal } from "./reveal";
 import { Cta, Shell } from "./ui-kit";
@@ -5,6 +6,7 @@ import { useConsultation } from "./consultation-context";
 
 export function Showroom() {
   const { openConsultation } = useConsultation();
+  const t = useT();
 
   return (
     <section
@@ -29,21 +31,22 @@ export function Showroom() {
       <Shell className="relative py-28 sm:py-36 lg:py-48">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Reveal className="eyebrow text-brass">Showroom · Agrabad</Reveal>
+            <Reveal className="eyebrow text-brass">{t("Showroom · Agrabad")}</Reveal>
             <Reveal as="h2" delay={80} className="display-lg mt-6 text-ivory">
-              See it.
+              {t("See it.")}
               <br />
-              Feel it.
+              {t("Feel it.")}
               <br />
-              <span className="italic text-brass">Make it yours.</span>
+              <span className="italic text-brass">{t("Make it yours.")}</span>
             </Reveal>
             <Reveal delay={160} className="mt-8 max-w-md text-sm leading-relaxed text-ivory/70">
-              Visit our showroom at Agrabad Access Road, Chattogram and experience our furniture in
-              person.
+              {t(
+                "Visit our showroom at Agrabad Access Road, Chattogram and experience our furniture in person.",
+              )}
             </Reveal>
             <Reveal delay={220} className="mt-10">
               <Cta tone="light" onClick={() => openConsultation()}>
-                Visit the showroom
+                {t("Visit the showroom")}
               </Cta>
             </Reveal>
           </div>
@@ -51,15 +54,15 @@ export function Showroom() {
           <Reveal delay={200} className="lg:col-span-5 lg:pt-6">
             <dl className="space-y-7 border-t border-ivory/15 pt-8">
               <div>
-                <dt className="eyebrow text-ivory/40">Address</dt>
+                <dt className="eyebrow text-ivory/40">{t("Address")}</dt>
                 <dd className="mt-2 font-serif text-2xl leading-snug text-ivory">
-                  Agrabad Access Road,
+                  {t("Agrabad Access Road,")}
                   <br />
-                  Chattogram, Bangladesh
+                  {t("Chattogram, Bangladesh")}
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-ivory/40">Phone</dt>
+                <dt className="eyebrow text-ivory/40">{t("Phone")}</dt>
                 <dd className="mt-2">
                   <a
                     href="tel:+8801960481983"
@@ -70,7 +73,7 @@ export function Showroom() {
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-ivory/40">Email</dt>
+                <dt className="eyebrow text-ivory/40">{t("Email")}</dt>
                 <dd className="mt-2">
                   <a
                     href="mailto:heavenfurnituremart@gmail.com"
