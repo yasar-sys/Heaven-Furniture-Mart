@@ -56,10 +56,10 @@ export function Navbar() {
             height={36}
             className="size-8 shrink-0 self-center rounded-sm object-cover"
           />
-          <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
+          <span className="font-serif text-xl leading-none tracking-[0.14em] sm:text-2xl">
             HEAVEN
           </span>
-          <span className="eyebrow hidden whitespace-nowrap text-ivory/55 transition-colors group-hover:text-brass sm:block lg:hidden min-[1440px]:block">
+          <span className="eyebrow whitespace-nowrap text-ivory/60 transition-colors group-hover:text-brass">
             {t("Furniture Mart")}
           </span>
         </a>
