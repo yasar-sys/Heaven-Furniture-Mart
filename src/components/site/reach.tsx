@@ -144,7 +144,7 @@ export function Reach() {
             <Reveal delay={90}>
               <p className="mt-10 max-w-md border-t border-ivory/15 pt-6 text-sm leading-relaxed text-ivory/55">
                 {t(
-                  "We deliver from Chattogram, and we're growing city by city across Bangladesh as demand for bespoke furniture spreads.",
+                  "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.",
                 )}
               </p>
             </Reveal>

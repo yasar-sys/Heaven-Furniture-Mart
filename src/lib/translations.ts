@@ -250,7 +250,7 @@ const bn: Dict = {
   "Hover a city to see where our furniture already lives — and where we grow next.": "কোনো শহরে হোভার করুন — দেখুন আমাদের আসবাব কোথায় আছে এবং আমরা কোথায় বাড়ছি।",
   "Our showroom and workshop are in Agrabad, Chattogram — every piece is designed, crafted and finished here before it reaches your home.":
     "আমাদের শোরুম ও কারখানা চট্টগ্রামের আগ্রাবাদে — প্রতিটি আসবাব এখানেই ডিজাইন, তৈরি ও ফিনিশ হয়ে আপনার ঘরে পৌঁছায়।",
-  "We deliver from Chattogram, and we"re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
+  "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "চট্টগ্রাম থেকেই আমরা ডেলিভারি করি, আর বেসপোক আসবাবের চাহিদা বাড়ার সাথে সাথে শহরে শহরে ছড়িয়ে পড়ছি।",
   "Aria": "আরিয়া",
   "Design concierge": "ডিজাইন কনসিয়ার্জ",
@@ -490,7 +490,7 @@ const es: Dict = {
   "Hover a city to see where our furniture already lives — and where we grow next.": "Pasa el cursor por una ciudad para ver dónde vive ya nuestro mobiliario y hacia dónde crecemos.",
   "Our showroom and workshop are in Agrabad, Chattogram — every piece is designed, crafted and finished here before it reaches your home.":
     "Nuestro showroom y taller están en Agrabad, Chattogram: cada pieza se diseña, fabrica y acaba aquí antes de llegar a tu hogar.",
-  "We deliver from Chattogram, and we"re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
+  "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "Entregamos desde Chattogram y crecemos ciudad a ciudad por todo Bangladés a medida que aumenta la demanda de mobiliario a medida.",
   "Aria": "Aria",
   "Design concierge": "Conserje de diseño",
@@ -727,7 +727,7 @@ const hi: Dict = {
   "Hover a city to see where our furniture already lives — and where we grow next.": "किसी शहर पर होवर करें और देखें हमारा फर्नीचर कहाँ पहुँचा है और आगे कहाँ बढ़ेंगे।",
   "Our showroom and workshop are in Agrabad, Chattogram — every piece is designed, crafted and finished here before it reaches your home.":
     "हमारा शोरूम और वर्कशॉप आग्राबाद, चट्टग्राम में है — हर पीस यहीं डिज़ाइन, तैयार और फ़िनिश होकर आपके घर पहुँचता है।",
-  "We deliver from Chattogram, and we"re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
+  "We deliver from Chattogram, and we’re growing city by city across Bangladesh as demand for bespoke furniture spreads.":
     "हम चट्टग्राम से डिलीवरी करते हैं और कस्टम फर्नीचर की माँग बढ़ने के साथ शहर-दर-शहर बढ़ रहे हैं।",
   "Aria": "आरिया",
   "Design concierge": "डिज़ाइन कंसीयज",
