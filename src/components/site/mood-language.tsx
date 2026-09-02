@@ -11,6 +11,7 @@ export function MoodToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={toggleMood}
+      data-mood-toggle
       aria-label={mood === "dark" ? t("Light mood") : t("Dark mood")}
       className={cn(
         "flex h-9 w-9 items-center justify-center rounded-full border border-ivory/25 text-ivory/70 transition-colors duration-500 hover:border-brass hover:text-brass",
