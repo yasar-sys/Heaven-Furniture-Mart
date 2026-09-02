@@ -32,7 +32,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 }
 
 export function useMood() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useMood must be used within ThemeProvider");
-  return ctx;
+  return (
+    useContext(ThemeContext) ?? {
+      mood: "light" as const,
+      setMood: () => {},
+      toggleMood: () => {},
+    }
+  );
 }
