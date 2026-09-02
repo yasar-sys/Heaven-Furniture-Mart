@@ -63,6 +63,7 @@ export function Process() {
                 type="button"
                 onClick={() => setActive(i)}
                 onFocus={() => setActive(i)}
+                onMouseEnter={() => setActive(i)}
                 aria-pressed={active === i}
                 className="block w-full text-left"
               >
