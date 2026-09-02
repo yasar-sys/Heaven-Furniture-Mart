@@ -50,6 +50,7 @@ export const Route = createFileRoute("/api/chat")({
             model: provider.model,
             system: SYSTEM,
             messages: await convertToModelMessages(messages),
+            maxRetries: 3,
             onError: ({ error }) => {
               console.error("[api/chat] stream error", provider.label, error);
             },

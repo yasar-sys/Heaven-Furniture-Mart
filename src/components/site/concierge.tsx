@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { MessageCircle, X } from "lucide-react";
@@ -49,9 +49,30 @@ export function Concierge() {
   const [note, setNote] = useState("");
   const { openConsultation } = useConsultation();
 
-  const { messages, sendMessage, status, error } = useChat({
+  const retriedRef = useRef(false);
+  const [retrying, setRetrying] = useState(false);
+
+  const { messages, sendMessage, regenerate, status, error, clearError } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
+
+  // A dropped stream or a transient gateway hiccup should not become a dead end:
+  // retry once automatically, and only then fall back to the contact message.
+  useEffect(() => {
+    if (!error || retriedRef.current) return;
+    retriedRef.current = true;
+    setRetrying(true);
+    const timer = setTimeout(() => {
+      void Promise.resolve(regenerate()).finally(() => setRetrying(false));
+    }, 900);
+    return () => clearTimeout(timer);
+  }, [error, regenerate]);
+
+  const retryNow = () => {
+    clearError?.();
+    setRetrying(true);
+    void Promise.resolve(regenerate()).finally(() => setRetrying(false));
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -62,17 +83,21 @@ export function Concierge() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const busy = status === "submitted" || status === "streaming";
+  const busy = status === "submitted" || status === "streaming" || retrying;
 
   const send = (text: string) => {
     const value = text.trim();
     if (!value || busy) return;
+    retriedRef.current = false;
+    clearError?.();
     setInput("");
     void sendMessage({ text: value });
   };
 
   const sendEnquiry = () => {
     if (busy) return;
+    retriedRef.current = false;
+    clearError?.();
     const detail = note.trim();
     const question = `Materials enquiry — ${material}. I'd like to know about: ${topic}.${
       detail ? ` Details: ${detail}` : ""
@@ -159,22 +184,35 @@ export function Concierge() {
                 </Message>
               ))}
 
-              {status === "submitted" && <Shimmer className="text-sm">{t("Thinking...")}</Shimmer>}
+              {(status === "submitted" || retrying) && (
+                <Shimmer className="text-sm">
+                  {retrying ? t("Reconnecting...") : t("Thinking...")}
+                </Shimmer>
+              )}
 
-              {error && (
+              {error && !retrying && (
                 <div className="border border-border/70 p-3">
                   <p className="text-xs leading-relaxed text-muted-foreground">
                     {t(
                       "Our concierge is unavailable right now. Please call +880 1960-481983 or request a free design consultation and our designer will reply.",
                     )}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => openConsultation()}
-                    className="mt-3 text-[0.65rem] uppercase tracking-[0.18em] text-brass underline-offset-4 hover:underline"
-                  >
-                    {t("Request Consultation")}
-                  </button>
+                  <div className="mt-3 flex flex-wrap items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={retryNow}
+                      className="text-[0.65rem] uppercase tracking-[0.18em] text-foreground underline-offset-4 hover:text-brass hover:underline"
+                    >
+                      {t("Try again")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => openConsultation()}
+                      className="text-[0.65rem] uppercase tracking-[0.18em] text-brass underline-offset-4 hover:underline"
+                    >
+                      {t("Request Consultation")}
+                    </button>
+                  </div>
                 </div>
               )}
             </ConversationContent>
