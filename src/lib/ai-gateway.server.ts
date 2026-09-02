@@ -1,4 +1,5 @@
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 
 export type ChatProvider = {
   model: ReturnType<ReturnType<typeof createOpenAICompatible>>;
