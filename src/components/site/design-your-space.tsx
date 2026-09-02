@@ -76,6 +76,8 @@ function Choice({
   );
 }
 
+const FRAMES: string[] = Array.from(new Set(ROOMS.flatMap((r) => r.gallery)));
+
 export function DesignYourSpace() {
   const [room, setRoom] = useState(ROOMS[0]!);
   const [style, setStyle] = useState<string>(STYLES[0]!);
@@ -83,6 +85,12 @@ export function DesignYourSpace() {
   const { openConsultation } = useConsultation();
   const { frameProps } = useInteractiveFrame(20);
   const t = useT();
+
+  const styleIndex = STYLES.indexOf(style as (typeof STYLES)[number]);
+  const scaleIndex = SCALES.findIndex((s) => s.id === scale.id);
+  const activeFrame =
+    room.gallery[(Math.max(styleIndex, 0) + Math.max(scaleIndex, 0) * 2) % room.gallery.length]!;
+
 
   return (
     <Section id="design" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Design your space">
