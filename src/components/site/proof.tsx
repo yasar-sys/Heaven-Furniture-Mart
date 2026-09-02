@@ -81,11 +81,13 @@ export function Proof() {
                   <InteractiveImage
                     src={a.img}
                     alt={a.alt}
-                    depth={16}
+                    depth={a.fit === "contain" ? 8 : 16}
                     width={a.width}
                     height={a.height}
-                    frameClassName={`${a.frame} w-full overflow-hidden rounded-sm`}
+                    className={a.fit === "contain" ? "object-contain p-4" : "object-cover"}
+                    frameClassName="aspect-4/3 w-full overflow-hidden rounded-sm bg-foreground/5"
                   />
+
                   <figcaption className="mt-5">
                     <p className="font-serif text-lg text-brass">{a.year}</p>
                     <p className="mt-1 font-serif text-xl leading-snug text-foreground">
