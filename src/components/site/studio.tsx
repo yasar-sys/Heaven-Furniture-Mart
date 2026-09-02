@@ -255,35 +255,28 @@ export function Studio() {
             <div className="overflow-hidden rounded-sm border border-ivory/12 bg-ivory/[0.03]">
               <div
                 data-cursor="grow"
-                onPointerDown={(e) => {
-                  drag.current = e.clientX - spin * 2;
-                }}
-                onPointerMove={(e) => {
-                  if (drag.current === null) return;
-                  setSpin(Math.max(-38, Math.min(38, (e.clientX - drag.current) / 2)));
-                }}
-                onPointerUp={() => {
-                  drag.current = null;
-                }}
-                onPointerLeave={() => {
-                  drag.current = null;
-                }}
-                className="relative aspect-4/3 w-full touch-none select-none [perspective:1100px]"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(120% 90% at 50% 12%, color-mix(in oklab, var(--brass) 12%, transparent), transparent 70%)",
-                }}
+                role="img"
+                aria-label={summary}
+                className="relative aspect-4/3 w-full touch-none select-none overflow-hidden"
               >
-                <div
-                  className="absolute inset-0 flex items-center justify-center transition-transform duration-200 ease-out"
-                  style={{ transform: `rotateY(${spin}deg) rotateX(6deg)` }}
+                <ClientOnly
+                  fallback={
+                    <div className="absolute inset-0 grid place-items-center text-[0.65rem] uppercase tracking-[0.24em] text-ivory/40">
+                      {t("Drag to rotate")}
+                    </div>
+                  }
                 >
-                  <svg viewBox="0 0 400 240" className="h-full w-full" role="img" aria-label={summary}>
-                    <ellipse cx="200" cy="208" rx="150" ry="14" fill="rgba(0,0,0,0.45)" />
-                    <Piece piece={piece} fabric={fabric.hex} wood={wood.hex} span={span} />
-                  </svg>
-                </div>
-                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.24em] text-ivory/45">
+                  <Suspense
+                    fallback={
+                      <div className="absolute inset-0 grid place-items-center text-[0.65rem] uppercase tracking-[0.24em] text-ivory/40">
+                        {t("Drag to rotate")}
+                      </div>
+                    }
+                  >
+                    <StudioScene piece={piece} fabric={fabric.hex} wood={wood.hex} span={span} />
+                  </Suspense>
+                </ClientOnly>
+                <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.24em] text-ivory/45">
                   {t("Drag to rotate")}
                 </span>
               </div>
