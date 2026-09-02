@@ -129,7 +129,7 @@ export function Concierge() {
         >
           <header className="flex items-baseline justify-between gap-3 border-b border-border px-5 py-4">
             <div>
-              <p className="font-serif text-xl leading-none text-foreground">{t("Aria")}</p>
+              <p className="font-serif text-xl leading-none text-foreground">{t("Rahi")}</p>
               <p className="eyebrow mt-2 text-brass">{t("Design concierge")}</p>
             </div>
             <button
