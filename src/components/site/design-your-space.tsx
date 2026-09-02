@@ -11,14 +11,7 @@ import bedroom from "@/assets/bedroom.jpg";
 import dining from "@/assets/dining.jpg";
 import office from "@/assets/office.jpg";
 import after from "@/assets/after.jpg";
-
-const ROOMS = [
-  { id: "Living Room", img: living, note: "Sofas, coffee tables, TV units" },
-  { id: "Bedroom", img: bedroom, note: "Beds, wardrobes, dressing tables" },
-  { id: "Dining", img: dining, note: "Tables, chairs, cabinets" },
-  { id: "Office & Study", img: office, note: "Executive tables, bookshelves" },
-  { id: "Custom", img: after, note: "Anything built to your space" },
-];
+import { photo } from "@/assets/real/photos";
 
 const STYLES = ["Modern", "Minimal", "Classic", "Contemporary", "Luxury"] as const;
 const SCALES = [
@@ -26,6 +19,36 @@ const SCALES = [
   { id: "Medium", d: "Balanced, generous proportions." },
   { id: "Spacious", d: "Room to compose freely." },
 ];
+
+/** One frame per room, per style — scale shifts the frame again. */
+const ROOMS = [
+  {
+    id: "Living Room",
+    note: "Sofas, coffee tables, TV units",
+    gallery: [photo.livingTeal, photo.livingBeige, photo.livingGold, living, after],
+  },
+  {
+    id: "Bedroom",
+    note: "Beds, wardrobes, dressing tables",
+    gallery: [photo.bedroomNavy, bedroom, photo.bedroomClassic, photo.bedroomVelvet, photo.bedroomClassic],
+  },
+  {
+    id: "Dining",
+    note: "Tables, chairs, cabinets",
+    gallery: [dining, photo.livingBeige, photo.bedroomNavy, after, photo.livingGold],
+  },
+  {
+    id: "Office & Study",
+    note: "Executive tables, bookshelves",
+    gallery: [photo.officeConference, office, photo.officeConference, office, photo.livingTeal],
+  },
+  {
+    id: "Custom",
+    note: "Anything built to your space",
+    gallery: [photo.customSwing, photo.livingBeige, photo.bedroomVelvet, after, photo.livingGold],
+  },
+];
+
 
 function Choice({
   active,
