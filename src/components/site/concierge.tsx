@@ -184,22 +184,35 @@ export function Concierge() {
                 </Message>
               ))}
 
-              {status === "submitted" && <Shimmer className="text-sm">{t("Thinking...")}</Shimmer>}
+              {(status === "submitted" || retrying) && (
+                <Shimmer className="text-sm">
+                  {retrying ? t("Reconnecting...") : t("Thinking...")}
+                </Shimmer>
+              )}
 
-              {error && (
+              {error && !retrying && (
                 <div className="border border-border/70 p-3">
                   <p className="text-xs leading-relaxed text-muted-foreground">
                     {t(
                       "Our concierge is unavailable right now. Please call +880 1960-481983 or request a free design consultation and our designer will reply.",
                     )}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => openConsultation()}
-                    className="mt-3 text-[0.65rem] uppercase tracking-[0.18em] text-brass underline-offset-4 hover:underline"
-                  >
-                    {t("Request Consultation")}
-                  </button>
+                  <div className="mt-3 flex flex-wrap items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={retryNow}
+                      className="text-[0.65rem] uppercase tracking-[0.18em] text-foreground underline-offset-4 hover:text-brass hover:underline"
+                    >
+                      {t("Try again")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => openConsultation()}
+                      className="text-[0.65rem] uppercase tracking-[0.18em] text-brass underline-offset-4 hover:underline"
+                    >
+                      {t("Request Consultation")}
+                    </button>
+                  </div>
                 </div>
               )}
             </ConversationContent>
