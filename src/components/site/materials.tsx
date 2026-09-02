@@ -81,7 +81,9 @@ export function Materials() {
               </p>
             </div>
 
-            <p className="mt-12 font-serif text-2xl italic text-brass">{t("Every detail matters.")}</p>
+            <p className="mt-12 font-serif text-2xl italic text-brass">
+              {t("Every detail matters.")}
+            </p>
           </div>
 
           <Reveal delay={120} className="lg:col-span-7">

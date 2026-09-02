@@ -19,7 +19,12 @@ export function Timeline() {
         <Reveal className="eyebrow text-muted-foreground">{t("Milestones")}</Reveal>
         <ol className="mt-8 grid gap-px sm:grid-cols-2 lg:grid-cols-5">
           {MILESTONES.map((m, i) => (
-            <Reveal key={m.y} delay={i * 80} as="li" className="border-t border-foreground/12 py-6 sm:pr-6">
+            <Reveal
+              key={m.y}
+              delay={i * 80}
+              as="li"
+              className="border-t border-foreground/12 py-6 sm:pr-6"
+            >
               <p className="font-serif text-xl text-brass">{m.y}</p>
               <p className="mt-2 max-w-[26ch] text-[0.8rem] leading-relaxed text-muted-foreground">
                 {t(m.d)}

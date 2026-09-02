@@ -135,7 +135,9 @@ export function DesignYourSpace() {
                   className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--ink)_88%,transparent)_100%)]"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <p className="eyebrow text-brass">{t(style)} · {t(scale.id)}</p>
+                  <p className="eyebrow text-brass">
+                    {t(style)} · {t(scale.id)}
+                  </p>
                   <h3 className="mt-3 font-serif text-3xl text-ivory sm:text-4xl">{t(room.id)}</h3>
                   <p className="mt-2 text-xs leading-relaxed text-ivory/65">{t(room.note)}</p>
                   <p className="mt-1 text-xs leading-relaxed text-ivory/45">{t(scale.d)}</p>

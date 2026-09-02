@@ -18,7 +18,10 @@ export function FinalCta() {
             <br />
             <span className="italic text-brass">{t("made for it.")}</span>
           </Reveal>
-          <Reveal delay={120} className="mx-auto mt-9 max-w-md text-sm leading-relaxed text-ivory/65">
+          <Reveal
+            delay={120}
+            className="mx-auto mt-9 max-w-md text-sm leading-relaxed text-ivory/65"
+          >
             {t("Tell us what you're imagining. We'll help you turn it into something real.")}
           </Reveal>
           <Reveal delay={200} className="mt-12">

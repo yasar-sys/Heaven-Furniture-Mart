@@ -54,13 +54,11 @@ const bn: Dict = {
   "Six reasons clients": "ছয়টি কারণে ক্লায়েন্টরা",
   "build with us.": "আমাদের সঙ্গে গড়েন।",
   "Fully Bespoke": "সম্পূর্ণ কাস্টম",
-  "Built around your space, not mass-produced.":
-    "আপনার জায়গার মাপে তৈরি, গণহারে বানানো নয়।",
+  "Built around your space, not mass-produced.": "আপনার জায়গার মাপে তৈরি, গণহারে বানানো নয়।",
   "Free Design Consultation": "ফ্রি ডিজাইন পরামর্শ",
   "Start with your idea. We'll help shape it.": "আপনার ভাবনা দিয়ে শুরু করুন, আকার দেব আমরা।",
   "Premium Materials": "প্রিমিয়াম ম্যাটেরিয়াল",
-  "Quality wood, materials and skilled craftsmanship.":
-    "উন্নত কাঠ, ম্যাটেরিয়াল আর দক্ষ কারিগরি।",
+  "Quality wood, materials and skilled craftsmanship.": "উন্নত কাঠ, ম্যাটেরিয়াল আর দক্ষ কারিগরি।",
   "In-House Craftsmanship": "নিজস্ব কারখানার কারিগরি",
   "Every piece receives attention from skilled craftsmen.":
     "প্রতিটি আসবাব দক্ষ কারিগরের হাতে যত্ন পায়।",
@@ -281,8 +279,7 @@ const es: Dict = {
   "Six reasons clients": "Seis razones para",
   "build with us.": "construir con nosotros.",
   "Fully Bespoke": "Totalmente a medida",
-  "Built around your space, not mass-produced.":
-    "Hecho para tu espacio, nunca en serie.",
+  "Built around your space, not mass-produced.": "Hecho para tu espacio, nunca en serie.",
   "Free Design Consultation": "Asesoría de diseño gratuita",
   "Start with your idea. We'll help shape it.": "Empieza con tu idea. Nosotros le damos forma.",
   "Premium Materials": "Materiales premium",
@@ -334,7 +331,8 @@ const es: Dict = {
   "Not a catalogue. A starting point — every piece is made to your dimensions.":
     "No es un catálogo, es un punto de partida: cada pieza se hace a tus medidas.",
   Living: "Salón",
-  "Sofas · Coffee Tables · TV Units · Consoles": "Sofás · Mesas de centro · Muebles de TV · Consolas",
+  "Sofas · Coffee Tables · TV Units · Consoles":
+    "Sofás · Mesas de centro · Muebles de TV · Consolas",
   "Beds · Wardrobes · Dressing Tables · Bedside Tables":
     "Camas · Armarios · Tocadores · Mesitas de noche",
   "Dining Tables · Chairs · Cabinets": "Mesas de comedor · Sillas · Vitrinas",
@@ -502,11 +500,9 @@ const hi: Dict = {
   "Free Design Consultation": "मुफ़्त डिज़ाइन परामर्श",
   "Start with your idea. We'll help shape it.": "अपने विचार से शुरू करें, आकार हम देंगे।",
   "Premium Materials": "प्रीमियम मटीरियल",
-  "Quality wood, materials and skilled craftsmanship.":
-    "बेहतर लकड़ी, मटीरियल और कुशल कारीगरी।",
+  "Quality wood, materials and skilled craftsmanship.": "बेहतर लकड़ी, मटीरियल और कुशल कारीगरी।",
   "In-House Craftsmanship": "अपनी कार्यशाला",
-  "Every piece receives attention from skilled craftsmen.":
-    "हर टुकड़े पर कुशल कारीगरों का ध्यान।",
+  "Every piece receives attention from skilled craftsmen.": "हर टुकड़े पर कुशल कारीगरों का ध्यान।",
   "Delivery & Installation": "डिलीवरी और इंस्टॉलेशन",
   "We take care of the journey from workshop to your home.":
     "कार्यशाला से आपके घर तक की जिम्मेदारी हमारी।",

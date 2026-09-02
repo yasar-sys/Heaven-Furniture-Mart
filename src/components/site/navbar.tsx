@@ -1,3 +1,5 @@
+import { useT } from "@/lib/i18n";
+import { LanguageSwitch, MoodToggle } from "./mood-language";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Cta } from "./ui-kit";
@@ -14,6 +16,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const { openConsultation } = useConsultation();
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -39,12 +42,16 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-14">
-        <a href="#top" className="group flex items-baseline gap-2 text-ivory" aria-label="Heaven Furniture Mart, home">
+        <a
+          href="#top"
+          className="group flex items-baseline gap-2 text-ivory"
+          aria-label="Heaven Furniture Mart, home"
+        >
           <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
             HEAVEN
           </span>
           <span className="eyebrow hidden text-ivory/55 transition-colors group-hover:text-brass sm:block">
-            Furniture Mart
+            {t("Furniture Mart")}
           </span>
         </a>
 
@@ -55,34 +62,39 @@ export function Navbar() {
               href={l.href}
               className="link-underline text-[0.72rem] uppercase tracking-[0.22em] text-ivory/75 transition-colors hover:text-ivory"
             >
-              {l.label}
+              {t(l.label)}
             </a>
           ))}
+          <LanguageSwitch />
+          <MoodToggle />
           <Cta tone="light" size="md" onClick={() => openConsultation()}>
-            Request Consultation
+            {t("Request Consultation")}
           </Cta>
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setMenu((v) => !v)}
-          aria-expanded={menu}
-          aria-label={menu ? "Close menu" : "Open menu"}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[7px] lg:hidden"
-        >
-          <span
-            className={cn(
-              "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
-              menu && "translate-y-[4px] rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
-              menu && "-translate-y-[4px] -rotate-45",
-            )}
-          />
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <MoodToggle />
+          <button
+            type="button"
+            onClick={() => setMenu((v) => !v)}
+            aria-expanded={menu}
+            aria-label={menu ? "Close menu" : "Open menu"}
+            className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[7px] lg:hidden"
+          >
+            <span
+              className={cn(
+                "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
+                menu && "translate-y-[4px] rotate-45",
+              )}
+            />
+            <span
+              className={cn(
+                "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
+                menu && "-translate-y-[4px] -rotate-45",
+              )}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -92,7 +104,7 @@ export function Navbar() {
           menu ? "pointer-events-auto opacity-100" : "pointer-events-none translate-y-2 opacity-0",
         )}
       >
-        <span className="eyebrow mb-8 text-brass">Menu</span>
+        <span className="eyebrow mb-8 text-brass">{t("Menu")}</span>
         <ul className="space-y-5">
           {LINKS.map((l, i) => (
             <li key={l.href}>
@@ -105,7 +117,7 @@ export function Navbar() {
                   menu ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
                 )}
               >
-                {l.label}
+                {t(l.label)}
               </a>
             </li>
           ))}
@@ -118,10 +130,11 @@ export function Navbar() {
               openConsultation();
             }}
           >
-            Request Consultation
+            {t("Request Consultation")}
           </Cta>
-          <p className="mt-8 text-xs leading-relaxed tracking-wide text-ivory/50">
-            Agrabad Access Road, Chattogram
+          <LanguageSwitch className="mt-8 -ml-2" />
+          <p className="mt-6 text-xs leading-relaxed tracking-wide text-ivory/50">
+            {t("Agrabad Access Road, Chattogram")}
             <br />
             +880 1960-481983
           </p>

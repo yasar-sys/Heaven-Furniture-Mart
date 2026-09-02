@@ -18,12 +18,26 @@ export function MoodToggle({ className }: { className?: string }) {
       )}
     >
       {mood === "dark" ? (
-        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+          aria-hidden
+        >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19" />
         </svg>
       ) : (
-        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+          aria-hidden
+        >
           <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" />
         </svg>
       )}
@@ -50,9 +64,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
           title={l.label}
           className={cn(
             "rounded-sm px-2 py-1 text-[0.62rem] tracking-[0.18em] transition-colors duration-500",
-            lang === l.code
-              ? "bg-brass/20 text-brass"
-              : "text-ivory/50 hover:text-ivory",
+            lang === l.code ? "bg-brass/20 text-brass" : "text-ivory/50 hover:text-ivory",
           )}
         >
           {l.short}

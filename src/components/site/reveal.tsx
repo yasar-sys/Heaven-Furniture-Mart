@@ -32,13 +32,7 @@ type RevealProps = {
   variant?: "text" | "image";
 };
 
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  as,
-  variant = "text",
-}: RevealProps) {
+export function Reveal({ children, className, delay = 0, as, variant = "text" }: RevealProps) {
   const Tag = (as ?? "div") as ElementType;
   const { ref, shown } = useInView<HTMLElement>();
 

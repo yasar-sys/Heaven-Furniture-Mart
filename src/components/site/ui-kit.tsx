@@ -97,9 +97,7 @@ export function SectionHeading({
             <span className={cn("eyebrow", invert ? "text-brass" : "text-brass")}>{index}</span>
           )}
           {eyebrow && (
-            <span
-              className={cn("eyebrow", invert ? "text-ivory/60" : "text-muted-foreground")}
-            >
+            <span className={cn("eyebrow", invert ? "text-ivory/60" : "text-muted-foreground")}>
               {eyebrow}
             </span>
           )}

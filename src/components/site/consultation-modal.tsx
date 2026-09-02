@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
@@ -22,6 +23,7 @@ const field =
 
 export function ConsultationModal() {
   const { open, setOpen, prefill } = useConsultation();
+  const t = useT();
   const [sent, setSent] = useState(false);
   const [interest, setInterest] = useState<string>("");
   const [room, setRoom] = useState<string>("");
@@ -40,28 +42,29 @@ export function ConsultationModal() {
       <DialogContent className="max-h-[92svh] max-w-2xl overflow-y-auto rounded-sm border-foreground/10 bg-background p-7 sm:p-11">
         {sent ? (
           <div className="py-14 text-center">
-            <span className="eyebrow text-brass">Received</span>
+            <span className="eyebrow text-brass">{t("Received")}</span>
             <DialogTitle className="mt-6 font-serif text-5xl font-light tracking-tight">
-              Thank you.
+              {t("Thank you.")}
             </DialogTitle>
             <DialogDescription className="mx-auto mt-5 max-w-xs text-sm text-muted-foreground">
-              Your design journey starts here. Our team will call you shortly to plan your
-              consultation.
+              {t(
+                "Your design journey starts here. Our team will call you shortly to plan your consultation.",
+              )}
             </DialogDescription>
             <div className="mx-auto mt-10 w-fit">
               <Cta tone="outline" size="md" onClick={() => setOpen(false)}>
-                Back to the page
+                {t("Back to the page")}
               </Cta>
             </div>
           </div>
         ) : (
           <>
-            <span className="eyebrow text-brass">Free design consultation</span>
+            <span className="eyebrow text-brass">{t("Free design consultation")}</span>
             <DialogTitle className="mt-4 font-serif text-4xl font-light tracking-tight sm:text-5xl">
-              Let's create something yours.
+              {t("Let's create something yours.")}
             </DialogTitle>
             <DialogDescription className="mt-3 text-sm text-muted-foreground">
-              Share a few details. We'll get back within one working day.
+              {t("Share a few details. We'll get back within one working day.")}
             </DialogDescription>
 
             <form
@@ -73,11 +76,17 @@ export function ConsultationModal() {
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="eyebrow mb-2 block text-muted-foreground">Name</span>
-                  <input required name="name" autoComplete="name" className={field} placeholder="Your name" />
+                  <span className="eyebrow mb-2 block text-muted-foreground">{t("Name")}</span>
+                  <input
+                    required
+                    name="name"
+                    autoComplete="name"
+                    className={field}
+                    placeholder={t("Your name")}
+                  />
                 </label>
                 <label className="block">
-                  <span className="eyebrow mb-2 block text-muted-foreground">Phone</span>
+                  <span className="eyebrow mb-2 block text-muted-foreground">{t("Phone")}</span>
                   <input
                     required
                     name="phone"
@@ -90,19 +99,19 @@ export function ConsultationModal() {
               </div>
 
               <label className="block">
-                <span className="eyebrow mb-2 block text-muted-foreground">Email</span>
+                <span className="eyebrow mb-2 block text-muted-foreground">{t("Email")}</span>
                 <input
                   name="email"
                   type="email"
                   autoComplete="email"
                   className={field}
-                  placeholder="you@email.com"
+                  placeholder={t("you@email.com")}
                 />
               </label>
 
               <fieldset>
                 <legend className="eyebrow mb-3 text-muted-foreground">
-                  What are you looking for?
+                  {t("What are you looking for?")}
                 </legend>
                 <div className="flex flex-wrap gap-2">
                   {INTERESTS.map((i) => (
@@ -118,7 +127,7 @@ export function ConsultationModal() {
                           : "border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground",
                       )}
                     >
-                      {i}
+                      {t(i)}
                     </button>
                   ))}
                 </div>
@@ -126,24 +135,24 @@ export function ConsultationModal() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="eyebrow mb-2 block text-muted-foreground">Room type</span>
+                  <span className="eyebrow mb-2 block text-muted-foreground">{t("Room type")}</span>
                   <select
                     className={field}
                     value={room}
                     onChange={(e) => setRoom(e.target.value)}
                     name="room"
                   >
-                    <option value="">Select a room</option>
+                    <option value="">{t("Select a room")}</option>
                     {ROOMS.map((r) => (
                       <option key={r} value={r}>
-                        {r}
+                        {t(r)}
                       </option>
                     ))}
                   </select>
                 </label>
                 <label className="block">
                   <span className="eyebrow mb-2 block text-muted-foreground">
-                    Approximate space
+                    {t("Approximate space")}
                   </span>
                   <select
                     className={field}
@@ -151,10 +160,10 @@ export function ConsultationModal() {
                     onChange={(e) => setSpace(e.target.value)}
                     name="space"
                   >
-                    <option value="">Select a scale</option>
+                    <option value="">{t("Select a scale")}</option>
                     {SPACES.map((s) => (
                       <option key={s} value={s}>
-                        {s}
+                        {t(s)}
                       </option>
                     ))}
                   </select>
@@ -163,18 +172,18 @@ export function ConsultationModal() {
 
               <label className="block">
                 <span className="eyebrow mb-2 block text-muted-foreground">
-                  Additional message
+                  {t("Additional message")}
                 </span>
                 <textarea
                   name="message"
                   rows={3}
                   className={cn(field, "resize-none")}
-                  placeholder="Dimensions, timeline, anything you have in mind."
+                  placeholder={t("Dimensions, timeline, anything you have in mind.")}
                 />
               </label>
 
               <Cta type="submit" className="w-full sm:w-auto">
-                Request my consultation
+                {t("Request my consultation")}
               </Cta>
             </form>
           </>

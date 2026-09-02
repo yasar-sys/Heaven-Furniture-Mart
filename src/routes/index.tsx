@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { LanguageProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/lib/theme";
 import { ConsultationProvider } from "@/components/site/consultation-context";
 import { ConsultationModal } from "@/components/site/consultation-modal";
 import { Navbar } from "@/components/site/navbar";
@@ -37,25 +39,29 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <ConsultationProvider>
-      <Navbar />
-      <main>
-        <Hero />
-        <Statement />
-        <WhyHeaven />
-        <DesignYourSpace />
-        <Collections />
-        <Bespoke />
-        <Materials />
-        <Process />
-        <Proof />
-        <Showroom />
-        <Timeline />
-        <FinalCta />
-      </main>
-      <Footer />
-      <MobileCta />
-      <ConsultationModal />
-    </ConsultationProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <ConsultationProvider>
+          <Navbar />
+          <main>
+            <Hero />
+            <Statement />
+            <WhyHeaven />
+            <DesignYourSpace />
+            <Collections />
+            <Bespoke />
+            <Materials />
+            <Process />
+            <Proof />
+            <Showroom />
+            <Timeline />
+            <FinalCta />
+          </main>
+          <Footer />
+          <MobileCta />
+          <ConsultationModal />
+        </ConsultationProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }

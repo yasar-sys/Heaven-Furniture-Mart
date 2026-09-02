@@ -6,9 +6,21 @@ const POINTS = [
   { n: "01", t: "Fully Bespoke", d: "Built around your space, not mass-produced." },
   { n: "02", t: "Free Design Consultation", d: "Start with your idea. We'll help shape it." },
   { n: "03", t: "Premium Materials", d: "Quality wood, materials and skilled craftsmanship." },
-  { n: "04", t: "In-House Craftsmanship", d: "Every piece receives attention from skilled craftsmen." },
-  { n: "05", t: "Delivery & Installation", d: "We take care of the journey from workshop to your home." },
-  { n: "06", t: "A Physical Showroom", d: "Experience the furniture in person at Agrabad, Chattogram." },
+  {
+    n: "04",
+    t: "In-House Craftsmanship",
+    d: "Every piece receives attention from skilled craftsmen.",
+  },
+  {
+    n: "05",
+    t: "Delivery & Installation",
+    d: "We take care of the journey from workshop to your home.",
+  },
+  {
+    n: "06",
+    t: "A Physical Showroom",
+    d: "Experience the furniture in person at Agrabad, Chattogram.",
+  },
 ];
 
 export function WhyHeaven() {

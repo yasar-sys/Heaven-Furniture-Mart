@@ -24,14 +24,14 @@ export function Hero() {
       />
 
       <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-end px-5 pb-24 pt-32 sm:px-8 sm:pb-28 lg:px-14 lg:pb-32">
-        <p
-          className="eyebrow hero-rise mb-8 text-brass"
-          style={{ animationDelay: "120ms" }}
-        >
+        <p className="eyebrow hero-rise mb-8 text-brass" style={{ animationDelay: "120ms" }}>
           {t("Bespoke Furniture · Chattogram")}
         </p>
 
-        <h1 className="display-xl hero-rise max-w-[16ch] text-ivory" style={{ animationDelay: "220ms" }}>
+        <h1
+          className="display-xl hero-rise max-w-[16ch] text-ivory"
+          style={{ animationDelay: "220ms" }}
+        >
           {t("Furniture,")}
           <br />
           {t("crafted around you.")}
