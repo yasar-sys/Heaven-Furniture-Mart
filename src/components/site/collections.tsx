@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "./reveal";
@@ -82,20 +83,21 @@ const COLLECTIONS: Collection[] = [
 export function Collections() {
   const [open, setOpen] = useState<Collection | null>(null);
   const { openConsultation } = useConsultation();
+  const t = useT();
 
   return (
     <Section id="collections" className="py-24 sm:py-32 lg:py-40" label="Collections">
       <Shell>
         <SectionHeading
-          eyebrow="Collections"
+          eyebrow={t("Collections")}
           title={
             <>
-              A few of the rooms
+              {t("A few of the rooms")}
               <br />
-              we shape.
+              {t("we shape.")}
             </>
           }
-          intro="Not a catalogue. A starting point — every piece is made to your dimensions."
+          intro={t("Not a catalogue. A starting point — every piece is made to your dimensions.")}
         />
 
         <div className="mt-16 grid gap-5 sm:mt-20 sm:grid-cols-2 lg:gap-7">
@@ -105,7 +107,7 @@ export function Collections() {
                 type="button"
                 onClick={() => setOpen(c)}
                 className="group relative block w-full overflow-hidden rounded-sm text-left"
-                aria-label={`${c.title} collection — view example pieces`}
+                aria-label={`${t(c.title)} — ${t("Explore →")}`}
               >
                 <div className="aspect-4/5 w-full overflow-hidden sm:aspect-3/4">
                   <img
@@ -125,14 +127,14 @@ export function Collections() {
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 sm:p-8">
                   <span className="block">
                     <span className="block font-serif text-3xl leading-none text-ivory sm:text-4xl">
-                      {c.title}
+                      {t(c.title)}
                     </span>
                     <span className="mt-3 block text-[0.68rem] uppercase tracking-[0.18em] text-ivory/60">
-                      {c.items}
+                      {t(c.items)}
                     </span>
                   </span>
                   <span className="shrink-0 text-[0.68rem] uppercase tracking-[0.2em] text-brass transition-transform duration-500 ease-[var(--ease-luxe)] group-hover:translate-x-1">
-                    Explore →
+                    {t("Explore →")}
                   </span>
                 </span>
               </button>
@@ -152,19 +154,19 @@ export function Collections() {
                 className="h-56 w-full object-cover sm:h-full"
               />
               <div className="p-7 sm:p-10">
-                <p className="eyebrow text-brass">Collection</p>
+                <p className="eyebrow text-brass">{t("Collection")}</p>
                 <DialogTitle className="mt-3 font-serif text-4xl font-light">
-                  {open.title}
+                  {t(open.title)}
                 </DialogTitle>
                 <DialogDescription className="mt-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  {open.items}
+                  {t(open.items)}
                 </DialogDescription>
 
                 <ul className="mt-8 space-y-5">
                   {open.pieces.map((p) => (
                     <li key={p.name} className="border-t border-foreground/10 pt-4">
-                      <p className="font-serif text-xl text-foreground">{p.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{p.note}</p>
+                      <p className="font-serif text-xl text-foreground">{t(p.name)}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{t(p.note)}</p>
                     </li>
                   ))}
                 </ul>
@@ -177,7 +179,7 @@ export function Collections() {
                     openConsultation({ interest: open.interest, room: open.room });
                   }}
                 >
-                  Create something similar
+                  {t("Create something similar")}
                 </Cta>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
@@ -56,6 +57,7 @@ export function DesignYourSpace() {
   const [style, setStyle] = useState<string>(STYLES[0]!);
   const [scale, setScale] = useState(SCALES[1]!);
   const { openConsultation } = useConsultation();
+  const t = useT();
 
   return (
     <Section id="design" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Design your space">
@@ -63,47 +65,47 @@ export function DesignYourSpace() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <Reveal className="mb-6 flex items-center gap-4">
-              <span className="eyebrow text-brass">Interactive</span>
+              <span className="eyebrow text-brass">{t("Interactive")}</span>
               <span className="h-px flex-1 bg-ivory/15" />
             </Reveal>
             <Reveal as="h2" delay={60} className="display-lg text-ivory">
-              Your space.
+              {t("Your space.")}
               <br />
-              <span className="italic text-brass">Your furniture.</span>
+              <span className="italic text-brass">{t("Your furniture.")}</span>
             </Reveal>
             <Reveal delay={140} className="mt-6 text-sm text-ivory/60">
-              Tell us what you're imagining.
+              {t("Tell us what you're imagining.")}
             </Reveal>
 
             <div className="mt-12 space-y-10">
               <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">Room</legend>
+                <legend className="eyebrow mb-4 text-ivory/40">{t("Room")}</legend>
                 <div className="flex flex-wrap gap-2.5">
                   {ROOMS.map((r) => (
                     <Choice key={r.id} active={room.id === r.id} onClick={() => setRoom(r)}>
-                      {r.id}
+                      {t(r.id)}
                     </Choice>
                   ))}
                 </div>
               </fieldset>
 
               <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">Style</legend>
+                <legend className="eyebrow mb-4 text-ivory/40">{t("Style")}</legend>
                 <div className="flex flex-wrap gap-2.5">
                   {STYLES.map((s) => (
                     <Choice key={s} active={style === s} onClick={() => setStyle(s)}>
-                      {s}
+                      {t(s)}
                     </Choice>
                   ))}
                 </div>
               </fieldset>
 
               <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">Scale</legend>
+                <legend className="eyebrow mb-4 text-ivory/40">{t("Scale")}</legend>
                 <div className="flex flex-wrap gap-2.5">
                   {SCALES.map((s) => (
                     <Choice key={s.id} active={scale.id === s.id} onClick={() => setScale(s)}>
-                      {s.id}
+                      {t(s.id)}
                     </Choice>
                   ))}
                 </div>
@@ -133,16 +135,16 @@ export function DesignYourSpace() {
                   className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--ink)_88%,transparent)_100%)]"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <p className="eyebrow text-brass">{style} · {scale.id}</p>
-                  <h3 className="mt-3 font-serif text-3xl text-ivory sm:text-4xl">{room.id}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-ivory/65">{room.note}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-ivory/45">{scale.d}</p>
+                  <p className="eyebrow text-brass">{t(style)} · {t(scale.id)}</p>
+                  <h3 className="mt-3 font-serif text-3xl text-ivory sm:text-4xl">{t(room.id)}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-ivory/65">{t(room.note)}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-ivory/45">{t(scale.d)}</p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-5 border-t border-ivory/12 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <p className="max-w-[22ch] font-serif text-xl leading-snug text-ivory">
-                  Your bespoke furniture journey starts here.
+                  {t("Your bespoke furniture journey starts here.")}
                 </p>
                 <Cta
                   tone="light"
@@ -155,7 +157,7 @@ export function DesignYourSpace() {
                     })
                   }
                 >
-                  Get my custom quote
+                  {t("Get my custom quote")}
                 </Cta>
               </div>
             </div>
