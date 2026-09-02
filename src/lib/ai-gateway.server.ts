@@ -1,7 +1,9 @@
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import type { LanguageModel } from "ai";
 
 export type ChatProvider = {
-  model: ReturnType<ReturnType<typeof createOpenAICompatible>>;
+  model: LanguageModel;
   label: string;
 };
 
@@ -12,6 +14,16 @@ export type ChatProvider = {
  * (optionally OPENAI_BASE_URL / OPENAI_MODEL) instead.
  */
 export function resolveChatProvider(): ChatProvider | null {
+  // Direct Google Gemini API key (works on Lovable, Vercel, or any host).
+  const googleKey = process.env["GOOGLE_API_KEY"] ?? process.env["GOOGLE_GENERATIVE_AI_API_KEY"];
+  if (googleKey) {
+    const google = createGoogleGenerativeAI({ apiKey: googleKey });
+    return {
+      model: google(process.env["GOOGLE_MODEL"] ?? "gemini-3.6-flash"),
+      label: "google-gemini",
+    };
+  }
+
   const lovableKey = process.env["LOVABLE_API_KEY"];
   if (lovableKey) {
     const gateway = createOpenAICompatible({
