@@ -11,12 +11,12 @@ export function Hero() {
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-ink">
       <img
         src={photo.heroShowroom}
-        alt="Teal velvet sofa set with a gilded centre table in the Heaven Furniture Mart luxury showroom"
+        alt="Luxurious grey velvet L-shaped sectional sofa set in Heaven Furniture Mart showroom"
         width={1024}
-        height={709}
+        height={836}
         fetchPriority="high"
         decoding="async"
-        className="animate-drift absolute inset-0 h-full w-full object-cover object-[57%_center] opacity-90 sm:object-center"
+        className="animate-drift absolute inset-0 h-full w-full object-cover object-center opacity-90"
       />
       <div
         aria-hidden

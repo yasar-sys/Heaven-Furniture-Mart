@@ -41,13 +41,13 @@ const ROOMS = [
   },
   {
     id: "Dining",
-    note: "Marble dining tables, velvet chairs, crockery cabinets",
+    note: "Carved gold dining tables, floral embroidered chairs, crockery cabinets",
     gallery: [
+      photo.diningRoyalGold,
       photo.diningPeachMarble,
+      photo.diningRoyalGold,
       photo.diningPeachMarble,
-      photo.livingBeigeArmchairs,
-      photo.diningPeachMarble,
-      photo.bedroomCarvedGold,
+      photo.diningRoyalGold,
     ],
   },
   {

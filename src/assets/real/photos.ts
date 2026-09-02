@@ -1,4 +1,5 @@
 import heroShowroom from "./hero-showroom.jpg";
+import heroGreySectional from "./hero-grey-sectional.jpg";
 import bedroomRoyalNavy from "./bedroom-royal-navy.jpg";
 import livingBeigeArmchairs from "./living-beige-armchairs.jpg";
 import bedroomCarvedGold from "./bedroom-carved-gold.jpg";
@@ -6,6 +7,7 @@ import bedroomModernNavy from "./bedroom-modern-navy.jpg";
 
 import livingGreySectional from "./living-grey-sectional.jpg";
 import diningPeachMarble from "./dining-peach-marble.jpg";
+import diningRoyalGold from "./dining-royal-gold.jpg";
 import officeDirectorDesk from "./office-director-desk.jpg";
 import officeWorkstation from "./office-workstation.jpg";
 import bedroomSleighBench from "./bedroom-sleigh-bench.jpg";
@@ -19,7 +21,8 @@ import awardTeam from "./award-team.jpg";
 
 /** Real Heaven Furniture Mart photography, served from local assets. */
 export const photo = {
-  heroShowroom,
+  heroShowroom: heroGreySectional,
+  heroGreySectional,
   bedroomRoyalNavy,
   livingBeigeArmchairs,
   bedroomCarvedGold,
@@ -27,6 +30,7 @@ export const photo = {
 
   livingGreySectional,
   diningPeachMarble,
+  diningRoyalGold,
   officeDirectorDesk,
   officeWorkstation,
   bedroomSleighBench,
@@ -39,7 +43,7 @@ export const photo = {
   livingBeige: livingBeigeArmchairs,
   livingGold: bedroomCarvedGold,
   livingGrey: livingGreySectional,
-  diningMarble: diningPeachMarble,
+  diningMarble: diningRoyalGold,
   officeDirector: officeDirectorDesk,
   officeCorporate: officeWorkstation,
 
