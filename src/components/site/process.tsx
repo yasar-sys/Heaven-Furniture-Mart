@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { Section, SectionHeading, Shell } from "./ui-kit";
 
@@ -9,10 +10,12 @@ const STEPS = [
 ];
 
 export function Process() {
+  const t = useT();
+
   return (
     <Section id="process" className="py-24 sm:py-32 lg:py-40" label="Our process">
       <Shell>
-        <SectionHeading eyebrow="Our Process" title="From conversation to installed." />
+        <SectionHeading eyebrow={t("Our Process")} title={t("From conversation to installed.")} />
 
         <ol className="mt-16 grid gap-px sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
@@ -28,10 +31,10 @@ export function Process() {
               />
               <span className="font-sans text-[0.7rem] tracking-[0.26em] text-brass">{s.n}</span>
               <h3 className="mt-5 font-serif text-3xl uppercase leading-none tracking-tight text-foreground">
-                {s.t}
+                {t(s.t)}
               </h3>
               <p className="mt-4 max-w-[24ch] text-sm leading-relaxed text-muted-foreground">
-                {s.d}
+                {t(s.d)}
               </p>
             </Reveal>
           ))}

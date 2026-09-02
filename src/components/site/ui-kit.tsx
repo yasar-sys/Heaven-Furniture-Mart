@@ -16,9 +16,9 @@ export function Cta({ tone = "solid", size = "lg", className, children, ...rest 
       className={cn(
         "group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm font-sans uppercase tracking-[0.2em] transition-[color,background-color,border-color,transform] duration-500 ease-[var(--ease-luxe)] active:scale-[0.985]",
         size === "lg" ? "px-8 py-4 text-[0.7rem] sm:text-xs" : "px-6 py-3 text-[0.65rem]",
-        tone === "solid" && "bg-ink text-primary-foreground hover:bg-brown",
+        tone === "solid" && "bg-foreground text-background hover:bg-brown hover:text-ivory",
         tone === "outline" &&
-          "border border-foreground/25 text-foreground hover:border-ink hover:bg-ink hover:text-primary-foreground",
+          "border border-foreground/25 text-foreground hover:border-foreground hover:bg-foreground hover:text-background",
         tone === "light" &&
           "border border-ivory/40 text-ivory backdrop-blur-[2px] hover:border-ivory hover:bg-ivory hover:text-foreground",
         className,

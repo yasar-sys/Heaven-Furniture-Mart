@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { Section, SectionHeading, Shell } from "./ui-kit";
 
@@ -11,16 +12,18 @@ const POINTS = [
 ];
 
 export function WhyHeaven() {
+  const t = useT();
+
   return (
     <Section tone="muted" className="py-24 sm:py-32 lg:py-40" label="Why Heaven">
       <Shell>
         <SectionHeading
-          eyebrow="Why Heaven"
+          eyebrow={t("Why Heaven")}
           title={
             <>
-              Six reasons clients
+              {t("Six reasons clients")}
               <br />
-              build with us.
+              {t("build with us.")}
             </>
           }
         />
@@ -34,10 +37,10 @@ export function WhyHeaven() {
             >
               <div className="flex items-baseline gap-5">
                 <span className="font-sans text-[0.7rem] tracking-[0.24em] text-brass">{p.n}</span>
-                <h3 className="font-serif text-2xl leading-tight text-foreground">{p.t}</h3>
+                <h3 className="font-serif text-2xl leading-tight text-foreground">{t(p.t)}</h3>
               </div>
               <p className="mt-4 max-w-xs pl-[3.1rem] text-sm leading-relaxed text-muted-foreground">
-                {p.d}
+                {t(p.d)}
               </p>
             </Reveal>
           ))}

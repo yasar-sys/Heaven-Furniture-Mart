@@ -1,9 +1,11 @@
+import { useT } from "@/lib/i18n";
 import heroImage from "@/assets/hero.jpg";
 import { Cta } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
 export function Hero() {
   const { openConsultation } = useConsultation();
+  const t = useT();
 
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-ink">
@@ -26,20 +28,20 @@ export function Hero() {
           className="eyebrow hero-rise mb-8 text-brass"
           style={{ animationDelay: "120ms" }}
         >
-          Bespoke Furniture · Chattogram
+          {t("Bespoke Furniture · Chattogram")}
         </p>
 
         <h1 className="display-xl hero-rise max-w-[16ch] text-ivory" style={{ animationDelay: "220ms" }}>
-          Furniture,
+          {t("Furniture,")}
           <br />
-          crafted around you.
+          {t("crafted around you.")}
         </h1>
 
         <p
           className="hero-rise mt-8 max-w-md text-sm leading-relaxed text-ivory/75 sm:text-base"
           style={{ animationDelay: "380ms" }}
         >
-          Bespoke furniture designed for your space, your taste, your life.
+          {t("Bespoke furniture designed for your space, your taste, your life.")}
         </p>
 
         <div
@@ -47,13 +49,13 @@ export function Hero() {
           style={{ animationDelay: "500ms" }}
         >
           <Cta tone="light" onClick={() => openConsultation()}>
-            Request a free consultation
+            {t("Request a free consultation")}
           </Cta>
           <a
             href="#collections"
             className="link-underline text-[0.7rem] uppercase tracking-[0.24em] text-ivory/70 hover:text-ivory"
           >
-            Explore our work ↓
+            {t("Explore our work ↓")}
           </a>
         </div>
 
@@ -61,11 +63,11 @@ export function Hero() {
           className="hero-rise mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-ivory/15 pt-7 text-[0.65rem] uppercase tracking-[0.26em] text-ivory/45"
           style={{ animationDelay: "640ms" }}
         >
-          <span>Designed</span>
+          <span>{t("Designed")}</span>
           <span className="text-brass">·</span>
-          <span>Crafted</span>
+          <span>{t("Crafted")}</span>
           <span className="text-brass">·</span>
-          <span>Customized</span>
+          <span>{t("Customized")}</span>
         </div>
       </div>
     </section>

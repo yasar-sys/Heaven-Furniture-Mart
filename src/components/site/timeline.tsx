@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { Section, Shell } from "./ui-kit";
 
@@ -10,16 +11,18 @@ const MILESTONES = [
 ];
 
 export function Timeline() {
+  const t = useT();
+
   return (
     <Section className="py-20 sm:py-24" label="Brand timeline">
       <Shell>
-        <Reveal className="eyebrow text-muted-foreground">Milestones</Reveal>
+        <Reveal className="eyebrow text-muted-foreground">{t("Milestones")}</Reveal>
         <ol className="mt-8 grid gap-px sm:grid-cols-2 lg:grid-cols-5">
           {MILESTONES.map((m, i) => (
             <Reveal key={m.y} delay={i * 80} as="li" className="border-t border-foreground/12 py-6 sm:pr-6">
               <p className="font-serif text-xl text-brass">{m.y}</p>
               <p className="mt-2 max-w-[26ch] text-[0.8rem] leading-relaxed text-muted-foreground">
-                {m.d}
+                {t(m.d)}
               </p>
             </Reveal>
           ))}
