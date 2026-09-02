@@ -39,8 +39,6 @@ export function Studio() {
   const [fabric, setFabric] = useState(FABRICS[1]!);
   const [wood, setWood] = useState(WOODS[0]!);
   const [span, setSpan] = useState(0.5);
-  const [spin, setSpin] = useState(-14);
-  const drag = useRef<number | null>(null);
 
   const active = useMemo(() => PIECES.find((p) => p.id === piece)!, [piece]);
   const width = Math.round(active.min + span * (active.max - active.min));
