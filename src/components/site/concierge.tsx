@@ -133,9 +133,20 @@ export function Concierge() {
               {status === "submitted" && <Shimmer className="text-sm">{t("Thinking...")}</Shimmer>}
 
               {error && (
-                <p className="text-xs leading-relaxed text-destructive">
-                  {t("Our concierge is unavailable right now.")} {error.message}
-                </p>
+                <div className="border border-border/70 p-3">
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    {t(
+                      "Our concierge is unavailable right now. Please call +880 1960-481983 or request a free design consultation and our designer will reply.",
+                    )}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => openConsultation()}
+                    className="mt-3 text-[0.65rem] uppercase tracking-[0.18em] text-brass underline-offset-4 hover:underline"
+                  >
+                    {t("Request Consultation")}
+                  </button>
+                </div>
               )}
             </ConversationContent>
             <ConversationScrollButton />
