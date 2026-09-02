@@ -59,19 +59,26 @@ export function Reach() {
                 </defs>
 
                 <path
+                  ref={outlineRef}
                   d={BD_MAINLAND}
                   fill="url(#reach-fill)"
                   stroke="var(--color-brass)"
                   strokeOpacity="0.9"
                   strokeWidth="1.4"
                   strokeLinejoin="round"
+                  strokeLinecap="round"
                   className="reach-outline"
-                  style={{
-                    strokeDasharray: 2600,
-                    strokeDashoffset: shown ? 0 : 2600,
-                    transition: "stroke-dashoffset 2.6s var(--ease-luxe)",
-                  }}
+                  style={
+                    len
+                      ? {
+                          strokeDasharray: len,
+                          strokeDashoffset: shown ? 0 : len,
+                          transition: "stroke-dashoffset 2.6s var(--ease-luxe)",
+                        }
+                      : undefined
+                  }
                 />
+
 
                 {BD_ISLANDS.map((d, i) => (
                   <path
