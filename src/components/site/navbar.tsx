@@ -50,7 +50,7 @@ export function Navbar() {
           <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
             HEAVEN
           </span>
-          <span className="eyebrow hidden whitespace-nowrap text-ivory/55 transition-colors group-hover:text-brass sm:block lg:hidden xl:block">
+          <span className="eyebrow hidden whitespace-nowrap text-ivory/55 transition-colors group-hover:text-brass sm:block lg:hidden min-[1440px]:block">
             {t("Furniture Mart")}
           </span>
         </a>
