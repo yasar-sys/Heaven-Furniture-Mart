@@ -1,3 +1,4 @@
+import { photo } from "@/assets/real/photos";
 import { useT } from "@/lib/i18n";
 import { LanguageSwitch, MoodToggle } from "./mood-language";
 import { useEffect, useState } from "react";
@@ -47,6 +48,14 @@ export function Navbar() {
           className="group flex shrink-0 items-baseline gap-2 text-ivory"
           aria-label="Heaven Furniture Mart, home"
         >
+          <img
+            src={photo.logoMark}
+            alt=""
+            aria-hidden
+            width={36}
+            height={36}
+            className="size-8 shrink-0 self-center rounded-sm object-cover sm:size-9"
+          />
           <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
             HEAVEN
           </span>

@@ -1,3 +1,4 @@
+import { photo } from "@/assets/real/photos";
 import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
@@ -46,7 +47,16 @@ export function Footer() {
       <Shell>
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-serif text-2xl tracking-[0.14em]">HEAVEN</p>
+            <div className="flex items-center gap-2.5">
+              <img
+                src={photo.logoMark}
+                alt="Heaven Furniture Mart logo"
+                width={36}
+                height={36}
+                className="size-9 shrink-0 rounded-sm object-cover"
+              />
+              <p className="font-serif text-2xl tracking-[0.14em]">HEAVEN</p>
+            </div>
             <p className="eyebrow mt-2 text-ivory/50">{t("Furniture Mart")}</p>
             <p className="mt-6 max-w-xs text-xs leading-relaxed text-ivory/50">
               {t("Agrabad Access Road, Chattogram, Bangladesh")}
