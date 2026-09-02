@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import wood from "@/assets/material-wood.jpg";
@@ -31,6 +32,7 @@ const MATERIALS = [
 ];
 
 export function Materials() {
+  const t = useT();
   const [active, setActive] = useState(0);
   const current = MATERIALS[active]!;
 
@@ -40,11 +42,11 @@ export function Materials() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5 lg:pt-6">
             <Reveal className="mb-6 flex items-center gap-4">
-              <span className="eyebrow text-brass">Materials</span>
+              <span className="eyebrow text-brass">{t("Materials")}</span>
               <span className="h-px flex-1 bg-ivory/15" />
             </Reveal>
             <Reveal as="h2" delay={60} className="display-lg text-ivory">
-              Touch the detail.
+              {t("Touch the detail.")}
             </Reveal>
 
             <div
@@ -65,21 +67,23 @@ export function Materials() {
                       : "border-transparent text-ivory/45 hover:text-ivory/80",
                   )}
                 >
-                  {m.tab}
+                  {t(m.tab)}
                 </button>
               ))}
             </div>
 
             <div className="mt-10 min-h-28">
               <h3 key={current.name} className="hero-rise font-serif text-4xl text-ivory">
-                {current.name}
+                {t(current.name)}
               </h3>
               <p key={current.line} className="hero-rise mt-3 text-sm text-ivory/60">
-                {current.line}
+                {t(current.line)}
               </p>
             </div>
 
-            <p className="mt-12 font-serif text-2xl italic text-brass">Every detail matters.</p>
+            <p className="mt-12 font-serif text-2xl italic text-brass">
+              {t("Every detail matters.")}
+            </p>
           </div>
 
           <Reveal delay={120} className="lg:col-span-7">

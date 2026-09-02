@@ -1,3 +1,4 @@
+import { useT } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useConsultation } from "./consultation-context";
@@ -5,6 +6,7 @@ import { useConsultation } from "./consultation-context";
 export function MobileCta() {
   const [show, setShow] = useState(false);
   const { openConsultation, open } = useConsultation();
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > window.innerHeight * 0.8);
@@ -25,7 +27,7 @@ export function MobileCta() {
         onClick={() => openConsultation()}
         className="w-full rounded-sm border border-brass/60 bg-brass/15 py-3.5 text-[0.7rem] uppercase tracking-[0.22em] text-ivory active:scale-[0.99]"
       >
-        Request consultation
+        {t("Request consultation")}
       </button>
     </div>
   );
