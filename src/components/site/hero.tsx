@@ -1,5 +1,5 @@
 import { useT } from "@/lib/i18n";
-import heroImage from "@/assets/hero.jpg";
+import { photo } from "@/assets/real/photos";
 import { Cta } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
@@ -10,8 +10,8 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-ink">
       <img
-        src={heroImage}
-        alt="Bespoke living room with a deep green velvet sofa and walnut panelling, crafted by Heaven Furniture Mart"
+        src={photo.livingTeal}
+        alt="Teal velvet sofa set with a gilded centre table in a Heaven Furniture Mart living room"
         width={1920}
         height={1280}
         fetchPriority="high"

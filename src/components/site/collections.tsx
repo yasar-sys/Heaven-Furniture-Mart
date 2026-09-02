@@ -6,10 +6,8 @@ import { Reveal } from "./reveal";
 import { Cta, Section, SectionHeading, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
-import living from "@/assets/living.jpg";
-import bedroom from "@/assets/bedroom.jpg";
 import dining from "@/assets/dining.jpg";
-import office from "@/assets/office.jpg";
+import { photo } from "@/assets/real/photos";
 
 type Collection = {
   id: string;
@@ -27,8 +25,8 @@ const COLLECTIONS: Collection[] = [
     id: "living",
     title: "Living",
     items: "Sofas · Coffee Tables · TV Units · Consoles",
-    img: living,
-    alt: "Ivory bouclé sofa with a walnut coffee table in a warm minimal living room",
+    img: photo.livingGold,
+    alt: "Gold-framed tufted sofa set with an oval centre table in a classic living room",
     interest: "Sofa",
     room: "Living Room",
     pieces: [
@@ -41,8 +39,8 @@ const COLLECTIONS: Collection[] = [
     id: "bedroom",
     title: "Bedroom",
     items: "Beds · Wardrobes · Dressing Tables · Bedside Tables",
-    img: bedroom,
-    alt: "Upholstered bed with fluted wood headboard wall and built-in wardrobe",
+    img: photo.bedroomVelvet,
+    alt: "Four-poster bed with a deep blue embroidered velvet headboard and matching bedsides",
     interest: "Bed",
     room: "Bedroom",
     pieces: [
@@ -69,8 +67,8 @@ const COLLECTIONS: Collection[] = [
     id: "office",
     title: "Office & Study",
     items: "Executive Tables · Bookshelves · Workstations",
-    img: office,
-    alt: "Executive walnut desk with built-in bookshelves in a dark study",
+    img: photo.officeConference,
+    alt: "Long wooden conference table with upholstered task chairs in a bright office",
     interest: "Office / Study",
     room: "Office & Study",
     pieces: [

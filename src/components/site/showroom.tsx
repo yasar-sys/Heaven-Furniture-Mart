@@ -1,5 +1,5 @@
 import { useT } from "@/lib/i18n";
-import showroomImg from "@/assets/showroom.jpg";
+import { photo } from "@/assets/real/photos";
 import { Reveal } from "./reveal";
 import { Cta, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
@@ -15,7 +15,7 @@ export function Showroom() {
       className="relative scroll-mt-24 overflow-hidden bg-ink"
     >
       <img
-        src={showroomImg}
+        src={photo.bedroomNavy}
         alt="Heaven Furniture Mart showroom interior with staged sofas, dining sets and wardrobes"
         loading="lazy"
         decoding="async"
