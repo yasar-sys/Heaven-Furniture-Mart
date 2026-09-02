@@ -1,0 +1,132 @@
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Cta } from "./ui-kit";
+import { useConsultation } from "./consultation-context";
+
+const LINKS = [
+  { label: "Collections", href: "#collections" },
+  { label: "Bespoke", href: "#bespoke" },
+  { label: "Our Process", href: "#process" },
+  { label: "Showroom", href: "#showroom" },
+];
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const { openConsultation } = useConsultation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menu ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menu]);
+
+  return (
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-[var(--ease-luxe)]",
+        scrolled
+          ? "border-b border-ivory/10 bg-ink/85 py-3 backdrop-blur-xl"
+          : "border-b border-transparent py-6",
+      )}
+    >
+      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-14">
+        <a href="#top" className="group flex items-baseline gap-2 text-ivory" aria-label="Heaven Furniture Mart, home">
+          <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
+            HEAVEN
+          </span>
+          <span className="eyebrow hidden text-ivory/55 transition-colors group-hover:text-brass sm:block">
+            Furniture Mart
+          </span>
+        </a>
+
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Sections">
+          {LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="link-underline text-[0.72rem] uppercase tracking-[0.22em] text-ivory/75 transition-colors hover:text-ivory"
+            >
+              {l.label}
+            </a>
+          ))}
+          <Cta tone="light" size="md" onClick={() => openConsultation()}>
+            Request Consultation
+          </Cta>
+        </nav>
+
+        <button
+          type="button"
+          onClick={() => setMenu((v) => !v)}
+          aria-expanded={menu}
+          aria-label={menu ? "Close menu" : "Open menu"}
+          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[7px] lg:hidden"
+        >
+          <span
+            className={cn(
+              "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
+              menu && "translate-y-[4px] rotate-45",
+            )}
+          />
+          <span
+            className={cn(
+              "block h-px w-6 bg-ivory transition-transform duration-500 ease-[var(--ease-luxe)]",
+              menu && "-translate-y-[4px] -rotate-45",
+            )}
+          />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 flex flex-col justify-center bg-ink px-7 transition-[opacity,transform] duration-700 ease-[var(--ease-luxe)] lg:hidden",
+          menu ? "pointer-events-auto opacity-100" : "pointer-events-none translate-y-2 opacity-0",
+        )}
+      >
+        <span className="eyebrow mb-8 text-brass">Menu</span>
+        <ul className="space-y-5">
+          {LINKS.map((l, i) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                onClick={() => setMenu(false)}
+                style={{ transitionDelay: `${120 + i * 70}ms` }}
+                className={cn(
+                  "block font-serif text-4xl text-ivory transition-all duration-700 ease-[var(--ease-luxe)]",
+                  menu ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+                )}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-12">
+          <Cta
+            tone="light"
+            onClick={() => {
+              setMenu(false);
+              openConsultation();
+            }}
+          >
+            Request Consultation
+          </Cta>
+          <p className="mt-8 text-xs leading-relaxed tracking-wide text-ivory/50">
+            Agrabad Access Road, Chattogram
+            <br />
+            +880 1960-481983
+          </p>
+        </div>
+      </div>
+    </header>
+  );
+}
