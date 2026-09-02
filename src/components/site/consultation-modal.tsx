@@ -18,7 +18,7 @@ const ROOMS = ["Living Room", "Bedroom", "Dining", "Office & Study", "Whole Home
 const SPACES = ["Compact", "Medium", "Spacious"];
 
 const field =
-  "w-full rounded-sm border border-ink/15 bg-transparent px-4 py-3 text-sm text-ink outline-none transition-colors duration-300 placeholder:text-muted-foreground/70 focus:border-brass";
+  "w-full rounded-sm border border-foreground/15 bg-transparent px-4 py-3 text-sm text-foreground outline-none transition-colors duration-300 placeholder:text-muted-foreground/70 focus:border-brass";
 
 export function ConsultationModal() {
   const { open, setOpen, prefill } = useConsultation();
@@ -37,7 +37,7 @@ export function ConsultationModal() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-h-[92svh] max-w-2xl overflow-y-auto rounded-sm border-ink/10 bg-background p-7 sm:p-11">
+      <DialogContent className="max-h-[92svh] max-w-2xl overflow-y-auto rounded-sm border-foreground/10 bg-background p-7 sm:p-11">
         {sent ? (
           <div className="py-14 text-center">
             <span className="eyebrow text-brass">Received</span>
@@ -114,8 +114,8 @@ export function ConsultationModal() {
                       className={cn(
                         "rounded-sm border px-3.5 py-2 text-[0.68rem] uppercase tracking-[0.14em] transition-colors duration-300",
                         interest === i
-                          ? "border-brass bg-brass/15 text-ink"
-                          : "border-ink/15 text-muted-foreground hover:border-ink/40 hover:text-ink",
+                          ? "border-brass bg-brass/15 text-foreground"
+                          : "border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground",
                       )}
                     >
                       {i}

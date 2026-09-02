@@ -17,8 +17,8 @@
   --radius-xl: calc(var(--radius) + 6px);
   --radius-2xl: calc(var(--radius) + 10px);
 
-  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
-  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Noto Serif Bengali", "Noto Serif Devanagari", "Times New Roman", serif;
+  --font-sans: "Jost", "Noto Sans Bengali", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -78,6 +78,31 @@
   --destructive-foreground: oklch(0.98 0.005 85);
   --border: oklch(0.88 0.014 80);
   --input: oklch(0.86 0.014 80);
+  --ring: var(--brass);
+}
+
+/* Dark mood — same palette, lit from the other side. */
+.dark {
+  --ink: oklch(0.155 0.016 205);
+  --ink-soft: oklch(0.235 0.02 202);
+  --brass: oklch(0.775 0.082 80);
+
+  --background: oklch(0.205 0.019 205);
+  --foreground: oklch(0.945 0.011 85);
+  --card: oklch(0.245 0.021 204);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.245 0.021 204);
+  --popover-foreground: var(--foreground);
+  --primary: var(--ivory);
+  --primary-foreground: oklch(0.185 0.018 205);
+  --secondary: oklch(0.248 0.021 203);
+  --secondary-foreground: var(--ivory);
+  --muted: oklch(0.26 0.02 203);
+  --muted-foreground: oklch(0.735 0.018 80);
+  --accent: var(--brass);
+  --accent-foreground: oklch(0.185 0.018 205);
+  --border: oklch(0.345 0.018 201);
+  --input: oklch(0.375 0.018 201);
   --ring: var(--brass);
 }
 

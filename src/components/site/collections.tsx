@@ -142,7 +142,7 @@ export function Collections() {
       </Shell>
 
       <Dialog open={!!open} onOpenChange={(v) => !v && setOpen(null)}>
-        <DialogContent className="max-w-3xl gap-0 overflow-hidden rounded-sm border-ink/10 bg-background p-0">
+        <DialogContent className="max-w-3xl gap-0 overflow-hidden rounded-sm border-foreground/10 bg-background p-0">
           {open && (
             <div className="grid sm:grid-cols-2">
               <img
@@ -162,8 +162,8 @@ export function Collections() {
 
                 <ul className="mt-8 space-y-5">
                   {open.pieces.map((p) => (
-                    <li key={p.name} className="border-t border-ink/10 pt-4">
-                      <p className="font-serif text-xl text-ink">{p.name}</p>
+                    <li key={p.name} className="border-t border-foreground/10 pt-4">
+                      <p className="font-serif text-xl text-foreground">{p.name}</p>
                       <p className="mt-1 text-sm text-muted-foreground">{p.note}</p>
                     </li>
                   ))}

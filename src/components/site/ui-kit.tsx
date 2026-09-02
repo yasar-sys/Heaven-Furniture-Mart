@@ -18,9 +18,9 @@ export function Cta({ tone = "solid", size = "lg", className, children, ...rest 
         size === "lg" ? "px-8 py-4 text-[0.7rem] sm:text-xs" : "px-6 py-3 text-[0.65rem]",
         tone === "solid" && "bg-ink text-primary-foreground hover:bg-brown",
         tone === "outline" &&
-          "border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-primary-foreground",
+          "border border-foreground/25 text-foreground hover:border-ink hover:bg-ink hover:text-primary-foreground",
         tone === "light" &&
-          "border border-ivory/40 text-ivory backdrop-blur-[2px] hover:border-ivory hover:bg-ivory hover:text-ink",
+          "border border-ivory/40 text-ivory backdrop-blur-[2px] hover:border-ivory hover:bg-ivory hover:text-foreground",
         className,
       )}
     >

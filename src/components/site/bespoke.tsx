@@ -48,7 +48,7 @@ export function Bespoke() {
           <div className="lg:col-span-7">
             <Reveal className="mb-6 flex items-center gap-4">
               <span className="eyebrow text-brass">Bespoke</span>
-              <span className="h-px flex-1 bg-ink/12" />
+              <span className="h-px flex-1 bg-foreground/12" />
             </Reveal>
             <Reveal as="h2" delay={60} className="display-lg">
               Not made for everyone.
@@ -68,7 +68,7 @@ export function Bespoke() {
           <div className="mb-4 flex items-center justify-between text-[0.65rem] uppercase tracking-[0.24em] text-muted-foreground">
             <span>Standard space</span>
             <span className="text-brass">→</span>
-            <span className="text-ink">Bespoke solution</span>
+            <span className="text-foreground">Bespoke solution</span>
           </div>
 
           <div

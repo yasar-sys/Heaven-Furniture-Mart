@@ -24,7 +24,7 @@ export function Statement() {
                 reflection of lifestyle, taste, and comfort. Every piece we create is designed to
                 bring lasting elegance into the homes of our clients.”
               </p>
-              <footer className="mt-8 text-[0.7rem] uppercase tracking-[0.24em] text-ink">
+              <footer className="mt-8 text-[0.7rem] uppercase tracking-[0.24em] text-foreground">
                 — Abul Kalam Bhuiyan, Managing Director
               </footer>
             </Reveal>

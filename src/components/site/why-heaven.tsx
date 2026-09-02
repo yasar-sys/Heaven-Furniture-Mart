@@ -30,11 +30,11 @@ export function WhyHeaven() {
             <Reveal
               key={p.n}
               delay={i * 70}
-              className="group border-t border-ink/12 py-8 transition-colors duration-500 hover:border-brass"
+              className="group border-t border-foreground/12 py-8 transition-colors duration-500 hover:border-brass"
             >
               <div className="flex items-baseline gap-5">
                 <span className="font-sans text-[0.7rem] tracking-[0.24em] text-brass">{p.n}</span>
-                <h3 className="font-serif text-2xl leading-tight text-ink">{p.t}</h3>
+                <h3 className="font-serif text-2xl leading-tight text-foreground">{p.t}</h3>
               </div>
               <p className="mt-4 max-w-xs pl-[3.1rem] text-sm leading-relaxed text-muted-foreground">
                 {p.d}

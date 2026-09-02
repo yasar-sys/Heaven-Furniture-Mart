@@ -20,8 +20,8 @@ export function Proof() {
           <div className="lg:col-span-7">
             <dl className="grid gap-px">
               {FACTS.map((f, i) => (
-                <Reveal key={f.k} delay={i * 90} className="border-t border-ink/12 py-7">
-                  <dt className="font-serif text-2xl leading-snug text-ink">{f.k}</dt>
+                <Reveal key={f.k} delay={i * 90} className="border-t border-foreground/12 py-7">
+                  <dt className="font-serif text-2xl leading-snug text-foreground">{f.k}</dt>
                   <dd className="mt-2 text-sm text-muted-foreground">{f.v}</dd>
                 </Reveal>
               ))}
