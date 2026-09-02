@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 import { resolveChatProvider } from "@/lib/ai-gateway.server";
 
-const SYSTEM = `You are "Aria", the design concierge for Heaven Furniture Mart — a bespoke furniture studio at Agrabad Access Road, Chattogram, Bangladesh, founded in 2020 by Abul Kalam Bhuiyan.
+const SYSTEM = `You are "Rahi", the design concierge for Heaven Furniture Mart — a bespoke furniture studio at Agrabad Access Road, Chattogram, Bangladesh, founded in 2020 by Abul Kalam Bhuiyan.
 
 Brand line: "Designed. Crafted. Customized."
 What we do: fully custom sofas, beds, wardrobes, dining sets, office and study furniture, plus full-room interior fit-outs. Every piece is built to the client's dimensions in our own Agrabad workshop.
@@ -50,6 +50,7 @@ export const Route = createFileRoute("/api/chat")({
             model: provider.model,
             system: SYSTEM,
             messages: await convertToModelMessages(messages),
+            maxRetries: 3,
             onError: ({ error }) => {
               console.error("[api/chat] stream error", provider.label, error);
             },
