@@ -25,6 +25,20 @@ const SUGGESTIONS = [
   "Do you deliver outside Chattogram?",
 ];
 
+const MATERIAL_OPTIONS = [
+  "Hand-Carved Solid Teak",
+  "Diamond-Tufted Velvet",
+  "Imported Marble & Lacquer",
+  "Antique Brass Fittings",
+] as const;
+
+const ENQUIRY_TOPICS = [
+  "Finishes & colours available",
+  "Durability & care",
+  "Lead time",
+  "Indicative price range",
+] as const;
+
 export function Concierge() {
   const t = useT();
   const [open, setOpen] = useState(false);
