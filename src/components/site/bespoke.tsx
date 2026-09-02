@@ -84,14 +84,14 @@ export function Bespoke() {
           >
             <img
               src={afterImg}
-              alt="The same room fitted with bespoke furniture: sectional sofa, walnut wall unit and custom joinery"
+              alt={t("The same room fitted with bespoke furniture: sectional sofa, walnut wall unit and custom joinery")}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <img
               src={beforeImg}
-              alt="The same room before, empty and unfurnished"
+              alt={t("The same room before, empty and unfurnished")}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
@@ -115,7 +115,7 @@ export function Bespoke() {
             <button
               type="button"
               role="slider"
-              aria-label="Drag to compare the standard space with the bespoke solution"
+              aria-label={t("Drag to compare the standard space with the bespoke solution")}
               aria-valuemin={0}
               aria-valuemax={100}
               aria-valuenow={Math.round(pos)}

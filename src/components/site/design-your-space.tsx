@@ -179,7 +179,7 @@ export function DesignYourSpace() {
                 <img
                   key={activeFrame}
                   src={activeFrame}
-                  alt={`${style} ${room.id} furniture at ${scale.id.toLowerCase()} scale by Heaven Furniture Mart`}
+                  alt={`${t(style)} ${t(room.id)} — ${t(scale.id)} · Heaven Furniture Mart`}
                   loading="eager"
                   decoding="async"
                   className="interactive-frame__img absolute inset-0 animate-[image-swap_500ms_var(--ease-luxe)_both]"

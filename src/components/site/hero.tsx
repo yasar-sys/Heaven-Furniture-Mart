@@ -11,7 +11,7 @@ export function Hero() {
     <section id="top" className="relative min-h-[100svh] overflow-hidden bg-ink">
       <img
         src={photo.heroShowroom}
-        alt="Luxurious grey velvet L-shaped sectional sofa set in Heaven Furniture Mart showroom"
+        alt={t("Luxurious grey velvet L-shaped sectional sofa set in Heaven Furniture Mart showroom")}
         width={1024}
         height={836}
         fetchPriority="high"

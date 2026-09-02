@@ -80,7 +80,7 @@ export function Proof() {
                 <figure className="group">
                   <InteractiveImage
                     src={a.img}
-                    alt={a.alt}
+                    alt={t(a.alt)}
                     depth={a.fit === "contain" ? 8 : 16}
                     width={a.width}
                     height={a.height}

@@ -11,12 +11,12 @@ export function Showroom() {
   return (
     <section
       id="showroom"
-      aria-label="Showroom"
+      aria-label={t("Showroom")}
       className="relative scroll-mt-24 overflow-hidden bg-ink"
     >
       <img
         src={photo.bedroomRoyalNavy}
-        alt="Heaven Furniture Mart luxury showroom with royal navy velvet four-poster bed set and chandeliers"
+        alt={t("Heaven Furniture Mart luxury showroom with royal navy velvet four-poster bed set and chandeliers")}
         loading="lazy"
         decoding="async"
         width={864}

@@ -126,7 +126,7 @@ export function Collections() {
               >
                 <InteractiveImage
                   src={c.img}
-                  alt={c.alt}
+                  alt={t(c.alt)}
                   depth={24}
                   width={c.width}
                   height={c.height}
@@ -162,7 +162,7 @@ export function Collections() {
             <div className="grid sm:grid-cols-2">
               <InteractiveImage
                 src={open.img}
-                alt={open.alt}
+                alt={t(open.alt)}
                 depth={14}
                 width={open.width}
                 height={open.height}
