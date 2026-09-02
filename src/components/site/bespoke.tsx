@@ -86,23 +86,20 @@ export function Bespoke() {
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ width: `${pos}%` }}
-              aria-hidden
+            <img
+              src={beforeImg}
+              alt="The same room before, empty and unfurnished"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+            />
+            <span
+              className="absolute left-4 top-4 rounded-sm bg-ink/70 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-ivory backdrop-blur-sm transition-opacity duration-300 sm:left-6 sm:top-6"
+              style={{ opacity: pos > 14 ? 1 : 0 }}
             >
-              <img
-                src={beforeImg}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ width: frame.current ? frame.current.offsetWidth : "100%", maxWidth: "none" }}
-              />
-              <span className="absolute left-4 top-4 rounded-sm bg-ink/70 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-ivory backdrop-blur-sm sm:left-6 sm:top-6">
-                Before
-              </span>
-            </div>
+              Before
+            </span>
             <span className="absolute right-4 top-4 rounded-sm bg-ink/70 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-brass backdrop-blur-sm sm:right-6 sm:top-6">
               After
             </span>
