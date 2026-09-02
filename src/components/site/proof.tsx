@@ -1,11 +1,37 @@
 import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
+import { InteractiveImage } from "./interactive-image";
 import { Section, Shell } from "./ui-kit";
+import { photo } from "@/assets/real/photos";
 
 const FACTS = [
   { k: "Trusted by hundreds of homeowners", v: "Across Chattogram and beyond" },
   { k: "Free design consultation", v: "Every project starts with a conversation" },
   { k: "Delivery & installation included", v: "Workshop to your room, handled" },
+];
+
+const AWARDS = [
+  {
+    img: photo.awardTrophy,
+    year: "2024",
+    title: "14th Chattogram Furniture Fair",
+    note: "Participant crest, awarded at our fair pavilion.",
+    alt: "Heaven Furniture Mart participant crest from the 14th Chattogram Furniture Fair 2024, held at the company's pavilion",
+  },
+  {
+    img: photo.awardCeremony,
+    year: "2024",
+    title: "Recognised on stage",
+    note: "Honoured at the 13th Chattogram Furniture Fair prize ceremony.",
+    alt: "Heaven Furniture Mart founder receiving a plaque on stage at the 13th Chattogram Furniture Fair 2024",
+  },
+  {
+    img: photo.awardTeam,
+    year: "2024",
+    title: "Tulir Achore Amar Ghor",
+    note: "Second prize sponsored by Heaven Furniture Mart.",
+    alt: "The Heaven Furniture Mart team with prize winners of the Tulir Achore Amar Ghor art competition",
+  },
 ];
 
 export function Proof() {
@@ -29,6 +55,35 @@ export function Proof() {
                 </Reveal>
               ))}
             </dl>
+          </div>
+        </div>
+
+        <div className="mt-20 sm:mt-28">
+          <Reveal className="flex items-center gap-4">
+            <span className="eyebrow text-brass">{t("Awards & Recognition")}</span>
+            <span className="h-px flex-1 bg-foreground/12" />
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:gap-8">
+            {AWARDS.map((a, i) => (
+              <Reveal key={a.title} delay={i * 90}>
+                <figure className="group">
+                  <InteractiveImage
+                    src={a.img}
+                    alt={a.alt}
+                    depth={16}
+                    frameClassName="aspect-4/5 w-full overflow-hidden rounded-sm"
+                  />
+                  <figcaption className="mt-5">
+                    <p className="font-serif text-lg text-brass">{a.year}</p>
+                    <p className="mt-1 font-serif text-xl leading-snug text-foreground">
+                      {t(a.title)}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(a.note)}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Shell>
