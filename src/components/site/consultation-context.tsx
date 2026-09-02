@@ -33,7 +33,12 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
 }
 
 export function useConsultation() {
-  const ctx = useContext(ConsultationContext);
-  if (!ctx) throw new Error("useConsultation must be used within ConsultationProvider");
-  return ctx;
+  return (
+    useContext(ConsultationContext) ?? {
+      open: false,
+      prefill: undefined,
+      openConsultation: () => {},
+      setOpen: () => {},
+    }
+  );
 }
