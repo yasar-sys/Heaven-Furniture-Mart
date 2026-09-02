@@ -42,7 +42,7 @@ export function Navbar() {
           : "border-b border-transparent py-6",
       )}
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-14">
+      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-14">
         <a
           href="#top"
           className="group flex shrink-0 items-baseline gap-2 text-ivory"
@@ -54,7 +54,7 @@ export function Navbar() {
             aria-hidden
             width={36}
             height={36}
-            className="size-8 shrink-0 self-center rounded-sm object-cover sm:size-9"
+            className="size-8 shrink-0 self-center rounded-sm object-cover"
           />
           <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
             HEAVEN
