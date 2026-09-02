@@ -16,7 +16,7 @@ export function Hero() {
         height={1280}
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full scale-105 object-cover object-[62%_center] opacity-90 sm:object-center"
+        className="animate-drift absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-90 sm:object-center"
       />
       <div
         aria-hidden

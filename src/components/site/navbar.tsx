@@ -44,13 +44,13 @@ export function Navbar() {
       <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-14">
         <a
           href="#top"
-          className="group flex items-baseline gap-2 text-ivory"
+          className="group flex shrink-0 items-baseline gap-2 text-ivory"
           aria-label="Heaven Furniture Mart, home"
         >
           <span className="font-serif text-2xl leading-none tracking-[0.14em] sm:text-[1.7rem]">
             HEAVEN
           </span>
-          <span className="eyebrow hidden text-ivory/55 transition-colors group-hover:text-brass sm:block">
+          <span className="eyebrow hidden whitespace-nowrap text-ivory/55 transition-colors group-hover:text-brass sm:block lg:hidden min-[1440px]:block">
             {t("Furniture Mart")}
           </span>
         </a>
