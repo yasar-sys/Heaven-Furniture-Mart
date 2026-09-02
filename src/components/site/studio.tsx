@@ -1,8 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { ClientOnly } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
+
+const StudioScene = lazy(() => import("./studio-scene"));
 import { WHATSAPP_NUMBER, openWhatsApp } from "@/lib/whatsapp";
 
 type PieceId = "Sofa" | "Bed" | "Wardrobe" | "Dining Table";
@@ -30,112 +33,12 @@ const WOODS = [
   { id: "Antique Gold", hex: "#c8a151" },
 ];
 
-function shade(hex: string, amount: number) {
-  const n = parseInt(hex.slice(1), 16);
-  const f = (v: number) => Math.max(0, Math.min(255, Math.round(v + amount)));
-  return `rgb(${f((n >> 16) & 255)},${f((n >> 8) & 255)},${f(n & 255)})`;
-}
-
-function Piece({
-  piece,
-  fabric,
-  wood,
-  span,
-}: {
-  piece: PieceId;
-  fabric: string;
-  wood: string;
-  span: number;
-}) {
-  const light = shade(fabric, 26);
-  const dark = shade(fabric, -34);
-  const woodDark = shade(wood, -30);
-
-  if (piece === "Sofa") {
-    const w = 120 + span * 130;
-    const x = 200 - w / 2;
-    return (
-      <g>
-        <rect x={x} y={104} width={w} height={40} rx={8} fill={light} />
-        <rect x={x + 10} y={140} width={w - 20} height={38} rx={9} fill={fabric} />
-        <rect x={x + 10} y={140} width={(w - 20) / 2} height={38} rx={9} fill={dark} opacity="0.35" />
-        <rect x={x - 14} y={112} width={26} height={72} rx={12} fill={fabric} />
-        <rect x={x + w - 12} y={112} width={26} height={72} rx={12} fill={fabric} />
-        <rect x={x + 14} y={182} width={12} height={20} rx={3} fill={wood} />
-        <rect x={x + w - 26} y={182} width={12} height={20} rx={3} fill={woodDark} />
-      </g>
-    );
-  }
-  if (piece === "Bed") {
-    const w = 130 + span * 120;
-    const x = 200 - w / 2;
-    return (
-      <g>
-        <rect x={x} y={70} width={w} height={62} rx={10} fill={fabric} />
-        {[0, 1, 2, 3].map((i) => (
-          <rect
-            key={i}
-            x={x + 8 + i * ((w - 16) / 4)}
-            y={78}
-            width={(w - 16) / 4 - 6}
-            height={46}
-            rx={6}
-            fill={light}
-            opacity="0.55"
-          />
-        ))}
-        <rect x={x - 6} y={132} width={w + 12} height={34} rx={6} fill={light} />
-        <rect x={x - 6} y={166} width={w + 12} height={20} rx={4} fill={wood} />
-        <rect x={x - 2} y={186} width={12} height={16} rx={3} fill={woodDark} />
-        <rect x={x + w - 10} y={186} width={12} height={16} rx={3} fill={woodDark} />
-      </g>
-    );
-  }
-  if (piece === "Wardrobe") {
-    const w = 90 + span * 120;
-    const x = 200 - w / 2;
-    return (
-      <g>
-        <rect x={x} y={44} width={w} height={158} rx={6} fill={wood} />
-        <rect x={x + 8} y={52} width={w / 2 - 12} height={142} rx={4} fill={fabric} />
-        <rect x={x + w / 2 + 4} y={52} width={w / 2 - 12} height={142} rx={4} fill={dark} />
-        <circle cx={x + w / 2 - 10} cy={124} r={3} fill="#c8a151" />
-        <circle cx={x + w / 2 + 12} cy={124} r={3} fill="#c8a151" />
-      </g>
-    );
-  }
-  const w = 130 + span * 140;
-  const x = 200 - w / 2;
-  return (
-    <g>
-      <rect x={x} y={120} width={w} height={14} rx={4} fill={wood} />
-      <rect x={x + 6} y={134} width={10} height={62} rx={3} fill={woodDark} />
-      <rect x={x + w - 16} y={134} width={10} height={62} rx={3} fill={woodDark} />
-      {[0, 1, 2].map((i) => (
-        <g key={i}>
-          <rect x={x + 24 + i * ((w - 60) / 2.4)} y={140} width={26} height={22} rx={5} fill={fabric} />
-          <rect
-            x={x + 24 + i * ((w - 60) / 2.4)}
-            y={118}
-            width={26}
-            height={26}
-            rx={6}
-            fill={light}
-          />
-        </g>
-      ))}
-    </g>
-  );
-}
-
 export function Studio() {
   const t = useT();
   const [piece, setPiece] = useState<PieceId>("Sofa");
   const [fabric, setFabric] = useState(FABRICS[1]!);
   const [wood, setWood] = useState(WOODS[0]!);
   const [span, setSpan] = useState(0.5);
-  const [spin, setSpin] = useState(-14);
-  const drag = useRef<number | null>(null);
 
   const active = useMemo(() => PIECES.find((p) => p.id === piece)!, [piece]);
   const width = Math.round(active.min + span * (active.max - active.min));
@@ -255,35 +158,28 @@ export function Studio() {
             <div className="overflow-hidden rounded-sm border border-ivory/12 bg-ivory/[0.03]">
               <div
                 data-cursor="grow"
-                onPointerDown={(e) => {
-                  drag.current = e.clientX - spin * 2;
-                }}
-                onPointerMove={(e) => {
-                  if (drag.current === null) return;
-                  setSpin(Math.max(-38, Math.min(38, (e.clientX - drag.current) / 2)));
-                }}
-                onPointerUp={() => {
-                  drag.current = null;
-                }}
-                onPointerLeave={() => {
-                  drag.current = null;
-                }}
-                className="relative aspect-4/3 w-full touch-none select-none [perspective:1100px]"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(120% 90% at 50% 12%, color-mix(in oklab, var(--brass) 12%, transparent), transparent 70%)",
-                }}
+                role="img"
+                aria-label={summary}
+                className="relative aspect-4/3 w-full touch-none select-none overflow-hidden"
               >
-                <div
-                  className="absolute inset-0 flex items-center justify-center transition-transform duration-200 ease-out"
-                  style={{ transform: `rotateY(${spin}deg) rotateX(6deg)` }}
+                <ClientOnly
+                  fallback={
+                    <div className="absolute inset-0 grid place-items-center text-[0.65rem] uppercase tracking-[0.24em] text-ivory/40">
+                      {t("Drag to rotate")}
+                    </div>
+                  }
                 >
-                  <svg viewBox="0 0 400 240" className="h-full w-full" role="img" aria-label={summary}>
-                    <ellipse cx="200" cy="208" rx="150" ry="14" fill="rgba(0,0,0,0.45)" />
-                    <Piece piece={piece} fabric={fabric.hex} wood={wood.hex} span={span} />
-                  </svg>
-                </div>
-                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.24em] text-ivory/45">
+                  <Suspense
+                    fallback={
+                      <div className="absolute inset-0 grid place-items-center text-[0.65rem] uppercase tracking-[0.24em] text-ivory/40">
+                        {t("Drag to rotate")}
+                      </div>
+                    }
+                  >
+                    <StudioScene piece={piece} fabric={fabric.hex} wood={wood.hex} span={span} />
+                  </Suspense>
+                </ClientOnly>
+                <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.24em] text-ivory/45">
                   {t("Drag to rotate")}
                 </span>
               </div>

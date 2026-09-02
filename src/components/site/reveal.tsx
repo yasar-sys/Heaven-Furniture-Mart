@@ -33,7 +33,7 @@ type RevealProps = {
 };
 
 export function Reveal({ children, className, delay = 0, as, variant = "text" }: RevealProps) {
-  const Tag = (as ?? "div") as ElementType;
+  const Tag = (as ?? "div") as React.ComponentType<Record<string, unknown>>;
   const { ref, shown } = useInView<HTMLElement>();
 
   return (
