@@ -50,14 +50,36 @@ export function Reach() {
                 </defs>
 
                 <path
-                  d={OUTLINE_PATH}
+                  d={BD_MAINLAND}
                   fill="url(#reach-fill)"
                   stroke="var(--color-brass)"
                   strokeOpacity="0.9"
-                  strokeWidth="1.6"
+                  strokeWidth="1.4"
+                  strokeLinejoin="round"
                   className="reach-outline"
-                  style={{ strokeDasharray: 1400, strokeDashoffset: shown ? 0 : 1400 }}
+                  style={{
+                    strokeDasharray: 2600,
+                    strokeDashoffset: shown ? 0 : 2600,
+                    transition: "stroke-dashoffset 2.6s var(--ease-luxe)",
+                  }}
                 />
+
+                {BD_ISLANDS.map((d, i) => (
+                  <path
+                    key={i}
+                    d={d}
+                    fill="var(--color-brass)"
+                    fillOpacity="0.16"
+                    stroke="var(--color-brass)"
+                    strokeOpacity="0.55"
+                    strokeWidth="0.9"
+                    style={{
+                      opacity: shown ? 1 : 0,
+                      transition: `opacity 1s var(--ease-luxe) ${900 + i * 60}ms`,
+                    }}
+                  />
+                ))}
+
 
                 {/* Origin — Chattogram, the only place we claim */}
                 <g
