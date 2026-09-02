@@ -55,6 +55,7 @@ function Index() {
             <DesignYourSpace />
             <Collections />
             <Bespoke />
+            <Studio />
             <Materials />
             <Process />
             <Proof />
@@ -66,6 +67,7 @@ function Index() {
           <Footer />
           <MobileCta />
           <Concierge />
+          <BackToTop />
           <LuxeCursor />
           <ConsultationModal />
         </ConsultationProvider>
