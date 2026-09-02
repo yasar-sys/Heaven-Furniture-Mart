@@ -43,6 +43,10 @@ export function Concierge() {
   const t = useT();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [material, setMaterial] = useState<string>(MATERIAL_OPTIONS[0]);
+  const [topic, setTopic] = useState<string>(ENQUIRY_TOPICS[0]);
+  const [note, setNote] = useState("");
   const { openConsultation } = useConsultation();
 
   const { messages, sendMessage, status, error } = useChat({
