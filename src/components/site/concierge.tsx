@@ -71,6 +71,17 @@ export function Concierge() {
     void sendMessage({ text: value });
   };
 
+  const sendEnquiry = () => {
+    if (busy) return;
+    const detail = note.trim();
+    const question = `Materials enquiry — ${material}. I'd like to know about: ${topic}.${
+      detail ? ` Details: ${detail}` : ""
+    }`;
+    setNote("");
+    setEnquiryOpen(false);
+    void sendMessage({ text: question });
+  };
+
   return (
     <>
       <button
