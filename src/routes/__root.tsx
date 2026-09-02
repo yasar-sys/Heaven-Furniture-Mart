@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400&family=Noto+Sans+Bengali:wght@300;400&family=Noto+Serif+Devanagari:wght@300;400&family=Noto+Sans+Devanagari:wght@300;400&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
     scripts: [
       {
