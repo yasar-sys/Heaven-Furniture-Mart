@@ -123,9 +123,27 @@ export function DesignYourSpace() {
             </Reveal>
 
             <div className="mt-12 space-y-10">
-              <Facet legend="Room" options={ROOMS} activeId={room.id} onSelect={setRoom} t={t} />
-              <Facet legend="Style" options={STYLES} activeId={style.id} onSelect={setStyle} t={t} />
-              <Facet legend="Scale" options={SCALES} activeId={scale.id} onSelect={setScale} t={t} />
+              <Facet
+                legend="Room"
+                options={ROOMS}
+                activeId={room.id}
+                onSelect={(o) => setRoom(ROOMS.find((r) => r.id === o.id) ?? ROOMS[0]!)}
+                t={t}
+              />
+              <Facet
+                legend="Style"
+                options={styles}
+                activeId={style.id}
+                onSelect={(o) => setStyleId(o.id)}
+                t={t}
+              />
+              <Facet
+                legend="Scale"
+                options={scales}
+                activeId={scale.id}
+                onSelect={(o) => setScaleId(o.id)}
+                t={t}
+              />
             </div>
           </div>
 
