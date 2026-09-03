@@ -6,120 +6,97 @@ import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
-import { photo } from "@/assets/real/photos";
+import { ROOMS, SCALES, STYLES, type Option } from "@/assets/space/space-options";
 
-const STYLES = ["Modern", "Minimal", "Classic", "Contemporary", "Luxury"] as const;
-const SCALES = [
-  { id: "Compact", d: "Every centimetre considered." },
-  { id: "Medium", d: "Balanced, generous proportions." },
-  { id: "Spacious", d: "Room to compose freely." },
-];
-
-/** One frame per room, per style — scale shifts the frame again. */
-const ROOMS = [
-  {
-    id: "Living Room",
-    note: "Sofas, sectionals, coffee tables, lounge chairs",
-    gallery: [
-      photo.heroShowroom,
-      photo.livingGreySectional,
-      photo.livingBeigeArmchairs,
-      photo.heroShowroom,
-      photo.livingGreySectional,
-    ],
-  },
-  {
-    id: "Bedroom",
-    note: "Four-poster beds, sleigh beds, royal wardrobes",
-    gallery: [
-      photo.bedroomRoyalNavy,
-      photo.bedroomSleighBench,
-      photo.bedroomCarvedGold,
-      photo.bedroomModernNavy,
-      photo.bedroomRoyalNavy,
-    ],
-  },
-  {
-    id: "Dining",
-    note: "Carved gold dining tables, floral embroidered chairs, crockery cabinets",
-    gallery: [
-      photo.diningRoyalGold,
-      photo.diningPeachMarble,
-      photo.diningRoyalGold,
-      photo.diningPeachMarble,
-      photo.diningRoyalGold,
-    ],
-  },
-  {
-    id: "Office & Study",
-    note: "Director desks, workstation pods, bookshelves",
-    gallery: [
-      photo.officeDirectorDesk,
-      photo.officeWorkstation,
-      photo.officeDirectorDesk,
-      photo.officeWorkstation,
-      photo.heroShowroom,
-    ],
-  },
-  {
-    id: "Custom",
-    note: "Bespoke pieces built to your exact room width & finish",
-    gallery: [
-      photo.bedroomSleighBench,
-      photo.livingGreySectional,
-      photo.bedroomRoyalNavy,
-      photo.diningPeachMarble,
-      photo.officeDirectorDesk,
-    ],
-  },
-];
-
-
+/** A selectable chip carrying its own thumbnail. */
 function Choice({
+  option,
   active,
-  children,
   onClick,
+  label,
 }: {
+  option: Option;
   active: boolean;
-  children: React.ReactNode;
   onClick: () => void;
+  label: string;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={active}
+      data-cursor="grow"
       className={cn(
-        "rounded-sm border px-4 py-2.5 text-[0.68rem] uppercase tracking-[0.18em] transition-all duration-500 ease-[var(--ease-luxe)]",
+        "group flex items-center gap-3 rounded-sm border p-1.5 pr-4 text-left transition-all duration-400 ease-[var(--ease-luxe)]",
         active
-          ? "border-brass bg-brass/15 text-ivory"
-          : "border-ivory/20 text-ivory/60 hover:border-ivory/50 hover:text-ivory",
+          ? "border-brass bg-brass/12 text-ivory"
+          : "border-ivory/15 text-ivory/60 hover:border-ivory/40 hover:text-ivory",
       )}
     >
-      {children}
+      <span className="relative block size-11 shrink-0 overflow-hidden rounded-[2px] sm:size-12">
+        <img
+          src={option.img}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          decoding="async"
+          width={1024}
+          height={1024}
+          className={cn(
+            "absolute inset-0 size-full object-cover transition-all duration-500 ease-[var(--ease-luxe)]",
+            active ? "scale-105 opacity-100" : "opacity-60 group-hover:scale-105 group-hover:opacity-90",
+          )}
+        />
+      </span>
+      <span className="text-[0.68rem] uppercase tracking-[0.16em]">{label}</span>
     </button>
   );
 }
 
+function Facet({
+  legend,
+  options,
+  activeId,
+  onSelect,
+  t,
+}: {
+  legend: string;
+  options: Option[];
+  activeId: string;
+  onSelect: (o: Option) => void;
+  t: (s: string) => string;
+}) {
+  return (
+    <fieldset>
+      <legend className="eyebrow mb-4 text-ivory/40">{t(legend)}</legend>
+      <div className="flex flex-wrap gap-2.5">
+        {options.map((o) => (
+          <Choice
+            key={o.id}
+            option={o}
+            active={activeId === o.id}
+            onClick={() => onSelect(o)}
+            label={t(o.id)}
+          />
+        ))}
+      </div>
+    </fieldset>
+  );
+}
+
 export function DesignYourSpace() {
-  const [room, setRoom] = useState(ROOMS[0]!);
-  const [style, setStyle] = useState<string>(STYLES[0]!);
-  const [scale, setScale] = useState(SCALES[1]!);
+  const [room, setRoom] = useState<Option>(ROOMS[0]!);
+  const [style, setStyle] = useState<Option>(STYLES[0]!);
+  const [scale, setScale] = useState<Option>(SCALES[2]!);
   const { openConsultation } = useConsultation();
-  const { frameProps } = useInteractiveFrame(20);
+  const { frameProps } = useInteractiveFrame(18);
   const t = useT();
-
-  const styleIndex = STYLES.indexOf(style as (typeof STYLES)[number]);
-  const scaleIndex = SCALES.findIndex((s) => s.id === scale.id);
-  const activeFrame =
-    room.gallery[(Math.max(styleIndex, 0) + Math.max(scaleIndex, 0) * 2) % room.gallery.length]!;
-
 
   return (
     <Section id="design" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Design your space">
       <Shell>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-5">
             <Reveal className="mb-6 flex items-center gap-4">
               <span className="eyebrow text-brass">{t("Interactive")}</span>
               <span className="h-px flex-1 bg-ivory/15" />
@@ -134,72 +111,76 @@ export function DesignYourSpace() {
             </Reveal>
 
             <div className="mt-12 space-y-10">
-              <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">{t("Room")}</legend>
-                <div className="flex flex-wrap gap-2.5">
-                  {ROOMS.map((r) => (
-                    <Choice key={r.id} active={room.id === r.id} onClick={() => setRoom(r)}>
-                      {t(r.id)}
-                    </Choice>
-                  ))}
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">{t("Style")}</legend>
-                <div className="flex flex-wrap gap-2.5">
-                  {STYLES.map((s) => (
-                    <Choice key={s} active={style === s} onClick={() => setStyle(s)}>
-                      {t(s)}
-                    </Choice>
-                  ))}
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend className="eyebrow mb-4 text-ivory/40">{t("Scale")}</legend>
-                <div className="flex flex-wrap gap-2.5">
-                  {SCALES.map((s) => (
-                    <Choice key={s.id} active={scale.id === s.id} onClick={() => setScale(s)}>
-                      {t(s.id)}
-                    </Choice>
-                  ))}
-                </div>
-              </fieldset>
+              <Facet legend="Room" options={ROOMS} activeId={room.id} onSelect={setRoom} t={t} />
+              <Facet legend="Style" options={STYLES} activeId={style.id} onSelect={setStyle} t={t} />
+              <Facet legend="Scale" options={SCALES} activeId={scale.id} onSelect={setScale} t={t} />
             </div>
           </div>
 
           {/* Live preview panel */}
-          <Reveal delay={120} className="lg:col-span-6">
-            <div className="relative overflow-hidden rounded-sm border border-ivory/12 bg-ivory/[0.03]">
+          <Reveal delay={120} className="lg:col-span-7">
+            <div className="overflow-hidden rounded-sm border border-ivory/12 bg-ivory/[0.03]">
               <div
                 {...frameProps}
-                className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2 lg:aspect-4/5"
+                className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2"
               >
                 <img
-                  key={activeFrame}
-                  src={activeFrame}
-                  alt={`${t(style)} ${t(room.id)} — ${t(scale.id)} · Heaven Furniture Mart`}
-                  loading="eager"
+                  key={room.img}
+                  src={room.img}
+                  alt={`${t(style.id)} ${t(room.id)} — ${t(scale.id)} · Heaven Furniture Mart`}
+                  loading="lazy"
                   decoding="async"
-                  className="interactive-frame__img absolute inset-0 animate-[image-swap_500ms_var(--ease-luxe)_both]"
+                  width={1024}
+                  height={1280}
+                  className="interactive-frame__img absolute inset-0 size-full object-cover object-center animate-[image-swap_450ms_var(--ease-luxe)_both]"
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--ink)_88%,transparent)_100%)]"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--ink)_90%,transparent)_100%)]"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                   <p className="eyebrow text-brass">
-                    {t(style)} · {t(scale.id)}
+                    {t(style.id)} · {t(scale.id)}
                   </p>
                   <h3 className="mt-3 font-serif text-3xl text-ivory sm:text-4xl">{t(room.id)}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-ivory/65">{t(room.note)}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-ivory/45">{t(scale.d)}</p>
+                  <p className="mt-2 max-w-[46ch] text-xs leading-relaxed text-ivory/65">
+                    {t(room.note)}
+                  </p>
                 </div>
               </div>
 
+              {/* Style + scale references, so every selection is shown honestly */}
+              <div className="grid gap-px border-t border-ivory/12 bg-ivory/10 sm:grid-cols-2">
+                {[
+                  { caption: "Style", option: style },
+                  { caption: "Scale", option: scale },
+                ].map(({ caption, option }) => (
+                  <figure key={caption} className="flex items-center gap-4 bg-ink p-5 sm:p-6">
+                    <span className="relative block aspect-square w-20 shrink-0 overflow-hidden rounded-[2px] sm:w-24">
+                      <img
+                        key={option.img}
+                        src={option.img}
+                        alt={`${t(caption)}: ${t(option.id)}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={1024}
+                        height={1024}
+                        className="absolute inset-0 size-full object-cover animate-[image-swap_450ms_var(--ease-luxe)_both]"
+                      />
+                    </span>
+                    <figcaption className="min-w-0">
+                      <p className="eyebrow text-ivory/40">{t(caption)}</p>
+                      <p className="mt-1.5 font-serif text-lg text-ivory">{t(option.id)}</p>
+                      <p className="mt-1 text-[0.7rem] leading-relaxed text-ivory/55">
+                        {t(option.note)}
+                      </p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+
               <div className="flex flex-col gap-5 border-t border-ivory/12 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-                <p className="max-w-[22ch] font-serif text-xl leading-snug text-ivory">
+                <p className="max-w-[24ch] font-serif text-xl leading-snug text-ivory">
                   {t("Your bespoke furniture journey starts here.")}
                 </p>
                 <Cta
