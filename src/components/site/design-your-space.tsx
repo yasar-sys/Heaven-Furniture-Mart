@@ -1,12 +1,18 @@
 import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
-import { ROOMS, SCALES, STYLES, type Option } from "@/assets/space/space-options";
+import {
+  ROOMS,
+  scalesFor,
+  stylesFor,
+  type Option,
+  type RoomId,
+} from "@/assets/space/space-options";
 
 /** A selectable chip carrying its own thumbnail. */
 function Choice({
@@ -85,9 +91,15 @@ function Facet({
 }
 
 export function DesignYourSpace() {
-  const [room, setRoom] = useState<Option>(ROOMS[0]!);
-  const [style, setStyle] = useState<Option>(STYLES[0]!);
-  const [scale, setScale] = useState<Option>(SCALES[2]!);
+  const [room, setRoom] = useState<{ id: RoomId; note: string; img: string }>(ROOMS[0]!);
+  const [styleId, setStyleId] = useState("Modern");
+  const [scaleId, setScaleId] = useState("Medium");
+
+  // Style and scale imagery always belongs to the currently selected room.
+  const styles = useMemo(() => stylesFor(room.id), [room.id]);
+  const scales = useMemo(() => scalesFor(room.id), [room.id]);
+  const style = styles.find((o) => o.id === styleId) ?? styles[0]!;
+  const scale = scales.find((o) => o.id === scaleId) ?? scales[0]!;
   const { openConsultation } = useConsultation();
   const { frameProps } = useInteractiveFrame(18);
   const t = useT();
@@ -111,9 +123,27 @@ export function DesignYourSpace() {
             </Reveal>
 
             <div className="mt-12 space-y-10">
-              <Facet legend="Room" options={ROOMS} activeId={room.id} onSelect={setRoom} t={t} />
-              <Facet legend="Style" options={STYLES} activeId={style.id} onSelect={setStyle} t={t} />
-              <Facet legend="Scale" options={SCALES} activeId={scale.id} onSelect={setScale} t={t} />
+              <Facet
+                legend="Room"
+                options={ROOMS}
+                activeId={room.id}
+                onSelect={(o) => setRoom(ROOMS.find((r) => r.id === o.id) ?? ROOMS[0]!)}
+                t={t}
+              />
+              <Facet
+                legend="Style"
+                options={styles}
+                activeId={style.id}
+                onSelect={(o) => setStyleId(o.id)}
+                t={t}
+              />
+              <Facet
+                legend="Scale"
+                options={scales}
+                activeId={scale.id}
+                onSelect={(o) => setScaleId(o.id)}
+                t={t}
+              />
             </div>
           </div>
 
@@ -125,8 +155,8 @@ export function DesignYourSpace() {
                 className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2"
               >
                 <img
-                  key={room.img}
-                  src={room.img}
+                  key={style.img}
+                  src={style.img}
                   alt={`${t(style.id)} ${t(room.id)} — ${t(scale.id)} · Heaven Furniture Mart`}
                   loading="lazy"
                   decoding="async"
