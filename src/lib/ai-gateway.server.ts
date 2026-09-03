@@ -16,5 +16,8 @@ export function resolveChatProvider(): ChatProvider | null {
   if (!apiKey) return null;
 
   const google = createGoogleGenerativeAI({ apiKey });
-  return { model: google("gemini-2.5-flash"), label: "google-gemini" };
+  // gemini-2.5-flash is no longer served to new API keys; 3.6-flash is the
+  // current fast conversational model. Overridable without a code change.
+  const modelId = process.env["GEMINI_MODEL"] ?? "gemini-3.6-flash";
+  return { model: google(modelId), label: "google-gemini" };
 }
