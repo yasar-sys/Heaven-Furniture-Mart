@@ -12,7 +12,7 @@ export type ChatProvider = {
  * exposed to the browser.
  */
 export function resolveChatProvider(): ChatProvider | null {
-  const apiKey = process.env["GEMINI_API_KEY"];
+  const apiKey = process.env["AQ.Ab8RN6Jjcm8OLxrxVR7kkYyYWKhuuEoyjPTcObI_3ll84O8kkQ"];
   if (!apiKey) return null;
 
   const google = createGoogleGenerativeAI({ apiKey });
