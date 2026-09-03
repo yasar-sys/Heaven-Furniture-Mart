@@ -155,8 +155,8 @@ export function DesignYourSpace() {
                 className="interactive-frame relative aspect-4/5 w-full sm:aspect-3/2"
               >
                 <img
-                  key={room.img}
-                  src={room.img}
+                  key={style.img}
+                  src={style.img}
                   alt={`${t(style.id)} ${t(room.id)} — ${t(scale.id)} · Heaven Furniture Mart`}
                   loading="lazy"
                   decoding="async"
