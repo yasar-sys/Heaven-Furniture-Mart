@@ -31,7 +31,7 @@ export const Route = createFileRoute("/api/chat")({
         const provider = resolveChatProvider();
         if (!provider) {
           return new Response(
-            "AI concierge is not configured on this deployment. Set LOVABLE_API_KEY (Lovable) or OPENAI_API_KEY (other hosts).",
+            "AI concierge is not configured: the GEMINI_API_KEY environment variable is missing on this deployment.",
             { status: 503, headers: { "content-type": "text/plain; charset=utf-8" } },
           );
         }
