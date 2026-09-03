@@ -1,12 +1,18 @@
 import { useInteractiveFrame } from "./interactive-image";
 import { useT } from "@/lib/i18n";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
 import { Cta, Section, Shell } from "./ui-kit";
 import { useConsultation } from "./consultation-context";
 
-import { ROOMS, SCALES, STYLES, type Option } from "@/assets/space/space-options";
+import {
+  ROOMS,
+  scalesFor,
+  stylesFor,
+  type Option,
+  type RoomId,
+} from "@/assets/space/space-options";
 
 /** A selectable chip carrying its own thumbnail. */
 function Choice({
