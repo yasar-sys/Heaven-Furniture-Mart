@@ -91,9 +91,15 @@ function Facet({
 }
 
 export function DesignYourSpace() {
-  const [room, setRoom] = useState<Option>(ROOMS[0]!);
-  const [style, setStyle] = useState<Option>(STYLES[0]!);
-  const [scale, setScale] = useState<Option>(SCALES[2]!);
+  const [room, setRoom] = useState<{ id: RoomId; note: string; img: string }>(ROOMS[0]!);
+  const [styleId, setStyleId] = useState("Modern");
+  const [scaleId, setScaleId] = useState("Medium");
+
+  // Style and scale imagery always belongs to the currently selected room.
+  const styles = useMemo(() => stylesFor(room.id), [room.id]);
+  const scales = useMemo(() => scalesFor(room.id), [room.id]);
+  const style = styles.find((o) => o.id === styleId) ?? styles[0]!;
+  const scale = scales.find((o) => o.id === scaleId) ?? scales[0]!;
   const { openConsultation } = useConsultation();
   const { frameProps } = useInteractiveFrame(18);
   const t = useT();
