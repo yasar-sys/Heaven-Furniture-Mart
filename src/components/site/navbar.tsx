@@ -42,7 +42,7 @@ export function Navbar() {
           : "border-b border-transparent py-6",
       )}
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-14">
+      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-8 lg:px-14">
         <a
           href="#top"
           className="group flex shrink-0 items-baseline gap-2 text-ivory"
