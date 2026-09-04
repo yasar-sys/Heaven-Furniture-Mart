@@ -11,6 +11,8 @@
  */
 
 @theme inline {
+  --breakpoint-xs: 26rem;
+
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
