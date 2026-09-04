@@ -59,7 +59,7 @@ export function Navbar() {
           <span className="font-serif text-xl leading-none tracking-[0.14em] sm:text-2xl">
             HEAVEN
           </span>
-          <span className="eyebrow whitespace-nowrap text-ivory/60 transition-colors group-hover:text-brass">
+          <span className="eyebrow hidden whitespace-nowrap text-ivory/60 transition-colors group-hover:text-brass xs:inline">
             {t("Furniture Mart")}
           </span>
         </a>
