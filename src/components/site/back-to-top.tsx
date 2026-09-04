@@ -88,9 +88,9 @@ export function BackToTop() {
       aria-label={t("Back to top")}
       onClick={scrollToTop}
       className={cn(
-        "fixed right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-brass/50 bg-ink/80 text-brass backdrop-blur-md transition-all duration-500 ease-[var(--ease-luxe)] hover:scale-105 hover:border-brass hover:bg-ink/90 active:scale-95",
+        "fixed left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-brass/50 bg-ink/80 text-brass backdrop-blur-md transition-all duration-500 ease-[var(--ease-luxe)] hover:scale-105 hover:border-brass hover:bg-ink/90 active:scale-95",
         // Sit above the mobile CTA bar on phones; lower on desktop.
-        "bottom-24 sm:bottom-8 sm:right-8",
+        "bottom-24 sm:bottom-8 sm:left-8",
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0",
