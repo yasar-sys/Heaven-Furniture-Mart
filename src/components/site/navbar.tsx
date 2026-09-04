@@ -81,14 +81,15 @@ export function Navbar() {
           </Cta>
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-1.5 lg:hidden">
+          <LanguageSwitch className="hidden xs:flex" />
           <MoodToggle />
           <button
             type="button"
             onClick={() => setMenu((v) => !v)}
             aria-expanded={menu}
             aria-label={menu ? t("Close menu") : t("Open menu")}
-            className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[7px] lg:hidden"
+            className="relative z-50 flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[7px] lg:hidden"
           >
             <span
               className={cn(
@@ -109,20 +110,20 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col justify-center bg-ink px-7 transition-[opacity,transform] duration-700 ease-[var(--ease-luxe)] lg:hidden",
+          "fixed inset-0 z-40 overflow-y-auto overscroll-contain bg-ink px-7 pb-[max(2rem,env(safe-area-inset-bottom))] pt-24 transition-[opacity,transform] duration-500 ease-[var(--ease-luxe)] lg:hidden",
           menu ? "pointer-events-auto opacity-100" : "pointer-events-none translate-y-2 opacity-0",
         )}
       >
-        <span className="eyebrow mb-8 text-brass">{t("Menu")}</span>
-        <ul className="space-y-5">
+        <span className="eyebrow mb-5 block text-brass">{t("Menu")}</span>
+        <ul className="space-y-3">
           {LINKS.map((l, i) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 onClick={() => setMenu(false)}
-                style={{ transitionDelay: `${120 + i * 70}ms` }}
+                style={{ transitionDelay: `${80 + i * 55}ms` }}
                 className={cn(
-                  "block font-serif text-4xl text-ivory transition-all duration-700 ease-[var(--ease-luxe)]",
+                  "block font-serif text-[clamp(1.75rem,8vw,2.5rem)] leading-tight text-ivory transition-all duration-500 ease-[var(--ease-luxe)]",
                   menu ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
                 )}
               >
@@ -131,7 +132,7 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="mt-12">
+        <div className="mt-8">
           <Cta
             tone="light"
             onClick={() => {
@@ -141,11 +142,19 @@ export function Navbar() {
           >
             {t("Request Consultation")}
           </Cta>
-          <LanguageSwitch className="mt-8 -ml-2" />
-          <p className="mt-6 text-xs leading-relaxed tracking-wide text-ivory/50">
+          <div className="mt-7 border-t border-ivory/10 pt-5">
+            <span className="eyebrow mb-2 block text-ivory/40">{t("Language")}</span>
+            <div className="flex items-center justify-between gap-3">
+              <LanguageSwitch className="-ml-2 flex-wrap" />
+              <MoodToggle />
+            </div>
+          </div>
+          <p className="mt-5 text-xs leading-relaxed tracking-wide text-ivory/50">
             {t("Agrabad Access Road, Chattogram")}
             <br />
-            +880 1960-481983
+            <a href="tel:+8801960481983" className="hover:text-brass">
+              +880 1960-481983
+            </a>
           </p>
         </div>
       </div>
