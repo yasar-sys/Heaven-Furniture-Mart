@@ -1,6 +1,7 @@
 import { InteractiveImage } from "./interactive-image";
 import { useT } from "@/lib/i18n";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "./reveal";
 import { Cta, Section, SectionHeading, Shell } from "./ui-kit";
@@ -95,6 +96,75 @@ const COLLECTIONS: Collection[] = [
   },
 ];
 
+function WipeCard({
+  c,
+  i,
+  onOpen,
+}: {
+  c: (typeof COLLECTIONS)[number];
+  i: number;
+  onOpen: () => void;
+}) {
+  const t = useT();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const clip = useTransform(scrollYProgress, [0, 0.45], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.3], [0.6, 0]);
+
+  return (
+    <Reveal delay={i * 90}>
+      <div ref={ref}>
+        <button
+          type="button"
+          onClick={onOpen}
+          className="group relative block w-full overflow-hidden rounded-sm text-left"
+          aria-label={`${t(c.title)} — ${t("Explore →")}`}
+        >
+          <motion.div
+            style={{ clipPath: clip }}
+            className={`${c.frame} w-full`}
+          >
+            <InteractiveImage
+              src={c.img}
+              alt={t(c.alt)}
+              depth={24}
+              width={c.width}
+              height={c.height}
+              className={c.imageClassName}
+              frameClassName="w-full h-full"
+            />
+          </motion.div>
+          <motion.span
+            aria-hidden
+            style={{ opacity: overlayOpacity }}
+            className="absolute inset-0 bg-ink"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,color-mix(in_oklab,var(--ink)_85%,transparent)_100%)]"
+          />
+          <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 sm:p-8">
+            <span className="block">
+              <span className="block font-serif text-3xl leading-none text-ivory sm:text-4xl">
+                {t(c.title)}
+              </span>
+              <span className="mt-3 block text-[0.68rem] uppercase tracking-[0.18em] text-ivory/60">
+                {t(c.items)}
+              </span>
+            </span>
+            <span className="shrink-0 text-[0.68rem] uppercase tracking-[0.2em] text-brass transition-transform duration-500 ease-[var(--ease-luxe)] group-hover:translate-x-1">
+              {t("Explore →")}
+            </span>
+          </span>
+        </button>
+      </div>
+    </Reveal>
+  );
+}
+
 export function Collections() {
   const [open, setOpen] = useState<Collection | null>(null);
   const { openConsultation } = useConsultation();
@@ -117,41 +187,7 @@ export function Collections() {
 
         <div className="mt-20 grid gap-5 sm:mt-24 sm:grid-cols-2 lg:gap-7">
           {COLLECTIONS.map((c, i) => (
-            <Reveal key={c.id} delay={i * 90}>
-              <button
-                type="button"
-                onClick={() => setOpen(c)}
-                className="group relative block w-full overflow-hidden rounded-sm text-left"
-                aria-label={`${t(c.title)} — ${t("Explore →")}`}
-              >
-                <InteractiveImage
-                  src={c.img}
-                  alt={t(c.alt)}
-                  depth={24}
-                  width={c.width}
-                  height={c.height}
-                  className={c.imageClassName}
-                  frameClassName={`${c.frame} w-full`}
-                />
-                <span
-                  aria-hidden
-                  className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,color-mix(in_oklab,var(--ink)_85%,transparent)_100%)]"
-                />
-                <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 sm:p-8">
-                  <span className="block">
-                    <span className="block font-serif text-3xl leading-none text-ivory sm:text-4xl">
-                      {t(c.title)}
-                    </span>
-                    <span className="mt-3 block text-[0.68rem] uppercase tracking-[0.18em] text-ivory/60">
-                      {t(c.items)}
-                    </span>
-                  </span>
-                  <span className="shrink-0 text-[0.68rem] uppercase tracking-[0.2em] text-brass transition-transform duration-500 ease-[var(--ease-luxe)] group-hover:translate-x-1">
-                    {t("Explore →")}
-                  </span>
-                </span>
-              </button>
-            </Reveal>
+            <WipeCard key={c.id} c={c} i={i} onOpen={() => setOpen(c)} />
           ))}
         </div>
       </Shell>
