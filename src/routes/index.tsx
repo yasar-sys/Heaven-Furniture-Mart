@@ -27,6 +27,7 @@ import { BackToTop } from "@/components/site/back-to-top";
 import { Marquee } from "@/components/site/marquee";
 import { Stats } from "@/components/site/stats";
 import { Testimonials } from "@/components/site/testimonials";
+import { StickyReveal } from "@/components/site/sticky-reveal";
 
 const TITLE = "Heaven Furniture Mart — Bespoke Furniture in Chattogram";
 const DESCRIPTION =
@@ -60,6 +61,7 @@ function Index() {
             <Collections />
             <Marquee />
             <Bespoke />
+            <StickyReveal />
             <Studio />
             <Materials />
             <Process />
