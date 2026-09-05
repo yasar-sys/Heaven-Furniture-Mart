@@ -388,3 +388,14 @@ html.has-luxe-cursor * {
     animation: none;
   }
 }
+
+/* ---------- Nav rail ---------- */
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -27,7 +27,7 @@ export function WhyHeaven() {
   const t = useT();
 
   return (
-    <Section tone="muted" className="py-24 sm:py-32 lg:py-40" label="Why Heaven">
+    <Section id="why" tone="muted" className="py-24 sm:py-32 lg:py-40" label="Why Heaven">
       <Shell>
         <SectionHeading
           eyebrow={t("Why Heaven")}

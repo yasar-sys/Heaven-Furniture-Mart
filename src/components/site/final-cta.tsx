@@ -9,7 +9,7 @@ export function FinalCta() {
   const t = useT();
 
   return (
-    <Section tone="ink" className="py-28 sm:py-36 lg:py-48" label="Request a consultation">
+    <Section id="consultation" tone="ink" className="py-28 sm:py-36 lg:py-48" label="Request a consultation">
       <Shell>
         <div className="mx-auto max-w-4xl text-center">
           <Reveal as="h2" className="display-lg text-ivory">
