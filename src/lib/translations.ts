@@ -76,14 +76,9 @@ const bn: Dict = {
   "A finished velvet sofa being placed in an elegant living room": "\u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09ad\u09c7\u09b2\u09ad\u09c7\u099f \u09b8\u09cb\u09ab\u09be \u098f\u0995\u099f\u09bf \u0985\u09ad\u09bf\u099c\u09be\u09a4 \u09b2\u09bf\u09ad\u09bf\u0982 \u09b0\u09c1\u09ae\u09c7 \u09b8\u09cd\u09a5\u09be\u09aa\u09a8 \u0995\u09b0\u09be \u09b9\u099a\u09cd\u099b\u09c7",
   // Navbar / global
   "Furniture Mart": "ফার্নিচার মার্ট",
-  Collections: "কালেকশন",
-  Bespoke: "কাস্টম",
   "Our Process": "আমাদের প্রক্রিয়া",
-  Showroom: "শোরুম",
   "Request Consultation": "পরামর্শের অনুরোধ",
   "Request consultation": "পরামর্শের অনুরোধ",
-  Menu: "মেনু",
-  Language: "ভাষা",
   "Light mood": "লাইট মুড",
   "Dark mood": "ডার্ক মুড",
   "Agrabad Access Road, Chattogram": "আগ্রাবাদ অ্যাক্সেস রোড, চট্টগ্রাম",
@@ -220,7 +215,6 @@ const bn: Dict = {
   "Drag to see the difference": "পার্থক্য দেখতে টেনে দেখুন",
 
   // Materials
-  Materials: "ম্যাটেরিয়াল",
   "Touch the detail.": "খুঁটিনাটি ছুঁয়ে দেখুন।",
   Wood: "কাঠ",
   Fabric: "কাপড়",
@@ -268,7 +262,6 @@ const bn: Dict = {
   "Chattogram, Bangladesh": "চট্টগ্রাম, বাংলাদেশ",
 
   // Timeline
-  Milestones: "মাইলফলক",
   "Founded by Abul Kalam Bhuiyan": "আবুল কালাম ভূঁইয়ার হাতে প্রতিষ্ঠা",
   "Agrabad showroom opened": "আগ্রাবাদ শোরুম উদ্বোধন",
   "Exhibited at International Furniture Fair, Chattogram":
@@ -485,14 +478,9 @@ const es: Dict = {
   "Menu": "Menú",
   "Language": "Idioma",
   "Furniture Mart": "Muebles a Medida",
-  Collections: "Colecciones",
-  Bespoke: "A medida",
   "Our Process": "Nuestro proceso",
-  Showroom: "Showroom",
   "Request Consultation": "Pedir asesoría",
   "Request consultation": "Pedir asesoría",
-  Menu: "Menú",
-  Language: "Idioma",
   "Light mood": "Modo claro",
   "Dark mood": "Modo oscuro",
   "Agrabad Access Road, Chattogram": "Agrabad Access Road, Chattogram",
@@ -624,7 +612,6 @@ const es: Dict = {
   After: "Después",
   "Drag to see the difference": "Arrastra para ver la diferencia",
 
-  Materials: "Materiales",
   "Touch the detail.": "Toca el detalle.",
   Wood: "Madera",
   Fabric: "Tejido",
@@ -668,7 +655,6 @@ const es: Dict = {
   "Agrabad Access Road,": "Agrabad Access Road,",
   "Chattogram, Bangladesh": "Chattogram, Bangladesh",
 
-  Milestones: "Hitos",
   "Founded by Abul Kalam Bhuiyan": "Fundada por Abul Kalam Bhuiyan",
   "Agrabad showroom opened": "Apertura del showroom de Agrabad",
   "Exhibited at International Furniture Fair, Chattogram":
@@ -883,14 +869,9 @@ const hi: Dict = {
   "Menu": "मेन्यू",
   "Language": "भाषा",
   "Furniture Mart": "फर्नीचर मार्ट",
-  Collections: "कलेक्शन",
-  Bespoke: "कस्टम",
   "Our Process": "हमारी प्रक्रिया",
-  Showroom: "शोरूम",
   "Request Consultation": "परामर्श बुक करें",
   "Request consultation": "परामर्श बुक करें",
-  Menu: "मेन्यू",
-  Language: "भाषा",
   "Light mood": "लाइट मूड",
   "Dark mood": "डार्क मूड",
   "Agrabad Access Road, Chattogram": "आग्राबाद एक्सेस रोड, चट्टग्राम",
@@ -1019,7 +1000,6 @@ const hi: Dict = {
   After: "बाद में",
   "Drag to see the difference": "अंतर देखने के लिए खींचें",
 
-  Materials: "मटीरियल",
   "Touch the detail.": "बारीकी को महसूस करें।",
   Wood: "लकड़ी",
   Fabric: "कपड़ा",
@@ -1063,7 +1043,6 @@ const hi: Dict = {
   "Agrabad Access Road,": "आग्राबाद एक्सेस रोड,",
   "Chattogram, Bangladesh": "चट्टग्राम, बांग्लादेश",
 
-  Milestones: "पड़ाव",
   "Founded by Abul Kalam Bhuiyan": "अबुल कलाम भूइयां द्वारा स्थापित",
   "Agrabad showroom opened": "आग्राबाद शोरूम की शुरुआत",
   "Exhibited at International Furniture Fair, Chattogram":
