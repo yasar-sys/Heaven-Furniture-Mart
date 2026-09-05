@@ -104,8 +104,8 @@ export function Navbar() {
           </span>
         </a>
 
-        {/* Section rail — animated, scrollable, works on phone and desktop */}
-        <div className="relative min-w-0 flex-1">
+        {/* Section rail — animated, scrollable, tablet and desktop */}
+        <div className="relative hidden min-w-0 flex-1 md:block">
           <div
             ref={railRef}
             className="no-scrollbar flex snap-x snap-mandatory items-center gap-1 overflow-x-auto scroll-smooth px-1 py-1 sm:gap-1.5"
