@@ -15,6 +15,19 @@ export const LANGUAGES: { code: Lang; label: string; short: string; htmlLang: st
 type Dict = Record<string, string>;
 
 const bn: Dict = {
+  "Story": "গল্প",
+  "Design Your Space": "আপনার স্পেস ডিজাইন",
+  "Collections": "কালেকশন",
+  "Bespoke": "বেসপোক",
+  "3D Studio": "থ্রিডি স্টুডিও",
+  "Materials": "উপকরণ",
+  "Films": "ভিডিও",
+  "Awards": "অ্যাওয়ার্ড",
+  "Showroom": "শোরুম",
+  "Milestones": "মাইলস্টোন",
+  "Consultation": "কনসালটেশন",
+  "Menu": "মেনু",
+  "Language": "ভাষা",
   "Films": "\u09ad\u09bf\u09a1\u09bf\u0993",
   "See the craft in motion.": "\u0995\u09be\u09b0\u09c1\u0995\u09be\u099c \u09a6\u09c7\u0996\u09c1\u09a8 \u099a\u09b2\u09ae\u09be\u09a8 \u09b0\u09c2\u09aa\u09c7\u0964",
   "Virtual showroom tour \u2014 luxury & bespoke furniture, Chattogram": "\u09ad\u09be\u09b0\u09cd\u099a\u09c1\u09af\u09bc\u09be\u09b2 \u09b6\u09cb\u09b0\u09c1\u09ae \u099f\u09cd\u09af\u09c1\u09b0 \u2014 \u09b2\u09be\u0995\u09cd\u09b8\u09be\u09b0\u09bf \u0993 \u09ac\u09c7\u09b8\u09aa\u09cb\u0995 \u09ab\u09be\u09b0\u09cd\u09a8\u09bf\u099a\u09be\u09b0, \u099a\u099f\u09cd\u099f\u0997\u09cd\u09b0\u09be\u09ae",
@@ -459,6 +472,19 @@ const bn: Dict = {
 };
 
 const es: Dict = {
+  "Story": "Historia",
+  "Design Your Space": "Diseña tu espacio",
+  "Collections": "Colecciones",
+  "Bespoke": "A medida",
+  "3D Studio": "Estudio 3D",
+  "Materials": "Materiales",
+  "Films": "Vídeos",
+  "Awards": "Premios",
+  "Showroom": "Showroom",
+  "Milestones": "Hitos",
+  "Consultation": "Consulta",
+  "Menu": "Menú",
+  "Language": "Idioma",
   "Furniture Mart": "Muebles a Medida",
   Collections: "Colecciones",
   Bespoke: "A medida",
@@ -844,6 +870,19 @@ const es: Dict = {
 };
 
 const hi: Dict = {
+  "Story": "कहानी",
+  "Design Your Space": "अपनी जगह डिज़ाइन करें",
+  "Collections": "कलेक्शन",
+  "Bespoke": "बिस्पोक",
+  "3D Studio": "3D स्टूडियो",
+  "Materials": "सामग्री",
+  "Films": "वीडियो",
+  "Awards": "पुरस्कार",
+  "Showroom": "शोरूम",
+  "Milestones": "मील के पत्थर",
+  "Consultation": "परामर्श",
+  "Menu": "मेन्यू",
+  "Language": "भाषा",
   "Furniture Mart": "फर्नीचर मार्ट",
   Collections: "कलेक्शन",
   Bespoke: "कस्टम",
