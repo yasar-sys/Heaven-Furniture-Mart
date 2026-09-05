@@ -14,7 +14,7 @@ export function Timeline() {
   const t = useT();
 
   return (
-    <Section className="py-20 sm:py-24" label="Brand timeline">
+    <Section id="milestones" className="py-20 sm:py-24" label="Brand timeline">
       <Shell>
         <Reveal className="eyebrow text-muted-foreground">{t("Milestones")}</Reveal>
         <ol className="mt-8 grid gap-px sm:grid-cols-2 lg:grid-cols-5">
