@@ -22,11 +22,11 @@ export function Films() {
   const [playing, setPlaying] = useState<string | null>(null);
 
   return (
-    <Section id="films" tone="muted" className="py-24 sm:py-32 lg:py-40" label="Films">
+    <Section id="films" tone="muted" className="py-28 sm:py-36 lg:py-44" label="Films">
       <Shell>
         <SectionHeading eyebrow={t("Films")} title={t("See the craft in motion.")} />
 
-        <div className="mt-14 grid gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:mt-24 sm:grid-cols-2 lg:grid-cols-3">
           {VIDEOS.map((v, i) => (
             <Reveal key={v.id} delay={i * 90} className={cn(i === 0 && "lg:col-span-2")}>
               <div className="group overflow-hidden rounded-sm border border-foreground/10 bg-background">

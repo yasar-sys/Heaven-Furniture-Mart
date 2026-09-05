@@ -46,7 +46,7 @@ export function Studio() {
   const summary = `${t(piece)} · ${t(fabric.id)} · ${t(wood.id)} · ${width} cm`;
 
   return (
-    <Section id="studio" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Bespoke studio">
+    <Section id="studio" tone="ink" className="py-28 sm:py-36 lg:py-44" label="Bespoke studio">
       <Shell>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">

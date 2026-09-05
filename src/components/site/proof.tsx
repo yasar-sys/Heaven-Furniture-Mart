@@ -48,7 +48,7 @@ export function Proof() {
   const t = useT();
 
   return (
-    <Section id="awards" tone="muted" className="py-24 sm:py-32" label="Trust">
+    <Section id="awards" tone="muted" className="py-28 sm:py-36" label="Trust">
       <Shell>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -68,7 +68,7 @@ export function Proof() {
           </div>
         </div>
 
-        <div className="mt-20 sm:mt-28">
+        <div className="mt-24 sm:mt-32">
           <Reveal className="flex items-center gap-4">
             <span className="eyebrow text-brass">{t("Awards & Recognition")}</span>
             <span className="h-px flex-1 bg-foreground/12" />

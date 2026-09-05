@@ -46,11 +46,11 @@ export function Process() {
   const [active, setActive] = useState(0);
 
   return (
-    <Section id="process" className="py-24 sm:py-32 lg:py-40" label="Our process">
+    <Section id="process" className="py-28 sm:py-36 lg:py-44" label="Our process">
       <Shell>
         <SectionHeading eyebrow={t("Our Process")} title={t("From conversation to installed.")} />
 
-        <ol className="mt-16 grid gap-10 sm:mt-20 sm:grid-cols-2 sm:gap-x-px lg:grid-cols-4">
+        <ol className="mt-20 grid gap-10 sm:mt-24 sm:grid-cols-2 sm:gap-x-px lg:grid-cols-4">
           {STEPS.map((s, i) => (
             <Reveal
               key={s.n}

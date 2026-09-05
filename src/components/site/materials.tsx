@@ -81,7 +81,7 @@ export function Materials() {
   const { frameProps } = useInteractiveFrame(22);
 
   return (
-    <Section id="materials" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Materials">
+    <Section id="materials" tone="ink" className="py-28 sm:py-36 lg:py-44" label="Materials">
       <Shell>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5 lg:pt-6">

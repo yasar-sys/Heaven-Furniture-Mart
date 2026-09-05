@@ -24,6 +24,9 @@ import { LuxeCursor } from "@/components/site/luxe-cursor";
 import { Studio } from "@/components/site/studio";
 import { Films } from "@/components/site/films";
 import { BackToTop } from "@/components/site/back-to-top";
+import { Marquee } from "@/components/site/marquee";
+import { Stats } from "@/components/site/stats";
+import { Testimonials } from "@/components/site/testimonials";
 
 const TITLE = "Heaven Furniture Mart — Bespoke Furniture in Chattogram";
 const DESCRIPTION =
@@ -55,12 +58,15 @@ function Index() {
             <WhyHeaven />
             <DesignYourSpace />
             <Collections />
+            <Marquee />
             <Bespoke />
             <Studio />
             <Materials />
             <Process />
             <Films />
             <Proof />
+            <Testimonials />
+            <Stats />
             <Showroom />
             <Reach />
             <Timeline />

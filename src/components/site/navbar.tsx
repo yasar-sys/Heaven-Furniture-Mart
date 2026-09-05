@@ -78,11 +78,11 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-[var(--ease-luxe)]",
         scrolled
-          ? "border-b border-ivory/10 bg-ink/90 py-2 backdrop-blur-xl"
+          ? "border-b border-ivory/10 bg-ink/85 py-2 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           : "border-b border-transparent py-3 sm:py-4",
       )}
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center gap-2 px-3 sm:gap-4 sm:px-8 lg:px-14">
+      <div className="mx-auto flex w-full max-w-[1400px] items-center gap-3 px-4 sm:gap-5 sm:px-8 lg:px-14">
         <a
           href="#top"
           className="group flex min-w-0 shrink-0 items-baseline gap-2 text-ivory"
@@ -96,7 +96,7 @@ export function Navbar() {
             height={36}
             className="size-8 shrink-0 self-center rounded-sm object-cover"
           />
-          <span className="font-serif text-lg leading-none tracking-[0.14em] sm:text-2xl">
+          <span className="font-serif text-lg leading-none tracking-[0.16em] sm:text-2xl">
             HEAVEN
           </span>
           <span className="eyebrow hidden whitespace-nowrap text-ivory/60 transition-colors group-hover:text-brass xs:inline">
@@ -122,10 +122,10 @@ export function Navbar() {
                   data-cursor="grow"
                   aria-current={on ? "true" : undefined}
                   className={cn(
-                    "group relative snap-center whitespace-nowrap rounded-full border px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.16em] transition-all duration-500 ease-[var(--ease-luxe)] sm:text-[0.66rem] sm:tracking-[0.18em]",
+                    "group relative snap-center whitespace-nowrap rounded-full border px-3.5 py-1.5 text-[0.62rem] uppercase tracking-[0.18em] transition-all duration-500 ease-[var(--ease-luxe)] sm:text-[0.66rem] sm:tracking-[0.2em]",
                     on
                       ? "border-brass/70 bg-brass/15 text-ivory"
-                      : "border-ivory/12 text-ivory/60 hover:-translate-y-0.5 hover:border-ivory/40 hover:text-ivory",
+                      : "border-transparent text-ivory/55 hover:-translate-y-0.5 hover:text-ivory",
                   )}
                 >
                   {t(l.label)}

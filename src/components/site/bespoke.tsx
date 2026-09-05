@@ -44,7 +44,7 @@ export function Bespoke() {
   };
 
   return (
-    <Section id="bespoke" tone="muted" className="py-24 sm:py-32 lg:py-40" label="Bespoke">
+    <Section id="bespoke" tone="muted" className="py-28 sm:py-36 lg:py-44" label="Bespoke">
       <Shell>
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-7">
@@ -67,7 +67,7 @@ export function Bespoke() {
           </Reveal>
         </div>
 
-        <Reveal delay={120} className="mt-14 sm:mt-20">
+        <Reveal delay={120} className="mt-16 sm:mt-24">
           <div className="mb-4 flex items-center justify-between text-[0.65rem] uppercase tracking-[0.24em] text-muted-foreground">
             <span>{t("Standard space")}</span>
             <span className="text-brass">→</span>

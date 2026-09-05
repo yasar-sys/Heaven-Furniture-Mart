@@ -101,7 +101,7 @@ export function Collections() {
   const t = useT();
 
   return (
-    <Section id="collections" className="py-24 sm:py-32 lg:py-40" label="Collections">
+    <Section id="collections" className="py-28 sm:py-36 lg:py-44" label="Collections">
       <Shell>
         <SectionHeading
           eyebrow={t("Collections")}
@@ -115,7 +115,7 @@ export function Collections() {
           intro={t("Not a catalogue. A starting point — every piece is made to your dimensions.")}
         />
 
-        <div className="mt-16 grid gap-5 sm:mt-20 sm:grid-cols-2 lg:gap-7">
+        <div className="mt-20 grid gap-5 sm:mt-24 sm:grid-cols-2 lg:gap-7">
           {COLLECTIONS.map((c, i) => (
             <Reveal key={c.id} delay={i * 90}>
               <button

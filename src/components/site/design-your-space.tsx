@@ -105,7 +105,7 @@ export function DesignYourSpace() {
   const t = useT();
 
   return (
-    <Section id="design" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Design your space">
+    <Section id="design" tone="ink" className="py-28 sm:py-36 lg:py-44" label="Design your space">
       <Shell>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">

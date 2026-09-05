@@ -27,7 +27,7 @@ export function WhyHeaven() {
   const t = useT();
 
   return (
-    <Section id="why" tone="muted" className="py-24 sm:py-32 lg:py-40" label="Why Heaven">
+    <Section id="why" tone="muted" className="py-28 sm:py-36 lg:py-44" label="Why Heaven">
       <Shell>
         <SectionHeading
           eyebrow={t("Why Heaven")}
@@ -40,7 +40,7 @@ export function WhyHeaven() {
           }
         />
 
-        <div className="mt-16 grid gap-x-14 gap-y-px sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-x-14 gap-y-px sm:mt-24 md:grid-cols-2 lg:grid-cols-3">
           {POINTS.map((p, i) => (
             <Reveal
               key={p.n}

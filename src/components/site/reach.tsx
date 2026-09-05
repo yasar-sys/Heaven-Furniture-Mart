@@ -24,7 +24,7 @@ export function Reach() {
 
 
   return (
-    <Section id="reach" tone="ink" className="py-24 sm:py-32 lg:py-40" label="Our reach">
+    <Section id="reach" tone="ink" className="py-28 sm:py-36 lg:py-44" label="Our reach">
       <Shell>
         <SectionHeading
           index="09"
@@ -42,7 +42,7 @@ export function Reach() {
           invert
         />
 
-        <div className="mt-16 grid gap-12 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-center">
+        <div className="mt-20 grid gap-12 lg:mt-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-center">
           <Reveal variant="image">
             <div ref={ref} className="relative mx-auto w-full max-w-[460px]">
               <svg

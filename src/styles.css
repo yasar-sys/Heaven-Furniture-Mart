@@ -165,7 +165,7 @@
   font-weight: 300;
   line-height: 0.92;
   letter-spacing: -0.02em;
-  font-size: clamp(2.75rem, 9vw, 8rem);
+  font-size: clamp(3rem, 10vw, 9rem);
 }
 
 @utility display-lg {
@@ -173,7 +173,7 @@
   font-weight: 300;
   line-height: 0.98;
   letter-spacing: -0.02em;
-  font-size: clamp(2.25rem, 5.6vw, 5rem);
+  font-size: clamp(2.5rem, 6.2vw, 5.5rem);
 }
 
 @utility display-md {
@@ -181,7 +181,7 @@
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.015em;
-  font-size: clamp(1.75rem, 3.4vw, 3rem);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
 }
 
 @utility eyebrow {
@@ -348,6 +348,27 @@ html.has-luxe-cursor * {
   }
   to {
     scale: 1.14;
+  }
+}
+
+/* ---------- Marquee ---------- */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
   }
 }
 
